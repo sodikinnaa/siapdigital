@@ -20,11 +20,11 @@
                 <span class="logo-text">Local<span class="highlight">Dev</span></span>
             </a>
             <nav class="nav-links">
-                <a href="#zerosetup">Server Praktis</a>
                 <a href="#silabus">Jadwal Pertemuan</a>
                 <a href="#simulator">Simulator Live</a>
                 <a href="#comparator">Cheat Sheet</a>
                 <a href="#quiz">Quiz Seru</a>
+                <a href="#troubleshooting">Solusi Error</a>
             </nav>
             <a href="./pertemuan-1/index.html" class="btn btn-primary nav-cta">Mulai Pertemuan 1 🚀</a>
         </div>
@@ -34,29 +34,29 @@
     <section class="hero-section">
         <div class="container grid hero-grid">
             <div class="hero-content">
-                <div class="badge">🔥 100% Praktis — Tanpa Ribet Install Server Berat (XAMPP/Apache)</div>
+                <div class="badge">🔥 Course Praktis & Interaktif Developer</div>
                 <h1 class="hero-title">
                     Bongkar Rahasia <span class="gradient-text">Localhost</span>, <span class="gradient-text">IP Local</span> & <span class="gradient-text">Port</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Gak perlu ribet setup XAMPP, Composer, Laravel, atau database! Cukup gunakan server ringan bawaan Python atau PHP CLI untuk belajar jaringan lokal dalam 3 detik!
+                    Pelajari cara kerja Server, Localhost, beda IP 127.0.0.1 vs 0.0.0.0, dan Port secara praktis tanpa pusing teori. Coba langsung akses web-mu dari HP!
                 </p>
                 <div class="hero-benefits">
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span><strong>Server Ringan:</strong> Tanpa perlu install XAMPP/Apache/Laravel</span>
+                        <span><strong>Praktis & Interaktif:</strong> Dilengkapi Game Simulator Tebak Koneksi Jaringan</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Game <strong>Tebak Koneksi Simulator</strong> interaktif</span>
+                        <span><strong>Akses dari HP:</strong> Kuasai cara menghubungkan HP ke web laptop via WiFi</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Bisa pamer & test web buatanmu langsung dari HP via WiFi</span>
+                        <span><strong>Solusi Error Jaringan:</strong> Pahami cara mengatasi bentrok port & firewall</span>
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="#zerosetup" class="btn btn-primary btn-lg">Lihat Perintah Praktis 🚀</a>
+                    <a href="./pertemuan-1/index.html" class="btn btn-primary btn-lg">Gas Belajar Pertemuan 1 🚀</a>
                     <a href="#simulator" class="btn btn-outline btn-lg">Main Simulator Web 🎮</a>
                 </div>
             </div>
@@ -70,51 +70,16 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - server-ringan-demo</span>
+                        <span class="terminal-title">bash - localdev-demo</span>
                     </div>
                     <div class="terminal-body">
                         <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
                         <p class="output success">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...</p>
                         <p class="output info">➔ Localhost:  <a href="#">http://127.0.0.1:8000</a></p>
-                        <p class="output highlight-net">➔ Network HP:  <a href="#">http://192.168.1.15:8000</a> (Server Ringan! 🎉)</p>
+                        <p class="output highlight-net">➔ Network HP:  <a href="#">http://192.168.1.15:8000</a> (Siap Akses! 🎉)</p>
                         <div class="terminal-interactive-status">
-                            <span class="status-indicator online"></span> Server Web Ringan via Python / PHP CLI
+                            <span class="status-indicator online"></span> Server Web Aktif di Jaringan WiFi
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Zero Setup Feature Highlight -->
-    <section id="zerosetup" class="section">
-        <div class="container">
-            <div class="card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.05)); border-color: var(--accent);">
-                <div class="section-header text-center" style="margin-bottom: 30px;">
-                    <div class="badge" style="background: rgba(16, 185, 129, 0.2); color: #A7F3D0;">💡 Rekomendasi Praktis Dosen / Mentor</div>
-                    <h2 class="section-title">Perintah Server Ringan (Tanpa XAMPP)</h2>
-                    <p class="section-subtitle">Gunakan perintah server CLI di bawah ini agar praktikum langsung jalan tanpa perlu install server berat seperti XAMPP/Apache!</p>
-                </div>
-
-                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
-                    <div style="background: rgba(0,0,0,0.3); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color);">
-                        <h3 style="color: var(--accent); margin-bottom: 12px;">🐍 Opsi 1: Server HTTP Python (Rekomendasi #1)</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">Jika di laptop sudah ada Python (atau Mac/Linux), ketik di Terminal:</p>
-                        <div class="code-block highlight-code">
-                            <code>python -m http.server 8000 --bind 0.0.0.0</code>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p style="color: #A7F3D0; font-size: 0.85rem; margin-top: 10px;">✓ Tanpa XAMPP • Tanpa Laravel • Tanpa Database • Tanpa Conf Ribet</p>
-                    </div>
-
-                    <div style="background: rgba(0,0,0,0.3); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color);">
-                        <h3 style="color: var(--secondary); margin-bottom: 12px;">🐘 Opsi 2: Server Native PHP (Tanpa Laravel)</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">Jika di laptop sudah ada PHP, ketik di PowerShell:</p>
-                        <div class="code-block">
-                            <code>php -S 0.0.0.0:8000</code>
-                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                        </div>
-                        <p style="color: #38BDF8; font-size: 0.85rem; margin-top: 10px;">✓ Tanpa Artisan • Tanpa Composer • Bisa di folder mana saja</p>
                     </div>
                 </div>
             </div>
