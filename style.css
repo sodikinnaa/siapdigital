@@ -162,7 +162,7 @@ h1, h2, h3, h4 {
 
 .nav-links {
     display: flex;
-    gap: 24px;
+    gap: 20px;
 }
 
 .nav-links a {
@@ -335,6 +335,46 @@ h1, h2, h3, h4 {
     100% { opacity: 0.4; }
 }
 
+/* Silabus Cards */
+.silabus-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.silabus-card {
+    cursor: pointer;
+    position: relative;
+    border-top: 3px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.silabus-card:hover {
+    transform: translateY(-4px);
+    border-top-color: var(--secondary);
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.2);
+}
+
+.p-badge {
+    display: inline-block;
+    background: rgba(6, 182, 212, 0.15);
+    color: var(--secondary);
+    font-family: var(--font-code);
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+}
+
+.silabus-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.silabus-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
 /* Simulator Styles */
 .simulator-section {
     background: linear-gradient(180deg, rgba(11, 15, 25, 0.5) 0%, rgba(17, 24, 39, 0.8) 100%);
@@ -493,71 +533,6 @@ h1, h2, h3, h4 {
 .card:hover {
     border-color: var(--border-glow);
     background: var(--bg-card-hover);
-}
-
-/* Feature Grid */
-.overview-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-}
-
-.feature-card .card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-}
-
-.feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.feature-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* Why Section */
-.why-wrapper {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.05));
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 48px;
-}
-
-.lead-text {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-}
-
-.real-life-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.real-life-list li {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.real-life-list .icon {
-    font-size: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-
-.real-life-list strong {
-    font-size: 1.15rem;
-    display: block;
-    margin-bottom: 4px;
-}
-
-.real-life-list p {
-    color: var(--text-muted);
 }
 
 /* Modules Section */

@@ -30,6 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
     runSimulation();
 });
 
+// Open Pertemuan helper from Silabus Cards
+function openPertemuan(modulId) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const modules = document.querySelectorAll('.module-card');
+
+    tabs.forEach(t => t.classList.remove('active'));
+    modules.forEach(m => m.classList.remove('active'));
+
+    const targetTab = document.querySelector(`.tab-btn[data-target="${modulId}"]`);
+    if (targetTab) targetTab.classList.add('active');
+    
+    const targetModule = document.getElementById(modulId);
+    if (targetModule) targetModule.classList.add('active');
+
+    // Scroll to Pertemuan Section
+    document.getElementById('pertemuan').scrollIntoView({ behavior: 'smooth' });
+}
+
 // Interactive Simulator Logic for Lecture
 function runSimulation() {
     const bindVal = document.getElementById('sim-bind').value;

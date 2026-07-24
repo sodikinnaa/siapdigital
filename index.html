@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Praktis: Master Localhost, IP Local & Port Server</title>
-    <meta name="description" content="Course online interaktif 100% praktis untuk pemula. Pahami Server, Localhost, IP 127.0.0.1, 0.0.0.0, IP Local 192.168.x.x, dan Port tanpa teori ribet.">
+    <title>Silabus Kuliah Praktis: Master Localhost, IP Local & Port Server</title>
+    <meta name="description" content="Rencana Pembelajaran 6 Pertemuan Praktis Pemula. Pahami Server, Localhost, IP 127.0.0.1, 0.0.0.0, IP Local 192.168.x.x, dan Port tanpa teori ribet.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,14 +20,14 @@
                 <span class="logo-text">DevOps<span class="highlight">Lectures</span></span>
             </a>
             <nav class="nav-links">
+                <a href="#silabus">Silabus Pertemuan</a>
+                <a href="#pertemuan">Materi Perkuliahan</a>
                 <a href="#simulator">Simulator Live</a>
-                <a href="#overview">Overview</a>
-                <a href="#modul">Modul Praktis</a>
                 <a href="#comparator">Cheat Sheet</a>
-                <a href="#quiz">Quiz</a>
+                <a href="#quiz">Quiz Evaluasi</a>
                 <a href="#troubleshooting">Troubleshooting</a>
             </nav>
-            <a href="#simulator" class="btn btn-primary nav-cta">Coba Simulator Live 🚀</a>
+            <a href="#pertemuan" class="btn btn-primary nav-cta">Mulai Pertemuan 1 🚀</a>
         </div>
     </header>
 
@@ -35,30 +35,30 @@
     <section class="hero-section">
         <div class="container grid hero-grid">
             <div class="hero-content">
-                <div class="badge">🔥 Course 100% Praktis & Demo Interaktif</div>
+                <div class="badge">🎓 Rencana Perkuliahan Praktis (6 Pertemuan)</div>
                 <h1 class="hero-title">
                     Bongkar Rahasia <span class="gradient-text">Localhost</span>, <span class="gradient-text">IP Local</span> & <span class="gradient-text">Port</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pernah bingung kenapa web buatanmu cuma bisa dibuka di laptop sendiri, tapi pas diakses dari HP malah error <i>"Connection Refused"</i>? Yuk kuasai logika jaringan server lokal tanpa teori ribet!
+                    Panduan modul perkuliahan terstruktur 6 Pertemuan untuk mahasiswa. Pahami logika jaringan server lokal, beda `127.0.0.1` vs `0.0.0.0`, dan cara testing web dari HP via WiFi tanpa teori ribet!
                 </p>
                 <div class="hero-benefits">
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Paham beda <strong>127.0.0.1</strong> vs <strong>0.0.0.0</strong> vs <strong>192.168.x.x</strong></span>
+                        <span>Terbagi dalam <strong>6 Pertemuan Pembelajaran</strong> terstruktur</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Bisa test web dari HP via WiFi rumah/kampus</span>
+                        <span>Bisa test web dari HP via WiFi kampus/rumah</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Bebas dari stres error <i>"Port 3000 in use"</i> & Firewall</span>
+                        <span>Dilengkapi <strong>Simulator Jaringan & Quiz Evaluasi</strong></span>
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="#modul" class="btn btn-primary btn-lg">Mulai Praktik Sekarang 🚀</a>
-                    <a href="#simulator" class="btn btn-outline btn-lg">Buka Simulator Jaringan 🎮</a>
+                    <a href="#pertemuan" class="btn btn-primary btn-lg">Lihat Materi Pertemuan 🚀</a>
+                    <a href="#silabus" class="btn btn-outline btn-lg">Jadwal Silabus 📅</a>
                 </div>
             </div>
 
@@ -79,9 +79,59 @@
                         <p class="output info">➔ Localhost:  <a href="#">http://127.0.0.1:8000</a></p>
                         <p class="output highlight-net">➔ Network HP:  <a href="#">http://192.168.1.15:8000</a> (Siap Akses! 🎉)</p>
                         <div class="terminal-interactive-status">
-                            <span class="status-indicator online"></span> Server Aktif di Seluruh Jaringan WiFi
+                            <span class="status-indicator online"></span> Server Perkuliahan Aktif di Jaringan WiFi
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Silabus Summary Section -->
+    <section id="silabus" class="section silabus-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">📅 Rencana Pembelajaran Semester (RPS)</div>
+                <h2 class="section-title">Silabus 6 Pertemuan Perkuliahan</h2>
+                <p class="section-subtitle">Struktur pembelajaran bertahap dari konsep dasar hingga testing jaringan nyata.</p>
+            </div>
+
+            <div class="grid silabus-grid">
+                <!-- P1 -->
+                <div class="card silabus-card" onclick="openPertemuan('modul-1')">
+                    <span class="p-badge">PERTEMUAN 1</span>
+                    <h3>🖥️ Pengenalan Server & Localhost</h3>
+                    <p>Memahami konsep dasar Server (Warung Makan) & kata kunci `localhost` tempat koding berada.</p>
+                </div>
+                <!-- P2 -->
+                <div class="card silabus-card" onclick="openPertemuan('modul-2')">
+                    <span class="p-badge">PERTEMUAN 2</span>
+                    <h3>🌐 127.0.0.1 vs 0.0.0.0 (Host Binding)</h3>
+                    <p>Beda IP Cermin internal laptop vs Binding 0.0.0.0 untuk membuka pintu pagar jaringan luar.</p>
+                </div>
+                <!-- P3 -->
+                <div class="card silabus-card" onclick="openPertemuan('modul-3')">
+                    <span class="p-badge">PERTEMUAN 3</span>
+                    <h3>📱 IP Local & Akses Web dari HP</h3>
+                    <p>Mencari IP Local laptop (192.168.x.x) dan membuka website langsung di HP via WiFi sama.</p>
+                </div>
+                <!-- P4 -->
+                <div class="card silabus-card" onclick="openPertemuan('modul-4')">
+                    <span class="p-badge">PERTEMUAN 4</span>
+                    <h3>🚪 Konsep Port Server & Bentrok</h3>
+                    <p>Analogi nomor pintu kamar server, mengatasi error <i>Port in use</i>, dan cara ganti port.</p>
+                </div>
+                <!-- P5 -->
+                <div class="card silabus-card" onclick="openPertemuan('modul-5')">
+                    <span class="p-badge">PERTEMUAN 5</span>
+                    <h3>⚡ Konfigurasi Framework Popular</h3>
+                    <p>Bedah perintah `php artisan serve`, `npm run dev`, dan `python` beserta flag `--host 0.0.0.0`.</p>
+                </div>
+                <!-- P6 -->
+                <div class="card silabus-card" onclick="openPertemuan('modul-6')">
+                    <span class="p-badge">PERTEMUAN 6</span>
+                    <h3>🎯 Evaluasi, Quiz & Troubleshooting</h3>
+                    <p>Uji pemahaman interaktif, checklist mandiri, dan penanganan 8 kendala error jaringan.</p>
                 </div>
             </div>
         </div>
@@ -151,115 +201,37 @@
         </div>
     </section>
 
-    <!-- Course Overview -->
-    <section id="overview" class="section overview-section">
+    <!-- Modul Course / Pertemuan Section -->
+    <section id="pertemuan" class="section modules-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Apa Yang Akan Kamu Pelajari?</h2>
-                <p class="section-subtitle">Materi terstruktur ringkas (maksimal 5 menit per modul) khusus pemula.</p>
-            </div>
-            <div class="grid overview-grid">
-                <div class="card feature-card">
-                    <div class="card-icon">🖥️</div>
-                    <h3>Server & Localhost</h3>
-                    <p>Memahami komputer sebagai server dan arti sebenarnya dari rumah sendiri (localhost).</p>
-                </div>
-                <div class="card feature-card">
-                    <div class="card-icon">🌐</div>
-                    <h3>127.0.0.1 vs 0.0.0.0</h3>
-                    <p>Rahasia IP Loopback khusus laptop vs Binding 0.0.0.0 agar bisa diakses semua device.</p>
-                </div>
-                <div class="card feature-card">
-                    <div class="card-icon">📱</div>
-                    <h3>IP Local (192.168.x.x)</h3>
-                    <p>Cara mencari IP komputer dan cara akses website buatanmu langsung dari HP atau Laptop teman.</p>
-                </div>
-                <div class="card feature-card">
-                    <div class="card-icon">🚪</div>
-                    <h3>Port & Konflik Server</h3>
-                    <p>Analogi nomor kamar/pintu server (3000, 8000, 8080) dan cara ganti port kalau bentrok.</p>
-                </div>
-                <div class="card feature-card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Perilaku PHP, Node & Python</h3>
-                    <p>Kenapa `php artisan serve`, `npm run dev`, dan `python` punya IP Binding default berbeda.</p>
-                </div>
-                <div class="card feature-card">
-                    <div class="card-icon">🛠️</div>
-                    <h3>Troubleshooting Mandiri</h3>
-                    <p>Panduan lengkap memperbaiki masalah localhost, Firewall, bentrok port, dan koneksi WiFi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mengapa Harus Belajar Ini -->
-    <section id="mengapa" class="section why-section">
-        <div class="container">
-            <div class="why-wrapper">
-                <div class="why-content">
-                    <h2 class="section-title">Mengapa Harus Belajar Ini Dalam Kehidupan Nyata?</h2>
-                    <p class="lead-text">
-                        Sebagai developer, membuat kodingan berjalan di komputer sendiri itu baru 50% pekerjaan. Seringkali kamu harus:
-                    </p>
-                    <ul class="real-life-list">
-                        <li>
-                            <span class="icon">📱</span>
-                            <div>
-                                <strong>Testing Tampilan Mobile di HP Asli</strong>
-                                <p>Bukan sekadar inspect element browser, tapi langsung dicoba di layar Touchscreen HP kamu sendiri.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="icon">👥</span>
-                            <div>
-                                <strong>Pamer / Demo Aplikasi ke Teman Tim</strong>
-                                <p>Tanpa perlu upload ke internet dulu, teman satu ruangan/WiFi bisa langsung buka web buatanmu!</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="icon">🔍</span>
-                            <div>
-                                <strong>Bebas Dari Stres Error Misterius</strong>
-                                <p>Tahu persis kenapa error <i>"Address already in use"</i> muncul dan bisa langsung memperbaikinya hitungan detik.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modul Course Section -->
-    <section id="modul" class="section modules-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="badge">📖 Materi Utama Course</div>
-                <h2 class="section-title">5 Modul Praktis (Maks 5 Menit / Modul)</h2>
-                <p class="section-subtitle">Ikuti langkah demi langkah untuk menguasai server lokal dari nol.</p>
+                <div class="badge">📖 Detail Materi Perkuliahan</div>
+                <h2 class="section-title">Materi Pembelajaran Pertemuan 1 - 6</h2>
+                <p class="section-subtitle">Pilih pertemuan di bawah untuk membuka modul praktis lengkap.</p>
             </div>
 
             <!-- Modul Navigation Tabs -->
             <div class="module-tabs">
-                <button class="tab-btn active" data-target="modul-1">Modul 1: Server & Localhost</button>
-                <button class="tab-btn" data-target="modul-2">Modul 2: 127.0.0.1 vs 0.0.0.0</button>
-                <button class="tab-btn" data-target="modul-3">Modul 3: IP Local (192.168.x.x)</button>
-                <button class="tab-btn" data-target="modul-4">Modul 4: Konsep Port & Bentrok</button>
-                <button class="tab-btn" data-target="modul-5">Modul 5: Practical Frameworks</button>
+                <button class="tab-btn active" data-target="modul-1">Pertemuan 1: Server & Localhost</button>
+                <button class="tab-btn" data-target="modul-2">Pertemuan 2: 127.0.0.1 vs 0.0.0.0</button>
+                <button class="tab-btn" data-target="modul-3">Pertemuan 3: IP Local (192.168.x.x)</button>
+                <button class="tab-btn" data-target="modul-4">Pertemuan 4: Konsep Port & Bentrok</button>
+                <button class="tab-btn" data-target="modul-5">Pertemuan 5: Frameworks</button>
+                <button class="tab-btn" data-target="modul-6">Pertemuan 6: Quiz & Evaluasi</button>
             </div>
 
             <div class="module-content-container">
 
-                <!-- MODUL 1 -->
+                <!-- PERTEMUAN 1 -->
                 <article id="modul-1" class="module-card active">
                     <div class="module-header">
-                        <span class="module-number">MODUL 01</span>
+                        <span class="module-number">PERTEMUAN 01</span>
                         <h2>Apa Itu Server & Localhost?</h2>
                     </div>
 
                     <div class="module-body">
-                        <h3>Tujuan</h3>
-                        <p>Memahami bahwa komputermu sendiri bisa menjadi "server" dan mengerti arti istilah <code>localhost</code>.</p>
+                        <h3>Tujuan Pembelajaran</h3>
+                        <p>Mahasiswa memahami bahwa laptopnya sendiri bisa menjadi "server" dan mengerti arti istilah <code>localhost</code>.</p>
 
                         <h3>Penjelasan Singkat (Analogi Warung Makan)</h3>
                         <p>
@@ -272,13 +244,13 @@
                         <h3>Diagram Sederhana</h3>
                         <div class="ascii-diagram">
 <pre>
- [ Browser Kamu ] 
-        |
-  Minta: "localhost:8000"
-        |
-        v
+ [ Browser Mahasiswa ] 
+           |
+     Minta: "localhost:8000"
+           |
+           v
  +-------------------------------------+
- | Laptop Kamu (Bertindak sbg Server)  |
+ | Laptop (Bertindak sbg Server)       |
  |  -> Aplikasi Web Melayani Pesanan  |
  +-------------------------------------+
 </pre>
@@ -298,7 +270,7 @@
                         </ol>
 
                         <h3>Hasil Yang Diharapkan</h3>
-                        <p>Browser akan menampilkan daftar file/folder yang ada di komputermu. Selamat! Komputermu resmi jadi server web!</p>
+                        <p>Browser akan menampilkan daftar file/folder yang ada di laptopmu. Selamat! Laptopmu resmi jadi server web!</p>
 
                         <h3>Kesalahan Yang Sering Terjadi</h3>
                         <p>Ketik <code>localhost:8000</code> tapi lupa belum menjalankan perintah python di terminal.</p>
@@ -307,12 +279,12 @@
                         <p>Pastikan jendela Terminal tidak ditutup dan perintah python masih aktif berjalan (jangan ditekan Ctrl+C dulu).</p>
 
                         <div class="mini-challenge">
-                            <h4>🎯 Mini Challenge</h4>
+                            <h4>🎯 Mini Challenge Pertemuan 1</h4>
                             <p>Coba buat satu file bernama <code>index.html</code> di folder latihanmu dengan isi <code>&lt;h1&gt;Halo Server!&lt;/h1&gt;</code>, lalu jalankan server python. Apa yang berubah saat kamu buka <code>localhost:8000</code>?</p>
                         </div>
 
                         <div class="summary-box">
-                            <h4>📌 Ringkasan Modul 1</h4>
+                            <h4>📌 Ringkasan Pertemuan 1</h4>
                             <ul>
                                 <li><strong>Server:</strong> Program komputer yang melayani permintaan data.</li>
                                 <li><strong>Localhost:</strong> Kata kunci untuk merujuk pada komputer tempat kita mengetik.</li>
@@ -321,16 +293,16 @@
                     </div>
                 </article>
 
-                <!-- MODUL 2 -->
+                <!-- PERTEMUAN 2 -->
                 <article id="modul-2" class="module-card">
                     <div class="module-header">
-                        <span class="module-number">MODUL 02</span>
+                        <span class="module-number">PERTEMUAN 02</span>
                         <h2>127.0.0.1 vs 0.0.0.0 (IP Loopback & Host Binding)</h2>
                     </div>
 
                     <div class="module-body">
-                        <h3>Tujuan</h3>
-                        <p>Memahami perbedaan kritis antara IP internal <code>127.0.0.1</code> dengan <code>0.0.0.0</code> saat menyalakan server.</p>
+                        <h3>Tujuan Pembelajaran</h3>
+                        <p>Mahasiswa memahami perbedaan kritis antara IP internal <code>127.0.0.1</code> dengan <code>0.0.0.0</code> saat menyalakan server.</p>
 
                         <h3>Penjelasan Singkat (Analogi Cermin & Pintu Pagar)</h3>
                         <p>
@@ -380,12 +352,12 @@
                         <p>Di HP, yang diketik adalah IP Local laptopmu (seperti <code>192.168.1.X:8000</code>), bukan 0.0.0.0!</p>
 
                         <div class="mini-challenge">
-                            <h4>🎯 Mini Challenge</h4>
+                            <h4>🎯 Mini Challenge Pertemuan 2</h4>
                             <p>Kenapa secara default developer suka pakai <code>127.0.0.1</code> saat koding? (Petunjuk: Pikirkan tentang keamanan jaringan publik!).</p>
                         </div>
 
                         <div class="summary-box">
-                            <h4>📌 Ringkasan Modul 2</h4>
+                            <h4>📌 Ringkasan Pertemuan 2</h4>
                             <ul>
                                 <li><code>127.0.0.1</code> = Khusus internal laptop sendiri (Privat & Aman).</li>
                                 <li><code>0.0.0.0</code> = Buka akses untuk jaringan luar / WiFi.</li>
@@ -394,20 +366,20 @@
                     </div>
                 </article>
 
-                <!-- MODUL 3 -->
+                <!-- PERTEMUAN 3 -->
                 <article id="modul-3" class="module-card">
                     <div class="module-header">
-                        <span class="module-number">MODUL 03</span>
+                        <span class="module-number">PERTEMUAN 03</span>
                         <h2>IP Local (Akses Web dari HP via 192.168.x.x)</h2>
                     </div>
 
                     <div class="module-body">
-                        <h3>Tujuan</h3>
-                        <p>Menemukan IP Local komputer dan mengakses web lokal langsung dari HP atau device lain.</p>
+                        <h3>Tujuan Pembelajaran</h3>
+                        <p>Mahasiswa menemukan IP Local komputernya dan mengakses web lokal langsung dari HP atau device lain.</p>
 
                         <h3>Penjelasan Singkat (Analogi Alamat Rumah di Perumahan)</h3>
                         <p>
-                            WiFi rumah/kantor kamu itu seperti sebuah <em>Komplek Perumahan</em>. Router WiFi memberikan "Nomor Rumah Local" kepada setiap device yang terhubung.
+                            WiFi rumah/kampus kamu itu seperti sebuah <em>Komplek Perumahan</em>. Router WiFi memberikan "Nomor Rumah Local" kepada setiap device yang terhubung.
                         </p>
                         <p>
                             IP Local biasanya berawalan <code>192.168.x.x</code> atau <code>10.x.x.x</code>. Agar HP kamu bisa berkunjung ke laptopmu, HP harus tahu IP Local si laptop!
@@ -416,7 +388,7 @@
                         <h3>Diagram Sederhana</h3>
                         <div class="ascii-diagram">
 <pre>
-               [ Router WiFi Rumah ]
+               [ Router WiFi Kampus ]
                          |
       +------------------+------------------+
       |                                     |
@@ -456,12 +428,12 @@
                         <p>Matikan Paket Data HP, sambungkan HP ke WiFi yang sama dengan laptop. (Atau gunakan Hotspot HP ke Laptop!).</p>
 
                         <div class="mini-challenge">
-                            <h4>🎯 Mini Challenge</h4>
+                            <h4>🎯 Mini Challenge Pertemuan 3</h4>
                             <p>Coba nyalakan Hotspot di HP-mu, lalu sambungkan Laptop ke Hotspot tersebut. Berapakah IP local laptopmu sekarang? Apakah berubah?</p>
                         </div>
 
                         <div class="summary-box">
-                            <h4>📌 Ringkasan Modul 3</h4>
+                            <h4>📌 Ringkasan Pertemuan 3</h4>
                             <ul>
                                 <li>IP Local (<code>192.168.x.x</code>) adalah alamat laptopmu dalam jaringan WiFi lokal.</li>
                                 <li>Syarat utama akses dari HP: <strong>1 Jaringan WiFi</strong> & <strong>Server Bind 0.0.0.0</strong>.</li>
@@ -470,16 +442,16 @@
                     </div>
                 </article>
 
-                <!-- MODUL 4 -->
+                <!-- PERTEMUAN 4 -->
                 <article id="modul-4" class="module-card">
                     <div class="module-header">
-                        <span class="module-number">MODUL 04</span>
+                        <span class="module-number">PERTEMUAN 04</span>
                         <h2>Port Server & Mengatasi Bentrok (Port in Use)</h2>
                     </div>
 
                     <div class="module-body">
-                        <h3>Tujuan</h3>
-                        <p>Memahami konsep Port (3000, 8000, 8080) dan cara menyelesaikan error <i>"EADDRINUSE / Port already in use"</i>.</p>
+                        <h3>Tujuan Pembelajaran</h3>
+                        <p>Mahasiswa memahami konsep Port (3000, 8000, 8080) dan cara menyelesaikan error <i>"EADDRINUSE / Port already in use"</i>.</p>
 
                         <h3>Penjelasan Singkat (Analogi Nomor Pintu / Stop Kontak)</h3>
                         <p>
@@ -531,12 +503,12 @@
                         <p>Cukup ganti nomor port di command peluncuran server, atau matikan proses server lama yang masih nyangkut di background.</p>
 
                         <div class="mini-challenge">
-                            <h4>🎯 Mini Challenge</h4>
+                            <h4>🎯 Mini Challenge Pertemuan 4</h4>
                             <p>Port berapakah yang secara default digunakan oleh lalu lintas web HTTP standar di dunia nyata? (Petunjuk: angka 2 digit!).</p>
                         </div>
 
                         <div class="summary-box">
-                            <h4>📌 Ringkasan Modul 4</h4>
+                            <h4>📌 Ringkasan Pertemuan 4</h4>
                             <ul>
                                 <li>Port adalah jalur pintu masuk spesifik untuk setiap aplikasi server.</li>
                                 <li>Satu port hanya bisa dipakai 1 aplikasi aktif. Ganti port jika terjadi konflik!</li>
@@ -545,16 +517,16 @@
                     </div>
                 </article>
 
-                <!-- MODUL 5 -->
+                <!-- PERTEMUAN 5 -->
                 <article id="modul-5" class="module-card">
                     <div class="module-header">
-                        <span class="module-number">MODUL 05</span>
+                        <span class="module-number">PERTEMUAN 05</span>
                         <h2>Perilaku Host Binding: PHP vs Node.js vs Python</h2>
                     </div>
 
                     <div class="module-body">
-                        <h3>Tujuan</h3>
-                        <p>Memahami kenapa framework favoritmu (PHP, Node/Vite, Python) memiliki perilaku default yang berbeda-beda saat dijalankan.</p>
+                        <h3>Tujuan Pembelajaran</h3>
+                        <p>Mahasiswa memahami kenapa framework favoritnya (PHP, Node/Vite, Python) memiliki perilaku default yang berbeda-beda saat dijalankan.</p>
 
                         <h3>Penjelasan Singkat</h3>
                         <p>
@@ -627,11 +599,31 @@ python3 -m http.server 8000 --bind 0.0.0.0</code>
                         <p>Terminal akan menampilkan pesan konfirmasi: <i>Network: http://192.168.x.x:port</i> yang menandakan servermu siap diakses dari HP!</p>
 
                         <div class="summary-box">
-                            <h4>📌 Ringkasan Modul 5</h4>
+                            <h4>📌 Ringkasan Pertemuan 5</h4>
                             <ul>
                                 <li>Ingat kunci sakti flag: <code>--host=0.0.0.0</code> atau <code>--bind 0.0.0.0</code> untuk membuka akses jaringan WiFi pada framework modern!</li>
                             </ul>
                         </div>
+                    </div>
+                </article>
+
+                <!-- PERTEMUAN 6 -->
+                <article id="modul-6" class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">PERTEMUAN 06</span>
+                        <h2>Evaluasi, Quiz Interaktif & Troubleshooting Mandiri</h2>
+                    </div>
+
+                    <div class="module-body">
+                        <h3>Tujuan Pembelajaran</h3>
+                        <p>Mahasiswa mampu mendiagnosis dan memperbaiki kendala jaringan server secara mandiri serta menyelesaikan Quiz Evaluasi perkuliahan.</p>
+
+                        <h3>Aktivitas Pertemuan 6</h3>
+                        <ol class="step-list">
+                            <li>Jalankan <strong>Simulator Jaringan Live</strong> di atas bersama Pak Dosen.</li>
+                            <li>Selesaikan <strong>Quiz Evaluasi</strong> di bawah untuk menguji pemahaman 5 pertemuan sebelumnya.</li>
+                            <li>Gunakan <strong>Checklist Mandiri</strong> sebelum mendemo aplikasi web buatanmu.</li>
+                        </ol>
                     </div>
                 </article>
 
@@ -726,9 +718,9 @@ python3 -m http.server 8000 --bind 0.0.0.0</code>
     <section id="quiz" class="section quiz-section">
         <div class="container">
             <div class="section-header text-center">
-                <div class="badge">🎯 Uji Pemahaman</div>
+                <div class="badge">🎯 Evaluasi Pertemuan 6</div>
                 <h2 class="section-title">Quiz Interaktif Server & Jaringan</h2>
-                <p class="section-subtitle">Uji pengetahuanmu setelah membaca modul. Poin langsung dihitung!</p>
+                <p class="section-subtitle">Uji pengetahuanmu setelah mengikuti Pertemuan 1 - 5. Poin langsung dihitung!</p>
             </div>
 
             <div class="quiz-container card">
@@ -748,7 +740,7 @@ python3 -m http.server 8000 --bind 0.0.0.0</code>
     <section class="section checklist-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Checklist Praktis Sebelum Akses dari HP</h2>
+                <h2 class="section-title">Checklist Mandiri Sebelum Akses dari HP</h2>
                 <p class="section-subtitle">Tandai centang setiap langkah agar koneksi lokal pasti berhasil!</p>
             </div>
 
@@ -804,7 +796,7 @@ python3 -m http.server 8000 --bind 0.0.0.0</code>
             <div class="section-header text-center">
                 <div class="badge">🛠️ Pertolongan Pertama Error</div>
                 <h2 class="section-title">Panduan Troubleshooting Masalah Umum</h2>
-                <p class="section-subtitle">Temukan solusi instan untuk 8 masalah yang paling sering dialami pemula.</p>
+                <p class="section-subtitle">Temukan solusi instan untuk 8 masalah yang paling sering dialami mahasiswa.</p>
             </div>
 
             <div class="search-box">
@@ -918,7 +910,7 @@ python3 -m http.server 8000 --bind 0.0.0.0</code>
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
-                <p class="section-subtitle">Pertanyaan paling sering ditanyakan pemula tentang server lokal.</p>
+                <p class="section-subtitle">Pertanyaan paling sering ditanyakan mahasiswa tentang server lokal.</p>
             </div>
 
             <div class="faq-accordion">
@@ -953,7 +945,7 @@ python3 -m http.server 8000 --bind 0.0.0.0</code>
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>⚡ <strong>DevOpsLectures Course</strong> — Modul Ajar Interaktif Dosen untuk Mahasiswa Pemula.</p>
+            <p>⚡ <strong>DevOpsLectures Course</strong> — Modul Perkuliahan 6 Pertemuan Dosen untuk Mahasiswa.</p>
             <p class="footer-sub">Belajar Praktis • Tanpa Teori Ribet • Langsung Demo di Kelas!</p>
         </div>
     </footer>
