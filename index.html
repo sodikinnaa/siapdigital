@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Praktis: Master Localhost, IP Local & Port Server</title>
+    <meta name="description" content="Course online interaktif 100% praktis untuk pemula. Pahami Server, Localhost, IP 127.0.0.1, 0.0.0.0, IP Local 192.168.x.x, dan Port tanpa teori ribet.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">DevOps<span class="highlight">Lectures</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#simulator">Simulator Live</a>
+                <a href="#overview">Overview</a>
+                <a href="#modul">Modul Praktis</a>
+                <a href="#comparator">Cheat Sheet</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#troubleshooting">Troubleshooting</a>
+            </nav>
+            <a href="#simulator" class="btn btn-primary nav-cta">Coba Simulator Live 🚀</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container grid hero-grid">
+            <div class="hero-content">
+                <div class="badge">🔥 Course 100% Praktis & Demo Interaktif</div>
+                <h1 class="hero-title">
+                    Bongkar Rahasia <span class="gradient-text">Localhost</span>, <span class="gradient-text">IP Local</span> & <span class="gradient-text">Port</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Pernah bingung kenapa web buatanmu cuma bisa dibuka di laptop sendiri, tapi pas diakses dari HP malah error <i>"Connection Refused"</i>? Yuk kuasai logika jaringan server lokal tanpa teori ribet!
+                </p>
+                <div class="hero-benefits">
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span>Paham beda <strong>127.0.0.1</strong> vs <strong>0.0.0.0</strong> vs <strong>192.168.x.x</strong></span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span>Bisa test web dari HP via WiFi rumah/kampus</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span>Bebas dari stres error <i>"Port 3000 in use"</i> & Firewall</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#modul" class="btn btn-primary btn-lg">Mulai Praktik Sekarang 🚀</a>
+                    <a href="#simulator" class="btn btn-outline btn-lg">Buka Simulator Jaringan 🎮</a>
+                </div>
+            </div>
+
+            <!-- Terminal Hero Visual -->
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bash - server-local-demo</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
+                        <p class="output success">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...</p>
+                        <p class="output info">➔ Localhost:  <a href="#">http://127.0.0.1:8000</a></p>
+                        <p class="output highlight-net">➔ Network HP:  <a href="#">http://192.168.1.15:8000</a> (Siap Akses! 🎉)</p>
+                        <div class="terminal-interactive-status">
+                            <span class="status-indicator online"></span> Server Aktif di Seluruh Jaringan WiFi
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Simulator for Lectures -->
+    <section id="simulator" class="section simulator-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">🎮 Alat Peraga Dosen / Interactive Demo</div>
+                <h2 class="section-title">Simulator Jaringan Server Lokal</h2>
+                <p class="section-subtitle">Ubah pengaturan binding server & device pengakses, lalu lihat simulasi hasilnya secara real-time!</p>
+            </div>
+
+            <div class="card simulator-card">
+                <div class="grid simulator-grid">
+                    <!-- Controls -->
+                    <div class="sim-controls">
+                        <h3>⚙️ Pengaturan Server & Akses</h3>
+                        
+                        <div class="sim-group">
+                            <label>1. Host Binding Server (Di Laptop):</label>
+                            <select id="sim-bind" class="sim-select" onchange="runSimulation()">
+                                <option value="127.0.0.1">127.0.0.1 (Loopback / Cermin Intern)</option>
+                                <option value="0.0.0.0" selected>0.0.0.0 (Buka Pagar Publik / All Interfaces)</option>
+                            </select>
+                        </div>
+
+                        <div class="sim-group">
+                            <label>2. Port Server Laptop:</label>
+                            <select id="sim-port" class="sim-select" onchange="runSimulation()">
+                                <option value="8000">Port 8000 (Aktif)</option>
+                                <option value="3000">Port 3000 (Bentrok dengan Node.js)</option>
+                            </select>
+                        </div>
+
+                        <div class="sim-group">
+                            <label>3. Device Pengakses & Jaringan:</label>
+                            <select id="sim-device" class="sim-select" onchange="runSimulation()">
+                                <option value="laptop-localhost">Laptop Sendiri via http://localhost:8000</option>
+                                <option value="hp-wifi-correct" selected>HP (WiFi Sama) via http://192.168.1.15:8000</option>
+                                <option value="hp-wifi-wrong-ip">HP (WiFi Sama) via http://0.0.0.0:8000 (Salah IP)</option>
+                                <option value="hp-cellular">HP Pakai Paket Data 4G/5G (Beda Jaringan)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Koneksi Sekarang 🔄</button>
+                    </div>
+
+                    <!-- Visual Output -->
+                    <div class="sim-visual-box">
+                        <h3>📊 Status Visualisasi Koneksi</h3>
+                        <div id="sim-result-card" class="sim-status-card success">
+                            <div class="sim-icon" id="sim-icon">🎉</div>
+                            <h4 id="sim-status-title">Koneksi Berhasil!</h4>
+                            <p id="sim-status-desc">HP berhasil mengakses website di laptop karena server menggunakan binding 0.0.0.0 dan berada dalam 1 jaringan WiFi yang sama.</p>
+                        </div>
+
+                        <div class="sim-flow-diagram">
+                            <div class="flow-node" id="node-device">📱 HP (192.168.1.25)</div>
+                            <div class="flow-line" id="flow-line">-------------------></div>
+                            <div class="flow-node" id="node-server">💻 Laptop (192.168.1.15:8000)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section id="overview" class="section overview-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Apa Yang Akan Kamu Pelajari?</h2>
+                <p class="section-subtitle">Materi terstruktur ringkas (maksimal 5 menit per modul) khusus pemula.</p>
+            </div>
+            <div class="grid overview-grid">
+                <div class="card feature-card">
+                    <div class="card-icon">🖥️</div>
+                    <h3>Server & Localhost</h3>
+                    <p>Memahami komputer sebagai server dan arti sebenarnya dari rumah sendiri (localhost).</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="card-icon">🌐</div>
+                    <h3>127.0.0.1 vs 0.0.0.0</h3>
+                    <p>Rahasia IP Loopback khusus laptop vs Binding 0.0.0.0 agar bisa diakses semua device.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="card-icon">📱</div>
+                    <h3>IP Local (192.168.x.x)</h3>
+                    <p>Cara mencari IP komputer dan cara akses website buatanmu langsung dari HP atau Laptop teman.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="card-icon">🚪</div>
+                    <h3>Port & Konflik Server</h3>
+                    <p>Analogi nomor kamar/pintu server (3000, 8000, 8080) dan cara ganti port kalau bentrok.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Perilaku PHP, Node & Python</h3>
+                    <p>Kenapa `php artisan serve`, `npm run dev`, dan `python` punya IP Binding default berbeda.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Troubleshooting Mandiri</h3>
+                    <p>Panduan lengkap memperbaiki masalah localhost, Firewall, bentrok port, dan koneksi WiFi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mengapa Harus Belajar Ini -->
+    <section id="mengapa" class="section why-section">
+        <div class="container">
+            <div class="why-wrapper">
+                <div class="why-content">
+                    <h2 class="section-title">Mengapa Harus Belajar Ini Dalam Kehidupan Nyata?</h2>
+                    <p class="lead-text">
+                        Sebagai developer, membuat kodingan berjalan di komputer sendiri itu baru 50% pekerjaan. Seringkali kamu harus:
+                    </p>
+                    <ul class="real-life-list">
+                        <li>
+                            <span class="icon">📱</span>
+                            <div>
+                                <strong>Testing Tampilan Mobile di HP Asli</strong>
+                                <p>Bukan sekadar inspect element browser, tapi langsung dicoba di layar Touchscreen HP kamu sendiri.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">👥</span>
+                            <div>
+                                <strong>Pamer / Demo Aplikasi ke Teman Tim</strong>
+                                <p>Tanpa perlu upload ke internet dulu, teman satu ruangan/WiFi bisa langsung buka web buatanmu!</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">🔍</span>
+                            <div>
+                                <strong>Bebas Dari Stres Error Misterius</strong>
+                                <p>Tahu persis kenapa error <i>"Address already in use"</i> muncul dan bisa langsung memperbaikinya hitungan detik.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modul Course Section -->
+    <section id="modul" class="section modules-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">📖 Materi Utama Course</div>
+                <h2 class="section-title">5 Modul Praktis (Maks 5 Menit / Modul)</h2>
+                <p class="section-subtitle">Ikuti langkah demi langkah untuk menguasai server lokal dari nol.</p>
+            </div>
+
+            <!-- Modul Navigation Tabs -->
+            <div class="module-tabs">
+                <button class="tab-btn active" data-target="modul-1">Modul 1: Server & Localhost</button>
+                <button class="tab-btn" data-target="modul-2">Modul 2: 127.0.0.1 vs 0.0.0.0</button>
+                <button class="tab-btn" data-target="modul-3">Modul 3: IP Local (192.168.x.x)</button>
+                <button class="tab-btn" data-target="modul-4">Modul 4: Konsep Port & Bentrok</button>
+                <button class="tab-btn" data-target="modul-5">Modul 5: Practical Frameworks</button>
+            </div>
+
+            <div class="module-content-container">
+
+                <!-- MODUL 1 -->
+                <article id="modul-1" class="module-card active">
+                    <div class="module-header">
+                        <span class="module-number">MODUL 01</span>
+                        <h2>Apa Itu Server & Localhost?</h2>
+                    </div>
+
+                    <div class="module-body">
+                        <h3>Tujuan</h3>
+                        <p>Memahami bahwa komputermu sendiri bisa menjadi "server" dan mengerti arti istilah <code>localhost</code>.</p>
+
+                        <h3>Penjelasan Singkat (Analogi Warung Makan)</h3>
+                        <p>
+                            Bayangkan <strong>Server</strong> itu seperti <em>Warung Makan</em> yang siap melayani pesanan kapan saja. <strong>Browser</strong> (Chrome/Firefox) adalah <em>Pembeli</em> yang minta makanan.
+                        </p>
+                        <p>
+                            Istilah <strong>localhost</strong> hanyalah nama panggilan sayang untuk <em>"Komputer Saya Sendiri"</em>. Jadi saat kamu mengetik <code>localhost</code> di browser, kamu sebenarnya bilang: <em>"Hei browser, tolong ambilkan halaman web yang ada di laptop ini sendiri, bukan di internet!"</em>
+                        </p>
+
+                        <h3>Diagram Sederhana</h3>
+                        <div class="ascii-diagram">
+<pre>
+ [ Browser Kamu ] 
+        |
+  Minta: "localhost:8000"
+        |
+        v
+ +-------------------------------------+
+ | Laptop Kamu (Bertindak sbg Server)  |
+ |  -> Aplikasi Web Melayani Pesanan  |
+ +-------------------------------------+
+</pre>
+                        </div>
+
+                        <h3>Praktik (Jalankan Server Pertama)</h3>
+                        <p>Cobalah jalankan server web paling sederhana bawaan Python di komputermu:</p>
+                        <ol class="step-list">
+                            <li>Buka <strong>Terminal</strong> (Mac/Linux) atau <strong>Command Prompt / PowerShell</strong> (Windows).</li>
+                            <li>Ketik perintah ini lalu tekan Enter:
+                                <div class="code-block">
+                                    <code>python -m http.server 8000</code>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>Buka browser dan ketik alamat: <code>http://localhost:8000</code></li>
+                        </ol>
+
+                        <h3>Hasil Yang Diharapkan</h3>
+                        <p>Browser akan menampilkan daftar file/folder yang ada di komputermu. Selamat! Komputermu resmi jadi server web!</p>
+
+                        <h3>Kesalahan Yang Sering Terjadi</h3>
+                        <p>Ketik <code>localhost:8000</code> tapi lupa belum menjalankan perintah python di terminal.</p>
+
+                        <h3>Cara Memperbaikinya</h3>
+                        <p>Pastikan jendela Terminal tidak ditutup dan perintah python masih aktif berjalan (jangan ditekan Ctrl+C dulu).</p>
+
+                        <div class="mini-challenge">
+                            <h4>🎯 Mini Challenge</h4>
+                            <p>Coba buat satu file bernama <code>index.html</code> di folder latihanmu dengan isi <code>&lt;h1&gt;Halo Server!&lt;/h1&gt;</code>, lalu jalankan server python. Apa yang berubah saat kamu buka <code>localhost:8000</code>?</p>
+                        </div>
+
+                        <div class="summary-box">
+                            <h4>📌 Ringkasan Modul 1</h4>
+                            <ul>
+                                <li><strong>Server:</strong> Program komputer yang melayani permintaan data.</li>
+                                <li><strong>Localhost:</strong> Kata kunci untuk merujuk pada komputer tempat kita mengetik.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MODUL 2 -->
+                <article id="modul-2" class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">MODUL 02</span>
+                        <h2>127.0.0.1 vs 0.0.0.0 (IP Loopback & Host Binding)</h2>
+                    </div>
+
+                    <div class="module-body">
+                        <h3>Tujuan</h3>
+                        <p>Memahami perbedaan kritis antara IP internal <code>127.0.0.1</code> dengan <code>0.0.0.0</code> saat menyalakan server.</p>
+
+                        <h3>Penjelasan Singkat (Analogi Cermin & Pintu Pagar)</h3>
+                        <p>
+                            • <strong>127.0.0.1 (Loopback Address):</strong> Ini adalah IP khusus untuk "Bicara dengan diri sendiri". Analoginya seperti kamu ngobrol di depan cermin. Hanya KAMU di laptop itu yang bisa dengar. Device lain dari luar TIDAK AKAN PERNAH bisa masuk.
+                        </p>
+                        <p>
+                            • <strong>0.0.0.0 (All Interfaces Binding):</strong> Ini artinya servermu bilang: <em>"Buka semua pintu pagar! Saya mau mendengarkan permintaan dari mana saja—baik dari laptop ini sendiri MAUPUN dari jaringan WiFi luar!"</em>
+                        </p>
+
+                        <h3>Diagram Sederhana</h3>
+                        <div class="ascii-diagram">
+<pre>
+ --- Jika Server di-bind ke 127.0.0.1 ---
+ Laptop Sendiri  ---> [127.0.0.1:3000] (BISA)
+ HP via WiFi     ---> [127.0.0.1:3000] (DITOLAK / Connection Refused!)
+
+ --- Jika Server di-bind ke 0.0.0.0 ---
+ Laptop Sendiri  ---> [0.0.0.0:3000] (BISA via localhost)
+ HP via WiFi     ---> [IP_Laptop:3000] (BISA DIARSES! 🎉)
+</pre>
+                        </div>
+
+                        <h3>Praktik</h3>
+                        <p>Mari tes perbedaan binding ini:</p>
+                        <ol class="step-list">
+                            <li>Tes 1: Jalankan python khusus loopback (hanya laptop sendiri):
+                                <div class="code-block">
+                                    <code>python -m http.server 8000 --bind 127.0.0.1</code>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>Tes 2: Matikan (Ctrl+C), lalu jalankan python ke semua pintu (0.0.0.0):
+                                <div class="code-block">
+                                    <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <h3>Hasil Yang Diharapkan</h3>
+                        <p>Pada Tes 2 (0.0.0.0), server kamu siap menerima koneksi dari mana saja termasuk HP teman yang terhubung di WiFi yang sama!</p>
+
+                        <h3>Kesalahan Yang Sering Terjadi</h3>
+                        <p>Mencoba membuka <code>http://0.0.0.0:8000</code> langsung di browser HP. (Ingat: 0.0.0.0 itu bukan alamat yang diketik di HP, tapi konfigurasi penangkapan di server!).</p>
+
+                        <h3>Cara Memperbaikinya</h3>
+                        <p>Di HP, yang diketik adalah IP Local laptopmu (seperti <code>192.168.1.X:8000</code>), bukan 0.0.0.0!</p>
+
+                        <div class="mini-challenge">
+                            <h4>🎯 Mini Challenge</h4>
+                            <p>Kenapa secara default developer suka pakai <code>127.0.0.1</code> saat koding? (Petunjuk: Pikirkan tentang keamanan jaringan publik!).</p>
+                        </div>
+
+                        <div class="summary-box">
+                            <h4>📌 Ringkasan Modul 2</h4>
+                            <ul>
+                                <li><code>127.0.0.1</code> = Khusus internal laptop sendiri (Privat & Aman).</li>
+                                <li><code>0.0.0.0</code> = Buka akses untuk jaringan luar / WiFi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MODUL 3 -->
+                <article id="modul-3" class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">MODUL 03</span>
+                        <h2>IP Local (Akses Web dari HP via 192.168.x.x)</h2>
+                    </div>
+
+                    <div class="module-body">
+                        <h3>Tujuan</h3>
+                        <p>Menemukan IP Local komputer dan mengakses web lokal langsung dari HP atau device lain.</p>
+
+                        <h3>Penjelasan Singkat (Analogi Alamat Rumah di Perumahan)</h3>
+                        <p>
+                            WiFi rumah/kantor kamu itu seperti sebuah <em>Komplek Perumahan</em>. Router WiFi memberikan "Nomor Rumah Local" kepada setiap device yang terhubung.
+                        </p>
+                        <p>
+                            IP Local biasanya berawalan <code>192.168.x.x</code> atau <code>10.x.x.x</code>. Agar HP kamu bisa berkunjung ke laptopmu, HP harus tahu IP Local si laptop!
+                        </p>
+
+                        <h3>Diagram Sederhana</h3>
+                        <div class="ascii-diagram">
+<pre>
+               [ Router WiFi Rumah ]
+                         |
+      +------------------+------------------+
+      |                                     |
+ [ Laptop Kamu ]                     [ Smartphone HP ]
+ IP: 192.168.1.10                    IP: 192.168.1.25
+ (Server Port 8000)                        |
+      ^                                    |
+      +=== Buka http://192.168.1.10:8000 ===+
+</pre>
+                        </div>
+
+                        <h3>Praktik (Cari IP & Akses dari HP)</h3>
+                        <ol class="step-list">
+                            <li>Pastikan HP dan Laptop terhubung ke <strong>WiFi yang SAMAA</strong>.</li>
+                            <li>Cari IP Laptopmu di Terminal:
+                                <ul>
+                                    <li><strong>Windows:</strong> Ketik <code>ipconfig</code> (Lihat di bagian <i>IPv4 Address</i>, misal: <code>192.168.1.15</code>)</li>
+                                    <li><strong>Mac/Linux:</strong> Ketik <code>ifconfig</code> atau <code>ip a</code> (Lihat di bagian <code>inet</code> under <code>en0</code> / <code>wlan0</code>)</li>
+                                </ul>
+                            </li>
+                            <li>Jalankan server dengan bind <code>0.0.0.0</code>:
+                                <div class="code-block">
+                                    <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>Buka Chrome/Safari di <strong>HP kamu</strong>, ketik: <code>http://192.168.1.15:8000</code> (Sesuaikan dengan IP laptopmu!).</li>
+                        </ol>
+
+                        <h3>Hasil Yang Diharapkan</h3>
+                        <p>Tampilan website di laptopmu muncul dengan mulus di layar HP!</p>
+
+                        <h3>Kesalahan Yang Sering Terjadi</h3>
+                        <p>HP pakai Paket Data (Cellular 4G/5G), sedangkan Laptop pakai WiFi. Mereka tidak akan pernah bisa saling ketemu!</p>
+
+                        <h3>Cara Memperbaikinya</h3>
+                        <p>Matikan Paket Data HP, sambungkan HP ke WiFi yang sama dengan laptop. (Atau gunakan Hotspot HP ke Laptop!).</p>
+
+                        <div class="mini-challenge">
+                            <h4>🎯 Mini Challenge</h4>
+                            <p>Coba nyalakan Hotspot di HP-mu, lalu sambungkan Laptop ke Hotspot tersebut. Berapakah IP local laptopmu sekarang? Apakah berubah?</p>
+                        </div>
+
+                        <div class="summary-box">
+                            <h4>📌 Ringkasan Modul 3</h4>
+                            <ul>
+                                <li>IP Local (<code>192.168.x.x</code>) adalah alamat laptopmu dalam jaringan WiFi lokal.</li>
+                                <li>Syarat utama akses dari HP: <strong>1 Jaringan WiFi</strong> & <strong>Server Bind 0.0.0.0</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MODUL 4 -->
+                <article id="modul-4" class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">MODUL 04</span>
+                        <h2>Port Server & Mengatasi Bentrok (Port in Use)</h2>
+                    </div>
+
+                    <div class="module-body">
+                        <h3>Tujuan</h3>
+                        <p>Memahami konsep Port (3000, 8000, 8080) dan cara menyelesaikan error <i>"EADDRINUSE / Port already in use"</i>.</p>
+
+                        <h3>Penjelasan Singkat (Analogi Nomor Pintu / Stop Kontak)</h3>
+                        <p>
+                            Jika IP adalah <em>Alamat Gedung</em>, maka <strong>Port</strong> adalah <em>Nomor Pintu Kamar</em> di dalam gedung tersebut.
+                        </p>
+                        <p>
+                            Satu nomor pintu hanya bisa ditempati oleh SATU aplikasi server dalam satu waktu. Jika aplikasi Node.js sudah pakai Port 3000, lalu kamu jalankan aplikasi React di Port 3000 juga, akan terjadi tabrakan!
+                        </p>
+
+                        <h3>Diagram Sederhana</h3>
+                        <div class="ascii-diagram">
+<pre>
+ Laptop (IP: 192.168.1.10)
+  +-----------------------------------+
+  |  Port 80   : Server Web Default   |
+  |  Port 3000 : App React / Node.js  |
+  |  Port 8000 : App Laravel / Python |
+  |  Port 8080 : App Vue / Java       |
+  +-----------------------------------+
+  *(Jika 2 aplikasi coba pakai Port 3000 = ERROR BENTROK!)*
+</pre>
+                        </div>
+
+                        <h3>Praktik (Mengganti Port yang Bentrok)</h3>
+                        <ol class="step-list">
+                            <li>Coba jalankan server python di port 8000:
+                                <div class="code-block">
+                                    <code>python -m http.server 8000</code>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                            <li>Buka jendela Terminal KEDUA (jangan tutup terminal pertama), lalu ketik perintah yang sama.</li>
+                            <li>Lihat error yang muncul: <code>OSError: [Errno 98] Address already in use</code> atau <code>port is already in use</code>.</li>
+                            <li>Solusi: Ubah nomor port di terminal kedua menjadi <code>8081</code> atau <code>9000</code>:
+                                <div class="code-block">
+                                    <code>python -m http.server 8081</code>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <h3>Hasil Yang Diharapkan</h3>
+                        <p>Server kedua berjalan lancar di Port 8081 tanpa mengganggu server pertama di Port 8000!</p>
+
+                        <h3>Kesalahan Yang Sering Terjadi</h3>
+                        <p>Panik saat melihat error "Port already in use" dan mengira kodingan web-nya yang rusak.</p>
+
+                        <h3>Cara Memperbaikinya</h3>
+                        <p>Cukup ganti nomor port di command peluncuran server, atau matikan proses server lama yang masih nyangkut di background.</p>
+
+                        <div class="mini-challenge">
+                            <h4>🎯 Mini Challenge</h4>
+                            <p>Port berapakah yang secara default digunakan oleh lalu lintas web HTTP standar di dunia nyata? (Petunjuk: angka 2 digit!).</p>
+                        </div>
+
+                        <div class="summary-box">
+                            <h4>📌 Ringkasan Modul 4</h4>
+                            <ul>
+                                <li>Port adalah jalur pintu masuk spesifik untuk setiap aplikasi server.</li>
+                                <li>Satu port hanya bisa dipakai 1 aplikasi aktif. Ganti port jika terjadi konflik!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MODUL 5 -->
+                <article id="modul-5" class="module-card">
+                    <div class="module-header">
+                        <span class="module-number">MODUL 05</span>
+                        <h2>Perilaku Host Binding: PHP vs Node.js vs Python</h2>
+                    </div>
+
+                    <div class="module-body">
+                        <h3>Tujuan</h3>
+                        <p>Memahami kenapa framework favoritmu (PHP, Node/Vite, Python) memiliki perilaku default yang berbeda-beda saat dijalankan.</p>
+
+                        <h3>Penjelasan Singkat</h3>
+                        <p>
+                            Tiap bahasa/tool punya filosofi bawaan:
+                            <br>• <strong>PHP (Artisan) & Vite (Node):</strong> Mengutamakan <em>Keamanan Default</em>, sehingga mengunci server hanya ke <code>127.0.0.1</code> (localhost).
+                            <br>• <strong>Python http.server:</strong> Mengutamakan <em>Kemudahan Akses</em>, langsung mengikat ke <code>0.0.0.0</code> pada versi tertentu.
+                        </p>
+
+                        <h3>Tabel Perbandingan Perintah & Kunci Binding</h3>
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Framework / Tool</th>
+                                        <th>Perintah Default</th>
+                                        <th>Binding Default</th>
+                                        <th>Cara Ubah Agar Buka Akses HP (0.0.0.0)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>PHP (Laravel)</strong></td>
+                                        <td><code>php artisan serve</code></td>
+                                        <td><code>127.0.0.1:8000</code></td>
+                                        <td><code>php artisan serve --host=0.0.0.0</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>PHP (Built-in)</strong></td>
+                                        <td><code>php -S localhost:8000</code></td>
+                                        <td><code>127.0.0.1:8000</code></td>
+                                        <td><code>php -S 0.0.0.0:8000</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Node.js (Vite)</strong></td>
+                                        <td><code>npm run dev</code></td>
+                                        <td><code>127.0.0.1:5173</code></td>
+                                        <td><code>npm run dev -- --host 0.0.0.0</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Node.js (Express)</strong></td>
+                                        <td><code>app.listen(3000)</code></td>
+                                        <td><code>0.0.0.0:3000</code></td>
+                                        <td><code>app.listen(3000, '0.0.0.0')</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Python (HTTP)</strong></td>
+                                        <td><code>python -m http.server</code></td>
+                                        <td><code>0.0.0.0:8000</code></td>
+                                        <td><code>python -m http.server 8000 --bind 0.0.0.0</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Praktik (Uji Coba Perintah Framework-mu)</h3>
+                        <p>Pilih salah satu bahasa yang kamu pakai, jalankan perintah penyediaan akses publiknya:</p>
+                        <div class="code-block">
+                            <code># PHP Laravel
+php artisan serve --host=0.0.0.0 --port=8000
+
+# Node.js (Vite React/Vue)
+npx vite --host 0.0.0.0 --port 3000
+
+# Python
+python3 -m http.server 8000 --bind 0.0.0.0</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+
+                        <h3>Hasil Yang Diharapkan</h3>
+                        <p>Terminal akan menampilkan pesan konfirmasi: <i>Network: http://192.168.x.x:port</i> yang menandakan servermu siap diakses dari HP!</p>
+
+                        <div class="summary-box">
+                            <h4>📌 Ringkasan Modul 5</h4>
+                            <ul>
+                                <li>Ingat kunci sakti flag: <code>--host=0.0.0.0</code> atau <code>--bind 0.0.0.0</code> untuk membuka akses jaringan WiFi pada framework modern!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Command Comparator Section -->
+    <section id="comparator" class="section comparator-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Cheat Sheet Perintah Server Framework</h2>
+                <p class="section-subtitle">Pilih bahasa favoritmu untuk melihat cara menjalankan & membuka akses IP Localnya.</p>
+            </div>
+
+            <div class="comparator-wrapper">
+                <div class="lang-selector">
+                    <button class="lang-btn active" onclick="switchLang('php')">🐘 PHP / Laravel</button>
+                    <button class="lang-btn" onclick="switchLang('node')">🟢 Node.js / Vite</button>
+                    <button class="lang-btn" onclick="switchLang('python')">🐍 Python</button>
+                </div>
+
+                <div class="lang-box-container">
+                    <!-- PHP -->
+                    <div id="lang-php" class="lang-card active">
+                        <h3>🐘 PHP Server Commands</h3>
+                        <p>Secara default <code>php artisan serve</code> hanya bisa dibuka di localhost laptop sendiri.</p>
+                        <div class="cmd-group">
+                            <label>Hanya Laptop Sendiri (Localhost Only):</label>
+                            <div class="code-block">
+                                <code>php artisan serve</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                        <div class="cmd-group">
+                            <label>Bisa Dibuka dari HP (WiFi Local):</label>
+                            <div class="code-block highlight-code">
+                                <code>php artisan serve --host=0.0.0.0 --port=8000</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                        <p class="note">💡 Native PHP: <code>php -S 0.0.0.0:8000</code></p>
+                    </div>
+
+                    <!-- Node.js -->
+                    <div id="lang-node" class="lang-card">
+                        <h3>🟢 Node.js & Vite Commands</h3>
+                        <p>Vite / Next.js membatasi akses network demi keamanan default development.</p>
+                        <div class="cmd-group">
+                            <label>Hanya Laptop Sendiri (Localhost Only):</label>
+                            <div class="code-block">
+                                <code>npm run dev</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                        <div class="cmd-group">
+                            <label>Bisa Dibuka dari HP (WiFi Local):</label>
+                            <div class="code-block highlight-code">
+                                <code>npm run dev -- --host 0.0.0.0</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                        <p class="note">💡 Express JS: Pastikan menggunakan <code>app.listen(3000, '0.0.0.0')</code></p>
+                    </div>
+
+                    <!-- Python -->
+                    <div id="lang-python" class="lang-card">
+                        <h3>🐍 Python Server Commands</h3>
+                        <p>Server web praktis tanpa install library tambahan.</p>
+                        <div class="cmd-group">
+                            <label>Hanya Laptop Sendiri (Loopback):</label>
+                            <div class="code-block">
+                                <code>python -m http.server 8000 --bind 127.0.0.1</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                        <div class="cmd-group">
+                            <label>Bisa Dibuka dari HP (WiFi Local):</label>
+                            <div class="code-block highlight-code">
+                                <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                        <p class="note">💡 Flask: <code>app.run(host='0.0.0.0', port=5000)</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Interaktif Section -->
+    <section id="quiz" class="section quiz-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">🎯 Uji Pemahaman</div>
+                <h2 class="section-title">Quiz Interaktif Server & Jaringan</h2>
+                <p class="section-subtitle">Uji pengetahuanmu setelah membaca modul. Poin langsung dihitung!</p>
+            </div>
+
+            <div class="quiz-container card">
+                <div id="quiz-wrapper">
+                    <!-- Dynamic Quiz Rendered via JS -->
+                </div>
+                <div id="quiz-result" class="quiz-result hidden">
+                    <h3>🎉 Hasil Quiz Kamu: <span id="score-text">0/5</span></h3>
+                    <p id="feedback-text"></p>
+                    <button class="btn btn-primary" onclick="resetQuiz()">Coba Lagi 🔄</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Checklist Section -->
+    <section class="section checklist-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Checklist Praktis Sebelum Akses dari HP</h2>
+                <p class="section-subtitle">Tandai centang setiap langkah agar koneksi lokal pasti berhasil!</p>
+            </div>
+
+            <div class="checklist-card card">
+                <ul class="interactive-checklist">
+                    <li>
+                        <label class="check-container">
+                            <input type="checkbox" onchange="updateChecklistProgress()">
+                            <span class="checkmark"></span>
+                            <span>Laptop dan HP sudah terhubung ke <strong>WiFi yang sama</strong> (atau via Hotspot HP).</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="check-container">
+                            <input type="checkbox" onchange="updateChecklistProgress()">
+                            <span class="checkmark"></span>
+                            <span>Sudah cek <strong>IP Local Laptop</strong> di terminal (misal: <code>192.168.1.15</code> via <code>ipconfig</code> / <code>ifconfig</code>).</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="check-container">
+                            <input type="checkbox" onchange="updateChecklistProgress()">
+                            <span class="checkmark"></span>
+                            <span>Server sudah dijalankan dengan binding ke <strong>0.0.0.0</strong> (contoh: <code>--host 0.0.0.0</code>).</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="check-container">
+                            <input type="checkbox" onchange="updateChecklistProgress()">
+                            <span class="checkmark"></span>
+                            <span>Terminal penjalalankan server <strong>TIDAK ditutup</strong>.</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="check-container">
+                            <input type="checkbox" onchange="updateChecklistProgress()">
+                            <span class="checkmark"></span>
+                            <span>Port yang digunakan (misal: 8000/3000) disertakan di URL HP: <code>http://192.168.1.15:8000</code>.</span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="checklist-progress">
+                    <div class="progress-bar"><div id="progress-fill" class="fill" style="width: 0%;"></div></div>
+                    <span id="progress-text">0 / 5 Langkah Selesai</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting Section -->
+    <section id="troubleshooting" class="section troubleshooting-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">🛠️ Pertolongan Pertama Error</div>
+                <h2 class="section-title">Panduan Troubleshooting Masalah Umum</h2>
+                <p class="section-subtitle">Temukan solusi instan untuk 8 masalah yang paling sering dialami pemula.</p>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="trouble-search" placeholder="🔍 Cari kendala (misal: Port, Firewall, HP tidak bisa buka)..." onkeyup="filterTrouble()">
+            </div>
+
+            <div class="grid trouble-grid" id="trouble-list">
+
+                <!-- 1 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">❌</span>
+                        <h3>1. Localhost Tidak Bisa Dibuka</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> Server belum dinyalakan atau salah mengetik port di browser.</p>
+                        <p><strong>Solusi:</strong> Cek terminalmu, pastikan proses server masih running. Pastikan menulis port dengan tanda titik dua, misal: <code>localhost:8000</code> (bukan <code>localhost 8000</code> atau <code>localhost/8000</code>).</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">⚠️</span>
+                        <h3>2. Error "Port Already in Use"</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> Ada aplikasi lain (atau terminal lama) yang masih menggunakan port tersebut.</p>
+                        <p><strong>Solusi:</strong> Ganti nomor port saat menjalankan server (contoh ganti dari 3000 ke 3001), atau matikan aplikasi lama via Task Manager / Terminal.</p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">🛡️</span>
+                        <h3>3. Terhalang Windows Firewall</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> Windows Firewall memblokir koneksi masuk dari HP demi keamanan.</p>
+                        <p><strong>Solusi:</strong> Saat muncul popup <i>Windows Defender Firewall</i>, pilih centang pada <strong>"Private Networks"</strong> dan klik <i>Allow Access</i>. Atau izinkan port tersebut di Inbound Rules Firewall.</p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">📍</span>
+                        <h3>4. Salah Mengeset IP Komputer</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> IP local laptop berubah karena router memberikan IP baru (DHCP), atau kamu salah melihat IP interface (misal IP VirtualBox/VPN).</p>
+                        <p><strong>Solusi:</strong> Selalu cek ulang IP terbaru pakai <code>ipconfig</code> / <code>ifconfig</code> di terminal sebelum mencoba connect dari HP.</p>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">📶</span>
+                        <h3>5. Tidak Satu Jaringan WiFi</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> HP menggunakan Paket Data 4G/5G atau terhubung ke SSID WiFi yang berbeda dari laptop.</p>
+                        <p><strong>Solusi:</strong> Hubungkan kedua device ke nama WiFi yang persis sama. Jika di kosan/kantor WiFi diisolasi (AP Isolation), gunakan Hotspot dari HP ke Laptop!</p>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">⏹️</span>
+                        <h3>6. Server Belum Running / Inactive</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> Jendela terminal tidak sengaja tertutup atau ketekan Ctrl+C yang menghentikan proses server.</p>
+                        <p><strong>Solusi:</strong> Buka terminal baru dan jalankan kembali perintah penyedia server kamu.</p>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">🔒</span>
+                        <h3>7. Binding Hanya Ke Localhost (127.0.0.1)</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> Server dijalankan tanpa flag host binding, sehingga menolak koneksi jaringan luar.</p>
+                        <p><strong>Solusi:</strong> Tambahkan argumen binding ke <code>0.0.0.0</code> (misal: <code>php artisan serve --host=0.0.0.0</code> atau <code>npm run dev -- --host 0.0.0.0</code>).</p>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="card trouble-card">
+                    <div class="trouble-header">
+                        <span class="trouble-icon">🌐</span>
+                        <h3>8. Bingung Menggunakan IP 0.0.0.0 di Browser HP</h3>
+                    </div>
+                    <div class="trouble-body">
+                        <p><strong>Penyebab:</strong> Memasukkan <code>http://0.0.0.0:8000</code> secara mentah-mentah di URL browser HP.</p>
+                        <p><strong>Solusi:</strong> <code>0.0.0.0</code> hanya untuk konfigurasi SERVER. Di browser HP, selalu masukkan IP Local Komputer kamu (seperti <code>http://192.168.x.x:8000</code>)!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
+                <p class="section-subtitle">Pertanyaan paling sering ditanyakan pemula tentang server lokal.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">Apakah saya butuh koneksi internet untuk menjalankan server lokal? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p><strong>TIDAK!</strong> Server lokal dan IP local berjalan di jaringan internal (LAN/WiFi lokal). Tanpa kuota internet pun, HP dan Laptop kamu bisa saling terhubung selama ada sinyal WiFi atau kabel LAN.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Apakah IP Local 192.168.x.x saya aman jika ketahuan orang lain? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Sangat aman! IP Local hanya berlaku di dalam jaringan WiFi rumah/kantormu sendiri. Orang di luar jaringan WiFi tidak bisa mengakses laptopmu hanya dengan IP 192.168.x.x tersebut.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Apakah orang lain di internet bisa buka website localhost saya? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Tidak bisa. Localhost dan IP Local terisolasi di ruangan/WiFi tempat kamu berada. Hanya device yang tersambung ke jaringan router yang sama yang bisa mengaksesnya (jika server diset ke 0.0.0.0).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Berapakah rentang nomor Port yang aman untuk digunakan? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Disarankan menggunakan port di atas 1024, seperti 3000, 5000, 8000, 8080, 9000. Port 1-1023 adalah system port khusus OS (misal Port 80 untuk HTTP, Port 443 untuk HTTPS).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>⚡ <strong>DevOpsLectures Course</strong> — Modul Ajar Interaktif Dosen untuk Mahasiswa Pemula.</p>
+            <p class="footer-sub">Belajar Praktis • Tanpa Teori Ribet • Langsung Demo di Kelas!</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
