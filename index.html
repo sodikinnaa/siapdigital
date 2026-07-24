@@ -20,11 +20,11 @@
                 <span class="logo-text">Local<span class="highlight">Dev</span></span>
             </a>
             <nav class="nav-links">
+                <a href="#zerosetup">Nol Setup (0 Instalasi)</a>
                 <a href="#silabus">Jadwal Pertemuan</a>
-                <a href="#simulator">Simulator Tebakan</a>
-                <a href="#comparator">Cheat Sheet Eksekusi</a>
+                <a href="#simulator">Simulator Live</a>
+                <a href="#comparator">Cheat Sheet</a>
                 <a href="#quiz">Quiz Seru</a>
-                <a href="#troubleshooting">Solusi Error</a>
             </nav>
             <a href="./pertemuan-1/index.html" class="btn btn-primary nav-cta">Mulai Pertemuan 1 🚀</a>
         </div>
@@ -34,30 +34,30 @@
     <section class="hero-section">
         <div class="container grid hero-grid">
             <div class="hero-content">
-                <div class="badge">🔥 Course 100% Praktis & Game Tebak Jaringan</div>
+                <div class="badge">🔥 100% Praktis — NOL INSTALASI / SETUP APAPUN!</div>
                 <h1 class="hero-title">
                     Bongkar Rahasia <span class="gradient-text">Localhost</span>, <span class="gradient-text">IP Local</span> & <span class="gradient-text">Port</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pernah bingung kenapa web buatanmu cuma bisa dibuka di laptop sendiri, tapi pas dicoba di HP teman malah error <i>"Connection Refused"</i>? Yuk kuasai logika jaringan lokal dalam 6 Pertemuan santai!
+                    Gak perlu install XAMPP, Composer, Laravel, atau Node_modules! Langsung jalan dalam 3 detik di laptop atau mainkan simulator langsung di web browser!
                 </p>
                 <div class="hero-benefits">
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Game <strong>Tebak Koneksi Simulator</strong> sebelum simulasi berjalan</span>
+                        <span><strong>0 Setup / Nol Instalasi:</strong> Langsung pakai perintah bawaan laptop</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Cheat Sheet <strong>Eksekusi Perintah Tanpa Tulis Kodingan</strong></span>
+                        <span>Game <strong>Tebak Koneksi Simulator</strong> interaktif</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>6 Landing Page Pertemuan Independent & Terstruktur</span>
+                        <span>Bisa pamer & test web buatanmu langsung dari HP via WiFi</span>
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="./pertemuan-1/index.html" class="btn btn-primary btn-lg">Gas Landing Page Pertemuan 1 🚀</a>
-                    <a href="#simulator" class="btn btn-outline btn-lg">Main Game Simulator 🎮</a>
+                    <a href="#zerosetup" class="btn btn-primary btn-lg">Lihat Perintah 0 Setup 🚀</a>
+                    <a href="#simulator" class="btn btn-outline btn-lg">Main Simulator Web 🎮</a>
                 </div>
             </div>
 
@@ -70,16 +70,51 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - localdev-demo</span>
+                        <span class="terminal-title">bash - zero-setup-demo</span>
                     </div>
                     <div class="terminal-body">
                         <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
                         <p class="output success">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...</p>
                         <p class="output info">➔ Localhost:  <a href="#">http://127.0.0.1:8000</a></p>
-                        <p class="output highlight-net">➔ Network HP:  <a href="#">http://192.168.1.15:8000</a> (Siap Akses! 🎉)</p>
+                        <p class="output highlight-net">➔ Network HP:  <a href="#">http://192.168.1.15:8000</a> (0 Setup! 🎉)</p>
                         <div class="terminal-interactive-status">
-                            <span class="status-indicator online"></span> Server Aktif di Seluruh Jaringan WiFi
+                            <span class="status-indicator online"></span> Perintah Bawaan OS (Tanpa Install Apapun)
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zero Setup Feature Highlight -->
+    <section id="zerosetup" class="section">
+        <div class="container">
+            <div class="card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.05)); border-color: var(--accent);">
+                <div class="section-header text-center" style="margin-bottom: 30px;">
+                    <div class="badge" style="background: rgba(16, 185, 129, 0.2); color: #A7F3D0;">💡 Rekomendasi Utama Dosen / Mentor</div>
+                    <h2 class="section-title">Perintah Sakti 0 Setup (Nol Instalasi)</h2>
+                    <p class="section-subtitle">Gunakan perintah bawaan ini di Terminal / PowerShell. Bebas pusing error XAMPP / Laravel / Node.js!</p>
+                </div>
+
+                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div style="background: rgba(0,0,0,0.3); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--accent); margin-bottom: 12px;">🐍 Opsi 1: Server Bawaan Python (Rekomendasi #1)</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">Langsung ketik di PowerShell/Terminal folder mana saja:</p>
+                        <div class="code-block highlight-code">
+                            <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <p style="color: #A7F3D0; font-size: 0.85rem; margin-top: 10px;">✓ Tanpa XAMPP • Tanpa Laravel • Tanpa Database • Tanpa Error Path</p>
+                    </div>
+
+                    <div style="background: rgba(0,0,0,0.3); padding: 24px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--secondary); margin-bottom: 12px;">🐘 Opsi 2: Server Bawaan Native PHP (Tanpa Laravel)</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">Jika di laptop sudah ada PHP (XAMPP/PHP CLI):</p>
+                        <div class="code-block">
+                            <code>php -S 0.0.0.0:8000</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <p style="color: #38BDF8; font-size: 0.85rem; margin-top: 10px;">✓ Tanpa Artisan • Tanpa Composer • Bisa di folder mana saja</p>
                     </div>
                 </div>
             </div>
@@ -232,27 +267,27 @@
 
             <div class="comparator-wrapper">
                 <div class="lang-selector">
-                    <button class="lang-btn active" onclick="switchLang('php')">🐘 PHP / Laravel</button>
+                    <button class="lang-btn active" onclick="switchLang('php')">🐘 PHP Native</button>
                     <button class="lang-btn" onclick="switchLang('node')">🟢 Node.js / Vite</button>
-                    <button class="lang-btn" onclick="switchLang('python')">🐍 Python</button>
+                    <button class="lang-btn" onclick="switchLang('python')">🐍 Python (Rekomendasi 0 Setup)</button>
                 </div>
 
                 <div class="lang-box-container">
                     <!-- PHP -->
                     <div id="lang-php" class="lang-card active">
-                        <h3>🐘 PHP Server Commands</h3>
-                        <p>Secara default <code>php artisan serve</code> hanya bisa dibuka di localhost laptop sendiri.</p>
+                        <h3>🐘 PHP Built-in Server (Tanpa Laravel / Artisan)</h3>
+                        <p>Gunakan perintah native PHP ini yang bisa dijalankan di folder mana saja tanpa butuh file `artisan`.</p>
                         <div class="cmd-group">
                             <label>Hanya Laptop Sendiri (Localhost Only):</label>
                             <div class="code-block">
-                                <code>php artisan serve</code>
+                                <code>php -S localhost:8000</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
                         </div>
                         <div class="cmd-group">
                             <label>Bisa Dibuka dari HP (WiFi Local):</label>
                             <div class="code-block highlight-code">
-                                <code>php artisan serve --host=0.0.0.0 --port=8000</code>
+                                <code>php -S 0.0.0.0:8000</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
                         </div>
@@ -292,8 +327,8 @@
 
                     <!-- Python -->
                     <div id="lang-python" class="lang-card">
-                        <h3>🐍 Python Server Commands</h3>
-                        <p>Server web praktis tanpa install library tambahan.</p>
+                        <h3>🐍 Python Server Commands (Rekomendasi Utama 0 Setup)</h3>
+                        <p>Server web paling praktis bawaan laptop tanpa install library/framework tambahan.</p>
                         <div class="cmd-group">
                             <label>Hanya Laptop Sendiri (Loopback):</label>
                             <div class="code-block">
