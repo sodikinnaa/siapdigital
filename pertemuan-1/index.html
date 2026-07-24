@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 1: Pengenalan Server & Localhost</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+        <a href="../index.html" class="btn btn-outline" style="margin-bottom: 20px;">← Kembali ke Silabus Utama</a>
+        <div class="card">
+            <span class="p-badge">PERTEMUAN 01</span>
+            <h1>🖥️ Pengenalan Server & Konsep Localhost</h1>
+            <p class="lead-text">Praktik dasar menyalakan server di laptopmu sendiri.</p>
+
+            <div class="ascii-diagram">
+<pre>
+ [ Browser Mahasiswa ] 
+           |
+     Minta: "localhost:8000"
+           |
+           v
+ +-------------------------------------+
+ | Laptop (Bertindak sbg Server)       |
+ |  -> Aplikasi Web Melayani Pesanan  |
+ +-------------------------------------+
+</pre>
+            </div>
+
+            <h3>Langkah Praktik:</h3>
+            <div class="code-block">
+                <code>python -m http.server 8000</code>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+
+            <p style="margin-top: 20px;">Buka di browser: <a href="http://localhost:8000" target="_blank" style="color: #38BDF8;">http://localhost:8000</a></p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

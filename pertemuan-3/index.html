@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3: IP Local & Akses HP</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+        <a href="../index.html" class="btn btn-outline" style="margin-bottom: 20px;">← Kembali ke Silabus Utama</a>
+        <div class="card">
+            <span class="p-badge">PERTEMUAN 03</span>
+            <h1>📱 IP Local & Akses Web dari HP (192.168.x.x)</h1>
+            <p class="lead-text">Mencari IP Local laptop dan membuka website langsung di HP via WiFi sama.</p>
+
+            <div class="ascii-diagram">
+<pre>
+               [ Router WiFi Kampus ]
+                         |
+      +------------------+------------------+
+      |                                     |
+ [ Laptop Kamu ]                     [ Smartphone HP ]
+ IP: 192.168.1.10                    IP: 192.168.1.25
+ (Server Port 8000)                        |
+      ^                                    |
+      +=== Buka http://192.168.1.10:8000 ===+
+</pre>
+            </div>
+
+            <h3>Perintah Cek IP:</h3>
+            <div class="code-block">
+                <code>ipconfig (Windows) / ifconfig (Mac)</code>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
