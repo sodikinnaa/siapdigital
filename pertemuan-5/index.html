@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 5: Bedah Perilaku Host Binding Framework Popular | LocalDev</title>
+    <title>Pertemuan 5: Perintah Server Favoritmu | LocalDev</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,13 +32,13 @@
             <div class="hero-content">
                 <div class="badge">PERTEMUAN 05</div>
                 <h1 class="hero-title">
-                    Bedah Perilaku <span class="gradient-text">Framework Popular</span>
+                    Cara Buka Akses Server di <span class="gradient-text">Tools Favoritmu</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Mengapa Laravel, Vite Node.js, dan Python memiliki perintah flag host binding yang berbeda-beda? Yuk bedah satu per satu!
+                    Punya kodingan di Laravel, React/Vite, atau Python? Yuk lihat perintah simpel 1 baris untuk membuka akses servernya ke HP!
                 </p>
                 <div class="hero-actions">
-                    <a href="#praktik" class="btn btn-primary btn-lg">Pelajari Cheat Sheet 🚀</a>
+                    <a href="#praktik" class="btn btn-primary btn-lg">Lihat Perintah Simpel 🚀</a>
                     <a href="../pertemuan-6/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 6 →</a>
                 </div>
             </div>
@@ -51,47 +51,47 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - framework-cheat</span>
+                        <span class="terminal-title">bash - cheat-sheet-simpel</span>
                     </div>
                     <div class="terminal-body">
                         <p class="cmd"><span class="prompt">$</span> npm run dev -- --host 0.0.0.0</p>
-                        <p class="output success">➜  Network: http://192.168.1.15:5173/</p>
-                        <p class="output highlight-net">➔ Vite Server Buka Akses HP! 🎉</p>
+                        <p class="output success">➜ Network HP: http://192.168.1.15:5173/</p>
+                        <p class="output highlight-net">➔ Perintah 1 Baris Langsung Jalan! 🎉</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Polished Concept Card Section -->
+    <!-- Polished Concept Card Section (Simplified for Beginners) -->
     <section id="praktik" class="section">
         <div class="container">
             
             <div class="concept-card">
                 <div class="analogy-box">
-                    <h3>💡 Mengapa Perilaku Framework Berbeda-beda?</h3>
+                    <h3>💡 Inti Rahasianya Sangat Simpel!</h3>
                     <p>
-                        Secara default, demi **alasan keamanan (Security Default)**, hampir semua framework web populer (Laravel, Vite, Next.js, Express) mengunci server-nya di <code>127.0.0.1</code> (Internal Laptop Only).
+                        Setiap tools koding (seperti Laravel, React/Vite, atau Python) punya tombol atau kunci perintah yang beda-beda. Tapi **TUJUANNYA SAMA BANGET**: menambahkan kode <code>0.0.0.0</code> agar pintu servernya terbuka untuk HP temanmu!
                     </p>
                     <div class="quote-highlight">
-                        "Setiap framework memiliki sintaks flag CLI yang berbeda untuk membuka kuncinya ke 0.0.0.0. Jika kamu menggunakan Laravel, gunakan <code>--host=0.0.0.0</code>. Jika menggunakan Vite, tambahkan <code>-- --host 0.0.0.0</code>."
+                        "Cukup hapal 1 baris perintah sesuai tool favorit yang sedang kamu pakai sehari-hari!"
                     </div>
                 </div>
 
-                <h3 style="margin-top: 30px;">🛠️ Cheat Sheet Perintah Framework:</h3>
+                <h3 style="margin-top: 30px;">🛠️ Pilih Perintah Sesuai Tool Kamu:</h3>
                 
                 <div class="step-container">
                     <!-- PHP / Laravel -->
                     <div class="step-item">
                         <div class="step-num">🐘</div>
                         <div class="step-content">
-                            <h4>PHP & Laravel Framework</h4>
-                            <p>Perintah bawaan vs Perintah Buka Akses WiFi HP:</p>
+                            <h4>Kodingan PHP / Laravel</h4>
+                            <p>Ketik perintah ini di terminal project-mu:</p>
                             <div class="code-block highlight-code">
-                                <code>php artisan serve --host=0.0.0.0 --port=8000</code>
+                                <code>php artisan serve --host=0.0.0.0</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                            <p style="font-size: 0.85rem; color: var(--text-dim);">*(Atau PHP Native: <code>php -S 0.0.0.0:8000</code>)*</p>
+                            <p style="font-size: 0.85rem; color: var(--text-dim);">*(Atau PHP biasa tanpa Laravel: <code>php -S 0.0.0.0:8000</code>)*</p>
                         </div>
                     </div>
 
@@ -99,8 +99,8 @@
                     <div class="step-item">
                         <div class="step-num">🟢</div>
                         <div class="step-content">
-                            <h4>Node.js & Vite / Next.js</h4>
-                            <p>Buka akses network untuk dev server Vite:</p>
+                            <h4>Kodingan React / Vue / Vite</h4>
+                            <p>Ketik perintah ini di terminal project-mu:</p>
                             <div class="code-block highlight-code">
                                 <code>npm run dev -- --host 0.0.0.0</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -112,8 +112,8 @@
                     <div class="step-item">
                         <div class="step-num">🐍</div>
                         <div class="step-content">
-                            <h4>Python HTTP Server</h4>
-                            <p>Buka akses server HTTP Python:</p>
+                            <h4>Kodingan HTML / Python</h4>
+                            <p>Ketik perintah ini di terminal foldermu:</p>
                             <div class="code-block highlight-code">
                                 <code>python -m http.server 8000 --bind 0.0.0.0</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -124,7 +124,7 @@
 
                 <div class="challenge-card">
                     <h3>🎯 Mini Challenge Pertemuan 5</h3>
-                    <p>Coba jalankan <code>npm run dev</code> atau <code>php -S 0.0.0.0:8000</code> di laptopmu, lalu buka IP laptopmu dari HP. Apa pesan yang muncul di terminal server?</p>
+                    <p>Coba jalankan 1 perintah di atas sesuai tool favoritmu. Apakah alamat IP local laptopmu (seperti 192.168.x.x) muncul di layar terminal?</p>
                 </div>
 
                 <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
@@ -139,7 +139,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 5: Framework Host Binding.</p>
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 5: Perintah Server Favoritmu.</p>
         </div>
     </footer>
 
