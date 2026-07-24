@@ -32,13 +32,13 @@
             <div class="hero-content">
                 <div class="badge">PERTEMUAN 03</div>
                 <h1 class="hero-title">
-                    IP Local <span class="gradient-text">(192.168.x.x)</span> & Akses Web dari HP
+                    Mencari <span class="gradient-text">IP Local</span> (192.168.x.x) & <span class="gradient-text">Akses dari HP</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Temukan IP Local laptopmu dan buka website buatanmu langsung dari layar Smartphone teman via jaringan WiFi lokal!
+                    Temukan nomor alamat unik laptopmu di dalam jaringan WiFi rumah/kosan dan buka website buatanmu dari HP teman!
                 </p>
                 <div class="hero-actions">
-                    <a href="#praktik" class="btn btn-primary btn-lg">Cari IP & Akses HP 🚀</a>
+                    <a href="#praktik" class="btn btn-primary btn-lg">Mulai Praktik Cek IP 🚀</a>
                     <a href="../pertemuan-4/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 4 →</a>
                 </div>
             </div>
@@ -51,78 +51,96 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - pertemuan-3-demo</span>
+                        <span class="terminal-title">powershell - ipconfig</span>
                     </div>
                     <div class="terminal-body">
-                        <p class="cmd"><span class="prompt">$</span> ipconfig</p>
-                        <p class="output success">IPv4 Address . . . . . . . . . . . : 192.168.1.15</p>
-                        <p class="output highlight-net">➔ Buka di HP: http://192.168.1.15:8000 🎉</p>
+                        <p class="cmd"><span class="prompt">PS C:\></span> ipconfig</p>
+                        <p class="output">Wireless LAN adapter Wi-Fi:</p>
+                        <p class="output highlight-net">   IPv4 Address. . . . . . . . . . . : 192.168.1.15</p>
+                        <p class="output success">➔ Buka di Browser HP: http://192.168.1.15:8000 🎉</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Polished Concept Card Section -->
     <section id="praktik" class="section">
         <div class="container">
-            <div class="card">
-                <div class="module-header">
-                    <span class="module-number">PENJELASAN KONSEP</span>
-                    <h2>Analogi Alamat Perumahan WiFi</h2>
-                </div>
-                <div class="module-body">
+            
+            <div class="concept-card">
+                <div class="analogy-box">
+                    <h3>💡 Analogi Perumahan WiFi & Nomor Rumah</h3>
                     <p>
-                        WiFi rumah/sekolah kamu itu seperti sebuah <em>Komplek Perumahan</em>. Router WiFi memberikan "Nomor Rumah Local" (IP Local berawalan <code>192.168.x.x</code> atau <code>10.x.x.x</code>) kepada setiap device yang terhubung.
+                        Router WiFi di rumah/kosanmu itu ibarat **Pengembang Perumahan**. Setiap kali laptop dan HP-mu terhubung ke WiFi yang sama, Router akan membagikan **Nomor Rumah Unik** (misal: <code>192.168.1.15</code> untuk Laptop, dan <code>192.168.1.25</code> untuk HP).
                     </p>
-                    <p>
-                        Agar HP teman bisa berkunjung ke web laptopmu, HP harus tahu IP Local si laptop!
-                    </p>
-
-                    <h3>Diagram Jaringan ASCII</h3>
-                    <div class="ascii-diagram">
-<pre>
-               [ Router WiFi Lokal ]
-                         |
-      +------------------+------------------+
-      |                                     |
- [ Laptop Kamu ]                     [ Smartphone HP ]
- IP: 192.168.1.15                    IP: 192.168.1.25
- (Server Port 8000)                        |
-      ^                                    |
-      +=== Buka http://192.168.1.15:8000 ===+
-</pre>
+                    <div class="quote-highlight">
+                        "Agar HP temanmu bisa bertamu ke website di laptopmu, HP tersebut harus memanggil alamat IP Local laptopmu (seperti <code>http://192.168.1.15:8000</code>). Jangan panggil <code>0.0.0.0</code> di HP, karena 0.0.0.0 itu cuma bahasa instruksi internal server!"
                     </div>
+                </div>
 
-                    <h3>Praktik (Cari IP & Akses HP):</h3>
-                    <ol class="step-list">
-                        <li>Pastikan HP dan Laptop terhubung ke **WiFi yang SAMA**.</li>
-                        <li>Cari IP Laptopmu di Terminal:
-                            <div class="code-block">
-                                <code>ipconfig (Windows)   ATAU   ifconfig (Mac/Linux)</code>
+                <h3>Diagram Alur Akses dari HP</h3>
+                <div class="ascii-diagram">
+<pre>
+ 📱 HP Teman (192.168.1.25)
+       |
+       |  Minta: "http://192.168.1.15:8000" (Via WiFi)
+       v
+ [ Router WiFi Perumahan ]
+       |
+       v
+ 💻 Laptop Kamu (192.168.1.15:8000) ---> [Melayani Website 🎉]
+</pre>
+                </div>
+
+                <h3 style="margin-top: 30px;">🛠️ Langkah Praktik Hands-On:</h3>
+                
+                <div class="step-container">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Cek IP Local Laptopmu</h4>
+                            <p>Buka CMD / PowerShell lalu ketik perintah berikut:</p>
+                            <div class="code-block highlight-code">
+                                <code>ipconfig</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                        <li>Jalankan server dengan bind `0.0.0.0`:
-                            <div class="code-block highlight-code">
+                            <p style="font-size: 0.85rem; color: var(--text-dim);">*(Mac/Linux gunakan: <code>ifconfig</code> atau <code>ip a</code>)*</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Jalankan Server dengan Binding 0.0.0.0</h4>
+                            <p>Pastikan server dibuka untuk jaringan luar:</p>
+                            <div class="code-block">
                                 <code>python -m http.server 8000 --bind 0.0.0.0</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                        <li>Buka Chrome di HP teman, ketik: <code>http://192.168.1.15:8000</code> *(ganti 192.168.1.15 sesuai IP laptopmu)*.</li>
-                    </ol>
-
-                    <div class="mini-challenge">
-                        <h4>🎯 Mini Challenge Pertemuan 3</h4>
-                        <p>Matikan WiFi laptop, lalu hubungkan laptop ke Hotspot HP-mu. Cek `ipconfig` lagi. Berapakah IP local terbarunya?</p>
+                        </div>
                     </div>
 
-                    <div class="hero-actions" style="margin-top: 30px;">
-                        <a href="../pertemuan-2/index.html" class="btn btn-outline">← Kembali ke Pertemuan 2</a>
-                        <a href="../pertemuan-4/index.html" class="btn btn-primary">Lanjut Pertemuan 4: Konsep Port Server →</a>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Buka dari Browser HP</h4>
+                            <p>Sambungkan HP ke WiFi yang sama, buka Chrome HP lalu ketik: <code>http://192.168.x.x:8000</code> (ganti 192.168.x.x dengan IP laptopmu).</p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="challenge-card">
+                    <h3>🎯 Mini Challenge Pertemuan 3</h3>
+                    <p>Apa yang terjadi jika HP kamu mematikan WiFi dan menggunakan Paket Data 4G/5G? Mengapa websitenya tidak bisa dibuka?</p>
+                </div>
+
+                <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
+                    <a href="../pertemuan-2/index.html" class="btn btn-outline">← Kembali ke Pertemuan 2</a>
+                    <a href="../pertemuan-4/index.html" class="btn btn-primary">Lanjut Pertemuan 4: Konsep Port & Bentrok →</a>
+                </div>
             </div>
+
         </div>
     </section>
 

@@ -63,24 +63,33 @@
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Polished Concept Card Section -->
     <section id="praktik" class="section">
         <div class="container">
-            <div class="card">
-                <div class="module-header">
-                    <span class="module-number">PENJELASAN KONSEP</span>
-                    <h2>Analogi Cermin & Pintu Pagar Rumah</h2>
-                </div>
-                <div class="module-body">
-                    <p>
-                        • <strong>127.0.0.1 (Loopback Address):</strong> Analoginya seperti kamu <em>ngobrol di depan cermin kamar</em>. Hanya KAMU di laptop itu yang bisa mendengar. Device dari luar (seperti HP) TIDAK AKAN PERNAH bisa masuk.
-                    </p>
-                    <p>
-                        • <strong>0.0.0.0 (All Interfaces Binding):</strong> Analoginya seperti kamu <em>membuka pintu pagar rumah lebar-lebar</em>. Server bilang: <em>"Buka akses dari mana saja—baik dari laptop ini sendiri MAUPUN dari jaringan WiFi luar!"</em>
-                    </p>
+            
+            <div class="concept-card">
+                <div class="analogy-box">
+                    <h3>💡 Analogi Cermin vs Pintu Pagar Rumah</h3>
+                    
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px;">
+                        <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #EF4444; padding: 18px; border-radius: 8px;">
+                            <h4 style="color: #FCA5A5; margin-bottom: 8px;">🪞 127.0.0.1 (Loopback Address)</h4>
+                            <p style="font-size: 0.98rem; color: #E2E8F0; margin-bottom: 0;">
+                                Analoginya seperti kamu <strong>ngobrol di depan cermin kamar</strong>. Hanya KAMU di laptop itu yang bisa mendengar. Device dari luar (seperti HP) TIDAK AKAN PERNAH bisa masuk.
+                            </p>
+                        </div>
 
-                    <h3>Diagram Perbandingan ASCII</h3>
-                    <div class="ascii-diagram">
+                        <div style="background: rgba(16, 185, 129, 0.08); border-left: 4px solid #10B981; padding: 18px; border-radius: 8px;">
+                            <h4 style="color: #A7F3D0; margin-bottom: 8px;">🚪 0.0.0.0 (All Interfaces Binding)</h4>
+                            <p style="font-size: 0.98rem; color: #E2E8F0; margin-bottom: 0;">
+                                Analoginya seperti kamu <strong>membuka pintu pagar rumah lebar-lebar</strong>. Server bilang: <em>"Buka akses dari mana saja—baik dari laptop ini sendiri MAUPUN dari jaringan WiFi luar!"</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 28px;">Diagram Perbandingan ASCII</h3>
+                <div class="ascii-diagram">
 <pre>
  --- Server di-bind ke 127.0.0.1 (Loopback) ---
  Laptop Sendiri  ---> [127.0.0.1:8000] (BISA BUKA)
@@ -90,35 +99,47 @@
  Laptop Sendiri  ---> [0.0.0.0:8000]   (BISA via localhost)
  HP via WiFi     ---> [IP_Laptop:8000] (BISA DIBUKA! 🎉)
 </pre>
-                    </div>
+                </div>
 
-                    <h3>Praktik Membandingkan Binding:</h3>
-                    <ol class="step-list">
-                        <li>Uji Binding Internal (Laptop Only):
+                <h3 style="margin-top: 30px;">🛠️ Praktik Membandingkan Binding:</h3>
+                
+                <div class="step-container">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Uji Binding Internal (Laptop Only)</h4>
+                            <p>Jalankan server yang terkunci khusus internal laptop sendiri:</p>
                             <div class="code-block">
                                 <code>python -m http.server 8000 --bind 127.0.0.1</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                        <li>Matikan (tekan <code>Ctrl + C</code>), lalu uji Binding Publik:
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Uji Binding Publik (Siap Terima Tamu WiFi)</h4>
+                            <p>Matikan server pertama (tekan <code>Ctrl + C</code>), lalu uji Binding Publik di bawah:</p>
                             <div class="code-block highlight-code">
                                 <code>python -m http.server 8000 --bind 0.0.0.0</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                    </ol>
-
-                    <div class="mini-challenge">
-                        <h4>🎯 Mini Challenge Pertemuan 2</h4>
-                        <p>Mengapa developer secara default memilih `127.0.0.1` saat koding di kafe atau tempat umum?</p>
-                    </div>
-
-                    <div class="hero-actions" style="margin-top: 30px;">
-                        <a href="../pertemuan-1/index.html" class="btn btn-outline">← Kembali ke Pertemuan 1</a>
-                        <a href="../pertemuan-3/index.html" class="btn btn-primary">Lanjut Pertemuan 3: IP Local & Akses HP →</a>
+                        </div>
                     </div>
                 </div>
+
+                <div class="challenge-card">
+                    <h3>🎯 Mini Challenge Pertemuan 2</h3>
+                    <p>Mengapa developer secara default memilih <code>127.0.0.1</code> saat koding di kafe atau tempat umum?</p>
+                </div>
+
+                <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
+                    <a href="../pertemuan-1/index.html" class="btn btn-outline">← Kembali ke Pertemuan 1</a>
+                    <a href="../pertemuan-3/index.html" class="btn btn-primary">Lanjut Pertemuan 3: IP Local & Akses HP →</a>
+                </div>
             </div>
+
         </div>
     </section>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 5: Framework Popular (PHP, Node, Python) | LocalDev</title>
+    <title>Pertemuan 5: Bedah Perilaku Host Binding Framework Popular | LocalDev</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,13 +32,13 @@
             <div class="hero-content">
                 <div class="badge">PERTEMUAN 05</div>
                 <h1 class="hero-title">
-                    Perilaku Host Binding <span class="gradient-text">Framework Popular</span>
+                    Bedah Perilaku <span class="gradient-text">Framework Popular</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Bongkar rahasia kenapa `php artisan serve` & `npm run dev` secara default mengunci ke localhost, dan cara membuka flag `--host 0.0.0.0`!
+                    Mengapa Laravel, Vite Node.js, dan Python memiliki perintah flag host binding yang berbeda-beda? Yuk bedah satu per satu!
                 </p>
                 <div class="hero-actions">
-                    <a href="#praktik" class="btn btn-primary btn-lg">Lihat Perintah Framework 🚀</a>
+                    <a href="#praktik" class="btn btn-primary btn-lg">Pelajari Cheat Sheet 🚀</a>
                     <a href="../pertemuan-6/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 6 →</a>
                 </div>
             </div>
@@ -51,92 +51,95 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - pertemuan-5-demo</span>
+                        <span class="terminal-title">bash - framework-cheat</span>
                     </div>
                     <div class="terminal-body">
-                        <p class="cmd"><span class="prompt">$</span> php artisan serve --host=0.0.0.0 --port=8000</p>
-                        <p class="output success">INFO Server running on [http://0.0.0.0:8000]</p>
-                        <p class="output highlight-net">➔ Network HP: http://192.168.1.15:8000 🎉</p>
+                        <p class="cmd"><span class="prompt">$</span> npm run dev -- --host 0.0.0.0</p>
+                        <p class="output success">➜  Network: http://192.168.1.15:5173/</p>
+                        <p class="output highlight-net">➔ Vite Server Buka Akses HP! 🎉</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Polished Concept Card Section -->
     <section id="praktik" class="section">
         <div class="container">
-            <div class="card">
-                <div class="module-header">
-                    <span class="module-number">CHEAT SHEET PERINTAH</span>
-                    <h2>Perbandingan Command Laravel, Vite & Python</h2>
-                </div>
-                <div class="module-body">
+            
+            <div class="concept-card">
+                <div class="analogy-box">
+                    <h3>💡 Mengapa Perilaku Framework Berbeda-beda?</h3>
                     <p>
-                        Tiap bahasa/tool punya filosofi bawaan:
-                        <br>• <strong>PHP (Artisan) & Vite (Node):</strong> Mengutamakan <em>Keamanan Default</em>, sehingga mengunci server hanya ke <code>127.0.0.1</code> (localhost).
-                        <br>• <strong>Python http.server:</strong> Mengutamakan <em>Kemudahan Akses</em>, langsung mengikat ke <code>0.0.0.0</code> pada versi tertentu.
+                        Secara default, demi **alasan keamanan (Security Default)**, hampir semua framework web populer (Laravel, Vite, Next.js, Express) mengunci server-nya di <code>127.0.0.1</code> (Internal Laptop Only).
                     </p>
+                    <div class="quote-highlight">
+                        "Setiap framework memiliki sintaks flag CLI yang berbeda untuk membuka kuncinya ke 0.0.0.0. Jika kamu menggunakan Laravel, gunakan <code>--host=0.0.0.0</code>. Jika menggunakan Vite, tambahkan <code>-- --host 0.0.0.0</code>."
+                    </div>
+                </div>
 
-                    <div class="table-responsive">
-                        <table class="custom-table">
-                            <thead>
-                                <tr>
-                                    <th>Framework / Tool</th>
-                                    <th>Perintah Default</th>
-                                    <th>Binding Default</th>
-                                    <th>Cara Ubah Agar Buka Akses HP (0.0.0.0)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>PHP (Laravel)</strong></td>
-                                    <td><code>php artisan serve</code></td>
-                                    <td><code>127.0.0.1:8000</code></td>
-                                    <td><code>php artisan serve --host=0.0.0.0</code></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Node.js (Vite)</strong></td>
-                                    <td><code>npm run dev</code></td>
-                                    <td><code>127.0.0.1:5173</code></td>
-                                    <td><code>npm run dev -- --host 0.0.0.0</code></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Python (HTTP)</strong></td>
-                                    <td><code>python -m http.server</code></td>
-                                    <td><code>0.0.0.0:8000</code></td>
-                                    <td><code>python -m http.server 8000 --bind 0.0.0.0</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <h3 style="margin-top: 30px;">🛠️ Cheat Sheet Perintah Framework:</h3>
+                
+                <div class="step-container">
+                    <!-- PHP / Laravel -->
+                    <div class="step-item">
+                        <div class="step-num">🐘</div>
+                        <div class="step-content">
+                            <h4>PHP & Laravel Framework</h4>
+                            <p>Perintah bawaan vs Perintah Buka Akses WiFi HP:</p>
+                            <div class="code-block highlight-code">
+                                <code>php artisan serve --host=0.0.0.0 --port=8000</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-dim);">*(Atau PHP Native: <code>php -S 0.0.0.0:8000</code>)*</p>
+                        </div>
                     </div>
 
-                    <h3>Praktik Menjalankan Akses Jaringan:</h3>
-                    <div class="code-block highlight-code">
-                        <code># PHP Laravel
-php artisan serve --host=0.0.0.0 --port=8000
-
-# Node.js (Vite)
-npm run dev -- --host 0.0.0.0
-
-# Python
-python -m http.server 8000 --bind 0.0.0.0</code>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <!-- Node.js / Vite -->
+                    <div class="step-item">
+                        <div class="step-num">🟢</div>
+                        <div class="step-content">
+                            <h4>Node.js & Vite / Next.js</h4>
+                            <p>Buka akses network untuk dev server Vite:</p>
+                            <div class="code-block highlight-code">
+                                <code>npm run dev -- --host 0.0.0.0</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="hero-actions" style="margin-top: 30px;">
-                        <a href="../pertemuan-4/index.html" class="btn btn-outline">← Kembali ke Pertemuan 4</a>
-                        <a href="../pertemuan-6/index.html" class="btn btn-primary">Lanjut Pertemuan 6: Evaluasi & Quiz →</a>
+                    <!-- Python -->
+                    <div class="step-item">
+                        <div class="step-num">🐍</div>
+                        <div class="step-content">
+                            <h4>Python HTTP Server</h4>
+                            <p>Buka akses server HTTP Python:</p>
+                            <div class="code-block highlight-code">
+                                <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h3>🎯 Mini Challenge Pertemuan 5</h3>
+                    <p>Coba jalankan <code>npm run dev</code> atau <code>php -S 0.0.0.0:8000</code> di laptopmu, lalu buka IP laptopmu dari HP. Apa pesan yang muncul di terminal server?</p>
+                </div>
+
+                <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
+                    <a href="../pertemuan-4/index.html" class="btn btn-outline">← Kembali ke Pertemuan 4</a>
+                    <a href="../pertemuan-6/index.html" class="btn btn-primary">Lanjut Pertemuan 6: Evaluasi, Quiz & Troubleshooting →</a>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 5: Framework Popular.</p>
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 5: Framework Host Binding.</p>
         </div>
     </footer>
 

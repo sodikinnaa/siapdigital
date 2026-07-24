@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 4: Konsep Port Server & Bentrok | LocalDev</title>
+    <title>Pertemuan 4: Konsep Port Server & Port in Use | LocalDev</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,13 +32,13 @@
             <div class="hero-content">
                 <div class="badge">PERTEMUAN 04</div>
                 <h1 class="hero-title">
-                    Konsep <span class="gradient-text">Port Server</span> & Mengatasi Bentrok
+                    Konsep <span class="gradient-text">Port Server</span> & <span class="gradient-text">Port in Use</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pahami nomor pintu kamar server (3000, 8000, 8080) dan cara menyelesaikan error misterius <i>"Address already in use / Port in use"</i>!
+                    Pahami analogi nomor kamar server (8000, 3000, 8080) dan atasi error legendaris "Address Already in Use"!
                 </p>
                 <div class="hero-actions">
-                    <a href="#praktik" class="btn btn-primary btn-lg">Solusi Port Bentrok 🚀</a>
+                    <a href="#praktik" class="btn btn-primary btn-lg">Mulai Praktik Port 🚀</a>
                     <a href="../pertemuan-5/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 5 →</a>
                 </div>
             </div>
@@ -51,89 +51,97 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - pertemuan-4-demo</span>
+                        <span class="terminal-title">bash - port-error-demo</span>
                     </div>
                     <div class="terminal-body">
                         <p class="cmd"><span class="prompt">$</span> python -m http.server 8000</p>
-                        <p class="output error" style="color: #EF4444;">OSError: [Errno 98] Address already in use!</p>
-                        <p class="output highlight-net">➔ Solusi: Ganti ke `python -m http.server 8081` 🎉</p>
+                        <p class="output error">OSError: [Errno 98] Address already in use!</p>
+                        <p class="output highlight-net">➔ Solusi: Ganti ke Port 8001 atau 8080! 💡</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Polished Concept Card Section -->
     <section id="praktik" class="section">
         <div class="container">
-            <div class="card">
-                <div class="module-header">
-                    <span class="module-number">PENJELASAN KONSEP</span>
-                    <h2>Analogi Nomor Pintu Kamar Gedung</h2>
+            
+            <div class="concept-card">
+                <div class="analogy-box">
+                    <h3>💡 Analogi Apartemen & Nomor Pintu Kamar</h3>
+                    <p>
+                        Jika IP Address adalah **Alamat Gedung Apartemen**, maka **Port** adalah **Nomor Pintu Kamar** di gedung tersebut. 
+                    </p>
+                    <div class="quote-highlight">
+                        "Satu pintu kamar tidak boleh ditempati 2 penghuni sekaligus! Jika Port 8000 sudah dipakai oleh server Python, lalu kamu mencoba menjalankan server lain di Port 8000, sistem operasi akan menolaknya dengan error <strong>'Address Already in Use'</strong>."
+                    </div>
                 </div>
-                <div class="module-body">
-                    <p>
-                        Jika IP adalah <em>Alamat Gedung</em>, maka <strong>Port</strong> adalah <em>Nomor Pintu Kamar</em> di dalam gedung tersebut.
-                    </p>
-                    <p>
-                        Satu nomor pintu hanya bisa ditempati oleh SATU aplikasi server dalam satu waktu. Jika aplikasi Node.js sudah pakai Port 3000, lalu kamu jalankan aplikasi React di Port 3000 juga, akan terjadi tabrakan!
-                    </p>
 
-                    <h3>Diagram Arsitektur Port ASCII</h3>
-                    <div class="ascii-diagram">
+                <h3>Diagram Bentrok Port (Address in Use)</h3>
+                <div class="ascii-diagram">
 <pre>
- Laptop (IP: 192.168.1.15)
-  +-----------------------------------+
-  |  Port 80   : Server Web Default   |
-  |  Port 3000 : App React / Node.js  |
-  |  Port 8000 : App Laravel / Python |
-  |  Port 8080 : App Vue / Java       |
-  +-----------------------------------+
-  *(Jika 2 aplikasi coba pakai Port 3000 = BENTROK/ERROR!)*
+ [ Gedung Laptop IP: 192.168.1.15 ]
+   ├── Kamar Port 8000 ➔ Python Server (Sedang Aktif)
+   ├── Kamar Port 3000 ➔ Node.js Server (Sedang Aktif)
+   └── Kamar Port 8080 ➔ [ KOSONG / SIAP PAKAI ]
 </pre>
+                </div>
+
+                <h3 style="margin-top: 30px;">🛠️ Praktik Simulasi Bentrok & Solusi Port:</h3>
+                
+                <div class="step-container">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Jalankan Server di Port 8000</h4>
+                            <p>Buka Terminal 1 lalu jalankan:</p>
+                            <div class="code-block">
+                                <code>python -m http.server 8000</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3>Praktik Memancing & Memperbaiki Error Bentrok:</h3>
-                    <ol class="step-list">
-                        <li>Jalankan server di Terminal 1:
-                            <div class="code-block">
-                                <code>python -m http.server 8000</code>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                        <li>Buka Terminal 2 (jangan tutup terminal 1), ketik perintah yang sama untuk memancing error:
-                            <div class="code-block">
-                                <code>python -m http.server 8000</code>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
-                        </li>
-                        <li>Lihat error: <code>OSError: Address already in use</code>.</li>
-                        <li>Solusi: Pindahkan server kedua ke port <code>8081</code>:
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Jalankan Server Kedua di Port yang Sama (Buka Terminal Baru)</h4>
+                            <p>Tanpa mematikan Terminal 1, buka Terminal 2 baru dan ketik perintah yang sama di Port 8000. Amati error `Address already in use`!</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Solusi: Pindahkan ke Port Lain yang Kosong</h4>
+                            <p>Di Terminal 2, ubah nomor portnya menjadi 8001 atau 8080:</p>
                             <div class="code-block highlight-code">
-                                <code>python -m http.server 8081</code>
+                                <code>python -m http.server 8080 --bind 0.0.0.0</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                    </ol>
-
-                    <div class="mini-challenge">
-                        <h4>🎯 Mini Challenge Pertemuan 4</h4>
-                        <p>Port berapakah yang secara default digunakan oleh lalu lintas web HTTP standar di dunia nyata? (Hint: 2 digit angka!).</p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="hero-actions" style="margin-top: 30px;">
-                        <a href="../pertemuan-3/index.html" class="btn btn-outline">← Kembali ke Pertemuan 3</a>
-                        <a href="../pertemuan-5/index.html" class="btn btn-primary">Lanjut Pertemuan 5: Framework Popular →</a>
-                    </div>
+                <div class="challenge-card">
+                    <h3>🎯 Mini Challenge Pertemuan 4</h3>
+                    <p>Berapakah nomor port default untuk web biasa (HTTP) dan web aman (HTTPS) di seluruh dunia?</p>
+                </div>
+
+                <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
+                    <a href="../pertemuan-3/index.html" class="btn btn-outline">← Kembali ke Pertemuan 3</a>
+                    <a href="../pertemuan-5/index.html" class="btn btn-primary">Lanjut Pertemuan 5: Framework Host Binding →</a>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 4: Konsep Port & Bentrok.</p>
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 4: Konsep Port & Port in Use.</p>
         </div>
     </footer>
 
