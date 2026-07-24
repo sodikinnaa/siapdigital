@@ -20,8 +20,8 @@
     --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-code: 'Fira Code', monospace;
     
-    --radius-sm: 8px;
-    --radius-md: 16px;
+    --radius-sm: 10px;
+    --radius-md: 18px;
     --radius-lg: 24px;
 
     --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.2);
@@ -48,7 +48,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -185,7 +185,7 @@ h1, h2, h3, h4 {
 
 /* Hero Section */
 .hero-section {
-    padding: 80px 0 60px;
+    padding: 70px 0 50px;
 }
 
 .hero-grid {
@@ -381,6 +381,165 @@ h1, h2, h3, h4 {
     font-size: 0.95rem;
 }
 
+/* Polished Content Layout Cards */
+.concept-card {
+    background: linear-gradient(145deg, rgba(30, 41, 67, 0.8), rgba(15, 23, 42, 0.9));
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.analogy-box {
+    background: rgba(6, 182, 212, 0.08);
+    border-left: 4px solid var(--secondary);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin: 20px 0;
+}
+
+.analogy-box h3 {
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.analogy-box p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #E2E8F0;
+    margin-bottom: 12px;
+}
+
+.quote-highlight {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-style: italic;
+    color: #FDE047;
+    border: 1px dashed rgba(253, 224, 71, 0.3);
+}
+
+/* Polished Step Cards */
+.step-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.step-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    transition: background 0.2s ease;
+}
+
+.step-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--secondary);
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 800;
+    border-radius: 50%;
+    font-size: 1.05rem;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.step-content p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    margin-bottom: 8px;
+}
+
+/* Polished Mini Challenge Box */
+.challenge-card {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(217, 119, 6, 0.05));
+    border: 1px dashed var(--warning);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    margin: 30px 0;
+}
+
+.challenge-card h3 {
+    color: var(--warning);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.challenge-card p {
+    color: #FDE68A;
+    font-size: 1.05rem;
+}
+
+/* Code Block Polished */
+.code-block {
+    position: relative;
+    background: #060911;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.code-block code {
+    font-family: var(--font-code);
+    color: #38BDF8;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.copy-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
 /* Simulator Styles */
 .simulator-section {
     background: linear-gradient(180deg, rgba(11, 15, 25, 0.5) 0%, rgba(17, 24, 39, 0.8) 100%);
@@ -525,15 +684,6 @@ h1, h2, h3, h4 {
 .flow-line {
     color: var(--secondary);
     font-weight: bold;
-}
-
-.sim-live-link {
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 /* Sections Global */

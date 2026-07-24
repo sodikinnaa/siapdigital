@@ -62,24 +62,23 @@
         </div>
     </section>
 
-    <!-- Materi Content Section -->
+    <!-- Polished Concept Card Section -->
     <section id="praktik" class="section">
         <div class="container">
-            <div class="card">
-                <div class="module-header">
-                    <span class="module-number">PENJELASAN KONSEP</span>
-                    <h2>Analogi Warung Makan & Localhost</h2>
+            
+            <div class="concept-card">
+                <div class="analogy-box">
+                    <h3>💡 Analogi Warung Makan & Localhost</h3>
+                    <p>
+                        Bayangkan <strong>Server</strong> itu seperti <strong>Warung Makan</strong> yang siap melayani pesanan kapan saja. <strong>Browser</strong> (Chrome/Firefox) adalah <strong>Pembeli</strong> yang datang meminta makanan (halaman web).
+                    </p>
+                    <div class="quote-highlight">
+                        "Istilah <code>localhost</code> hanyalah nama panggilan sayang untuk <strong>'Komputer Saya Sendiri'</strong>. Saat kamu mengetik <code>localhost</code> di browser, kamu sebenarnya bilang: 'Hei Chrome, tolong ambilkan halaman web yang tersimpan di laptop ini sendiri ya, tidak usah cari ke internet!'"
+                    </div>
                 </div>
-                <div class="module-body">
-                    <p>
-                        Bayangkan <strong>Server</strong> itu seperti <em>Warung Makan</em> yang siap melayani pesanan kapan saja. <strong>Browser</strong> (Chrome/Firefox) adalah <em>Pembeli</em> yang datang minta makanan (halaman web).
-                    </p>
-                    <p>
-                        Istilah <strong>`localhost`</strong> hanyalah nama panggilan sayang untuk <em>"Komputer Saya Sendiri"</em>. Jadi saat kamu mengetik <code>localhost</code> di browser, kamu sebenarnya sedang bilang: <em>"Hei Chrome, tolong ambilkan halaman web yang tersimpan di laptop ini sendiri ya, tidak usah cari ke internet!"</em>
-                    </p>
 
-                    <h3>Diagram Sederhana</h3>
-                    <div class="ascii-diagram">
+                <h3>Diagram Alur Sederhana</h3>
+                <div class="ascii-diagram">
 <pre>
  [ Browser Kamu ] 
         |
@@ -91,31 +90,55 @@
  |  -> Melayani Halaman Web Latihan   |
  +-------------------------------------+
 </pre>
+                </div>
+
+                <h3 style="margin-top: 30px;">🛠️ Langkah Praktik Hands-On:</h3>
+                
+                <div class="step-container">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Buka Terminal / Command Prompt</h4>
+                            <p>Buka PowerShell di Windows atau Terminal di Mac/Linux pada folder latihanmu.</p>
+                        </div>
                     </div>
 
-                    <h3>Langkah Praktik Dihands-on:</h3>
-                    <ol class="step-list">
-                        <li>Buka Terminal / Command Prompt di laptopmu.</li>
-                        <li>Masuk ke folder latihanmu dan jalankan perintah:
-                            <div class="code-block">
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Jalankan Perintah Server Web 0 Setup</h4>
+                            <p>Ketik perintah di bawah ini lalu tekan Enter:</p>
+                            <div class="code-block highlight-code">
                                 <code>python -m http.server 8000</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
-                        </li>
-                        <li>Buka Chrome, ketik: <code>http://localhost:8000</code></li>
-                    </ol>
-
-                    <div class="mini-challenge">
-                        <h4>🎯 Mini Challenge Pertemuan 1</h4>
-                        <p>Buat file <code>index.html</code> di folder tersebut dengan isi <code>&lt;h1&gt;Halo Server Pertama Saya!&lt;/h1&gt;</code>. Lalu refresh browser `localhost:8000`. Apa yang muncul?</p>
+                        </div>
                     </div>
 
-                    <div class="hero-actions" style="margin-top: 30px;">
-                        <a href="../index.html" class="btn btn-outline">← Kembali ke Silabus Utama</a>
-                        <a href="../pertemuan-2/index.html" class="btn btn-primary">Lanjut Pertemuan 2: 127.0.0.1 vs 0.0.0.0 →</a>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Buka Browser Kamu</h4>
+                            <p>Buka Chrome / Safari, lalu ketik alamat ini di URL bar:</p>
+                            <div class="code-block">
+                                <code>http://localhost:8000</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="challenge-card">
+                    <h3>🎯 Mini Challenge Pertemuan 1</h3>
+                    <p>Buat file bernama <code>index.html</code> di folder tersebut dengan isi kode <code>&lt;h1&gt;Halo Server Pertama Saya!&lt;/h1&gt;</code>. Lalu refresh browser <code>localhost:8000</code>. Tampilan apa yang muncul?</p>
+                </div>
+
+                <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
+                    <a href="../index.html" class="btn btn-outline">← Kembali ke Silabus Utama</a>
+                    <a href="../pertemuan-2/index.html" class="btn btn-primary">Lanjut Pertemuan 2: 127.0.0.1 vs 0.0.0.0 →</a>
+                </div>
             </div>
+
         </div>
     </section>
 
