@@ -3,40 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 1: Pengenalan Server & Localhost</title>
+    <title>Pertemuan 1: Apa Itu Server & Localhost? | LocalDev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
-        <a href="../index.html" class="btn btn-outline" style="margin-bottom: 20px;">← Kembali ke Silabus Utama</a>
-        <div class="card">
-            <span class="p-badge">PERTEMUAN 01</span>
-            <h1>🖥️ Pengenalan Server & Konsep Localhost</h1>
-            <p class="lead-text">Praktik dasar menyalakan server di laptopmu sendiri.</p>
 
-            <div class="ascii-diagram">
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Local<span class="highlight">Dev</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html#silabus">← Kembali ke Silabus Utama</a>
+            </nav>
+            <a href="http://localhost:8000" target="_blank" class="btn btn-primary nav-cta">Coba Server 🚀</a>
+        </div>
+    </header>
+
+    <!-- Hero Section Pertemuan 1 -->
+    <section class="hero-section">
+        <div class="container grid hero-grid">
+            <div class="hero-content">
+                <div class="badge">PERTEMUAN 01</div>
+                <h1 class="hero-title">
+                    Apa Itu <span class="gradient-text">Server</span> & <span class="gradient-text">Localhost</span>?
+                </h1>
+                <p class="hero-subtitle">
+                    Langkah pertama menjadi developer sejati! Pahami bagaimana laptopmu bisa bertindak sebagai server web dalam hitungan detik tanpa perlu koneksi internet.
+                </p>
+                <div class="hero-actions">
+                    <a href="#praktik" class="btn btn-primary btn-lg">Mulai Praktik Sekarang 🚀</a>
+                    <a href="../pertemuan-2/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 2 →</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bash - pertemuan-1-demo</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">$</span> python -m http.server 8000</p>
+                        <p class="output success">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...</p>
+                        <p class="output highlight-net">➔ Server Aktif di Localhost Laptopmu! 🎉</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materi Content Section -->
+    <section id="praktik" class="section">
+        <div class="container">
+            <div class="card">
+                <div class="module-header">
+                    <span class="module-number">PENJELASAN KONSEP</span>
+                    <h2>Analogi Warung Makan & Localhost</h2>
+                </div>
+                <div class="module-body">
+                    <p>
+                        Bayangkan <strong>Server</strong> itu seperti <em>Warung Makan</em> yang siap melayani pesanan kapan saja. <strong>Browser</strong> (Chrome/Firefox) adalah <em>Pembeli</em> yang datang minta makanan (halaman web).
+                    </p>
+                    <p>
+                        Istilah <strong>`localhost`</strong> hanyalah nama panggilan sayang untuk <em>"Komputer Saya Sendiri"</em>. Jadi saat kamu mengetik <code>localhost</code> di browser, kamu sebenarnya sedang bilang: <em>"Hei Chrome, tolong ambilkan halaman web yang tersimpan di laptop ini sendiri ya, tidak usah cari ke internet!"</em>
+                    </p>
+
+                    <h3>Diagram Sederhana</h3>
+                    <div class="ascii-diagram">
 <pre>
- [ Browser Mahasiswa ] 
-           |
-     Minta: "localhost:8000"
-           |
-           v
+ [ Browser Kamu ] 
+        |
+  Minta: "localhost:8000"
+        |
+        v
  +-------------------------------------+
- | Laptop (Bertindak sbg Server)       |
- |  -> Aplikasi Web Melayani Pesanan  |
+ | Laptop Kamu (Bertindak sbg Server)  |
+ |  -> Melayani Halaman Web Latihan   |
  +-------------------------------------+
 </pre>
-            </div>
+                    </div>
 
-            <h3>Langkah Praktik:</h3>
-            <div class="code-block">
-                <code>python -m http.server 8000</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            </div>
+                    <h3>Langkah Praktik Dihands-on:</h3>
+                    <ol class="step-list">
+                        <li>Buka Terminal / Command Prompt di laptopmu.</li>
+                        <li>Masuk ke folder latihanmu dan jalankan perintah:
+                            <div class="code-block">
+                                <code>python -m http.server 8000</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </li>
+                        <li>Buka Chrome, ketik: <code>http://localhost:8000</code></li>
+                    </ol>
 
-            <p style="margin-top: 20px;">Buka di browser: <a href="http://localhost:8000" target="_blank" style="color: #38BDF8;">http://localhost:8000</a></p>
+                    <div class="mini-challenge">
+                        <h4>🎯 Mini Challenge Pertemuan 1</h4>
+                        <p>Buat file <code>index.html</code> di folder tersebut dengan isi <code>&lt;h1&gt;Halo Server Pertama Saya!&lt;/h1&gt;</code>. Lalu refresh browser `localhost:8000`. Apa yang muncul?</p>
+                    </div>
+
+                    <div class="hero-actions" style="margin-top: 30px;">
+                        <a href="../index.html" class="btn btn-outline">← Kembali ke Silabus Utama</a>
+                        <a href="../pertemuan-2/index.html" class="btn btn-primary">Lanjut Pertemuan 2: 127.0.0.1 vs 0.0.0.0 →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 1: Pengenalan Server & Localhost.</p>
+        </div>
+    </footer>
+
     <script src="../script.js"></script>
 </body>
 </html>

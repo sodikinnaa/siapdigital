@@ -3,36 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 2: 127.0.0.1 vs 0.0.0.0</title>
+    <title>Pertemuan 2: Rahasia IP 127.0.0.1 vs 0.0.0.0 | LocalDev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
-        <a href="../index.html" class="btn btn-outline" style="margin-bottom: 20px;">← Kembali ke Silabus Utama</a>
-        <div class="card">
-            <span class="p-badge">PERTEMUAN 02</span>
-            <h1>🌐 127.0.0.1 vs 0.0.0.0 (Host Binding)</h1>
-            <p class="lead-text">Beda IP Cermin internal laptop vs Binding 0.0.0.0 untuk membuka pintu pagar jaringan luar.</p>
 
-            <div class="ascii-diagram">
-<pre>
- --- Jika Server di-bind ke 127.0.0.1 ---
- Laptop Sendiri  ---> [127.0.0.1:3000] (BISA)
- HP via WiFi     ---> [127.0.0.1:3000] (DITOLAK / Connection Refused!)
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Local<span class="highlight">Dev</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../pertemuan-1/index.html">← Pertemuan 1</a>
+                <a href="../index.html#silabus">Silabus Utama</a>
+            </nav>
+            <a href="../pertemuan-3/index.html" class="btn btn-primary nav-cta">Pertemuan 3 →</a>
+        </div>
+    </header>
 
- --- Jika Server di-bind ke 0.0.0.0 ---
- Laptop Sendiri  ---> [0.0.0.0:3000] (BISA via localhost)
- HP via WiFi     ---> [IP_Laptop:3000] (BISA DIARSES! 🎉)
-</pre>
+    <!-- Hero Section Pertemuan 2 -->
+    <section class="hero-section">
+        <div class="container grid hero-grid">
+            <div class="hero-content">
+                <div class="badge">PERTEMUAN 02</div>
+                <h1 class="hero-title">
+                    Rahasia IP <span class="gradient-text">127.0.0.1</span> vs <span class="gradient-text">0.0.0.0</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Pahami beda IP Loopback (Bicara di Depan Cermin) vs Host Binding 0.0.0.0 (Membuka Pintu Pagar Rumah untuk Tamu WiFi)!
+                </p>
+                <div class="hero-actions">
+                    <a href="#praktik" class="btn btn-primary btn-lg">Mulai Praktik Binding 🚀</a>
+                    <a href="../pertemuan-3/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 3 →</a>
+                </div>
             </div>
 
-            <h3>Perintah Binding Publik:</h3>
-            <div class="code-block highlight-code">
-                <code>python -m http.server 8000 --bind 0.0.0.0</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bash - pertemuan-2-demo</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
+                        <p class="output success">Serving HTTP on 0.0.0.0 port 8000...</p>
+                        <p class="output highlight-net">➔ Binding 0.0.0.0 Aktif: Tamu WiFi Boleh Masuk! 🎉</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="praktik" class="section">
+        <div class="container">
+            <div class="card">
+                <div class="module-header">
+                    <span class="module-number">PENJELASAN KONSEP</span>
+                    <h2>Analogi Cermin & Pintu Pagar Rumah</h2>
+                </div>
+                <div class="module-body">
+                    <p>
+                        • <strong>127.0.0.1 (Loopback Address):</strong> Analoginya seperti kamu <em>ngobrol di depan cermin kamar</em>. Hanya KAMU di laptop itu yang bisa mendengar. Device dari luar (seperti HP) TIDAK AKAN PERNAH bisa masuk.
+                    </p>
+                    <p>
+                        • <strong>0.0.0.0 (All Interfaces Binding):</strong> Analoginya seperti kamu <em>membuka pintu pagar rumah lebar-lebar</em>. Server bilang: <em>"Buka akses dari mana saja—baik dari laptop ini sendiri MAUPUN dari jaringan WiFi luar!"</em>
+                    </p>
+
+                    <h3>Diagram Perbandingan ASCII</h3>
+                    <div class="ascii-diagram">
+<pre>
+ --- Server di-bind ke 127.0.0.1 (Loopback) ---
+ Laptop Sendiri  ---> [127.0.0.1:8000] (BISA BUKA)
+ HP via WiFi     ---> [127.0.0.1:8000] (DITOLAK / Connection Refused!)
+
+ --- Server di-bind ke 0.0.0.0 (Public Interfaces) ---
+ Laptop Sendiri  ---> [0.0.0.0:8000]   (BISA via localhost)
+ HP via WiFi     ---> [IP_Laptop:8000] (BISA DIBUKA! 🎉)
+</pre>
+                    </div>
+
+                    <h3>Praktik Membandingkan Binding:</h3>
+                    <ol class="step-list">
+                        <li>Uji Binding Internal (Laptop Only):
+                            <div class="code-block">
+                                <code>python -m http.server 8000 --bind 127.0.0.1</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </li>
+                        <li>Matikan (tekan <code>Ctrl + C</code>), lalu uji Binding Publik:
+                            <div class="code-block highlight-code">
+                                <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="mini-challenge">
+                        <h4>🎯 Mini Challenge Pertemuan 2</h4>
+                        <p>Mengapa developer secara default memilih `127.0.0.1` saat koding di kafe atau tempat umum?</p>
+                    </div>
+
+                    <div class="hero-actions" style="margin-top: 30px;">
+                        <a href="../pertemuan-1/index.html" class="btn btn-outline">← Kembali ke Pertemuan 1</a>
+                        <a href="../pertemuan-3/index.html" class="btn btn-primary">Lanjut Pertemuan 3: IP Local & Akses HP →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 2: 127.0.0.1 vs 0.0.0.0.</p>
+        </div>
+    </footer>
+
     <script src="../script.js"></script>
 </body>
 </html>

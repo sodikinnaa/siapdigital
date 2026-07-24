@@ -3,19 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 6: Quiz & Evaluasi</title>
+    <title>Pertemuan 6: Evaluasi, Quiz & Troubleshooting | LocalDev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
-        <a href="../index.html" class="btn btn-outline" style="margin-bottom: 20px;">← Kembali ke Silabus Utama</a>
-        <div class="card">
-            <span class="p-badge">PERTEMUAN 06</span>
-            <h1>🎯 Evaluasi, Quiz Interaktif & Troubleshooting Mandiri</h1>
-            <p class="lead-text">Silakan buka halaman silabus utama untuk mengikuti Quiz Interaktif 5 Soal & Simulator Live.</p>
-            <a href="../index.html#quiz" class="btn btn-primary" style="margin-top: 20px;">Mulai Quiz Evaluasi 🚀</a>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Local<span class="highlight">Dev</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../pertemuan-5/index.html">← Pertemuan 5</a>
+                <a href="../index.html#silabus">Silabus Utama</a>
+            </nav>
+            <a href="../index.html" class="btn btn-primary nav-cta">Dashboard Utama 🏠</a>
         </div>
-    </div>
+    </header>
+
+    <!-- Hero Section Pertemuan 6 -->
+    <section class="hero-section">
+        <div class="container grid hero-grid">
+            <div class="hero-content">
+                <div class="badge">PERTEMUAN 06</div>
+                <h1 class="hero-title">
+                    Evaluasi, Quiz & <span class="gradient-text">Troubleshooting</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Pertemuan puncak! Uji pemahamanmu, mainkan Simulator Jaringan Live, dan kuasai 8 solusi error jaringan server terpopuler!
+                </p>
+                <div class="hero-actions">
+                    <a href="#simulator-box" class="btn btn-primary btn-lg">Coba Simulator Live 🎮</a>
+                    <a href="#quiz-box" class="btn btn-outline btn-lg">Mulai Quiz Evaluasi 🎯</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bash - pertemuan-6-demo</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
+                        <p class="output success">➔ Quiz Evaluasi Ready: 5/5 Soal Terbuka! 🏆</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Box Section -->
+    <section id="simulator-box" class="section simulator-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">🎮 Interactive Simulator</div>
+                <h2 class="section-title">Simulator Jaringan Live Pertemuan 6</h2>
+            </div>
+
+            <div class="card simulator-card">
+                <div class="grid simulator-grid">
+                    <div class="sim-controls">
+                        <h3>⚙️ Pengaturan Server & Akses</h3>
+                        <div class="sim-group">
+                            <label>1. Host Binding Server (Di Laptop):</label>
+                            <select id="sim-bind" class="sim-select" onchange="runSimulation()">
+                                <option value="127.0.0.1">127.0.0.1 (Loopback / Cermin Intern)</option>
+                                <option value="0.0.0.0" selected>0.0.0.0 (Buka Pagar Publik / All Interfaces)</option>
+                            </select>
+                        </div>
+                        <div class="sim-group">
+                            <label>2. Port Server Laptop:</label>
+                            <select id="sim-port" class="sim-select" onchange="runSimulation()">
+                                <option value="8000">Port 8000 (Aktif)</option>
+                                <option value="3000">Port 3000 (Bentrok dengan Node.js)</option>
+                            </select>
+                        </div>
+                        <div class="sim-group">
+                            <label>3. Device Pengakses & Jaringan:</label>
+                            <select id="sim-device" class="sim-select" onchange="runSimulation()">
+                                <option value="laptop-localhost">Laptop Sendiri via http://localhost:8000</option>
+                                <option value="hp-wifi-correct" selected>HP Teman (WiFi Sama) via http://192.168.1.15:8000</option>
+                                <option value="hp-wifi-wrong-ip">HP Teman (WiFi Sama) via http://0.0.0.0:8000 (Salah IP)</option>
+                                <option value="hp-cellular">HP Pakai Paket Data 4G/5G (Beda Jaringan)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Koneksi Sekarang 🔄</button>
+                    </div>
+
+                    <div class="sim-visual-box">
+                        <h3>📊 Status Visualisasi Koneksi</h3>
+                        <div id="sim-result-card" class="sim-status-card success">
+                            <div class="sim-icon" id="sim-icon">🎉</div>
+                            <h4 id="sim-status-title">Koneksi Berhasil!</h4>
+                            <p id="sim-status-desc">HP berhasil mengakses website di laptop karena server menggunakan binding 0.0.0.0 dan berada dalam 1 jaringan WiFi yang sama.</p>
+                        </div>
+                        <div class="sim-flow-diagram">
+                            <div class="flow-node" id="node-device">📱 HP Teman (192.168.1.25)</div>
+                            <div class="flow-line" id="flow-line">-------------------></div>
+                            <div class="flow-node" id="node-server">💻 Laptop (192.168.1.15:8000)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz-box" class="section quiz-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">🎯 Quiz Evaluasi Final</div>
+                <h2 class="section-title">Quiz Interaktif Server & Jaringan</h2>
+            </div>
+            <div class="quiz-container card">
+                <div id="quiz-wrapper"></div>
+                <div id="quiz-result" class="quiz-result hidden">
+                    <h3>🎉 Hasil Quiz Kamu: <span id="score-text">0/5</span></h3>
+                    <p id="feedback-text"></p>
+                    <button class="btn btn-primary" onclick="resetQuiz()">Coba Lagi 🔄</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 6: Evaluasi & Quiz Final.</p>
+        </div>
+    </footer>
+
     <script src="../script.js"></script>
 </body>
 </html>

@@ -3,25 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 5: Frameworks</title>
+    <title>Pertemuan 5: Framework Popular (PHP, Node, Python) | LocalDev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
-        <a href="../index.html" class="btn btn-outline" style="margin-bottom: 20px;">← Kembali ke Silabus Utama</a>
-        <div class="card">
-            <span class="p-badge">PERTEMUAN 05</span>
-            <h1>⚡ Perilaku Host Binding Framework Popular</h1>
-            <p class="lead-text">Bedah perintah Laravel, Vite Node.js, dan Python beserta flag --host 0.0.0.0.</p>
 
-            <div class="code-block highlight-code">
-                <code># Laravel: php artisan serve --host=0.0.0.0
-# Vite: npm run dev -- --host 0.0.0.0
-# Python: python -m http.server 8000 --bind 0.0.0.0</code>
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Local<span class="highlight">Dev</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../pertemuan-4/index.html">← Pertemuan 4</a>
+                <a href="../index.html#silabus">Silabus Utama</a>
+            </nav>
+            <a href="../pertemuan-6/index.html" class="btn btn-primary nav-cta">Pertemuan 6 →</a>
+        </div>
+    </header>
+
+    <!-- Hero Section Pertemuan 5 -->
+    <section class="hero-section">
+        <div class="container grid hero-grid">
+            <div class="hero-content">
+                <div class="badge">PERTEMUAN 05</div>
+                <h1 class="hero-title">
+                    Perilaku Host Binding <span class="gradient-text">Framework Popular</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Bongkar rahasia kenapa `php artisan serve` & `npm run dev` secara default mengunci ke localhost, dan cara membuka flag `--host 0.0.0.0`!
+                </p>
+                <div class="hero-actions">
+                    <a href="#praktik" class="btn btn-primary btn-lg">Lihat Perintah Framework 🚀</a>
+                    <a href="../pertemuan-6/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 6 →</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bash - pertemuan-5-demo</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">$</span> php artisan serve --host=0.0.0.0 --port=8000</p>
+                        <p class="output success">INFO Server running on [http://0.0.0.0:8000]</p>
+                        <p class="output highlight-net">➔ Network HP: http://192.168.1.15:8000 🎉</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="praktik" class="section">
+        <div class="container">
+            <div class="card">
+                <div class="module-header">
+                    <span class="module-number">CHEAT SHEET PERINTAH</span>
+                    <h2>Perbandingan Command Laravel, Vite & Python</h2>
+                </div>
+                <div class="module-body">
+                    <p>
+                        Tiap bahasa/tool punya filosofi bawaan:
+                        <br>• <strong>PHP (Artisan) & Vite (Node):</strong> Mengutamakan <em>Keamanan Default</em>, sehingga mengunci server hanya ke <code>127.0.0.1</code> (localhost).
+                        <br>• <strong>Python http.server:</strong> Mengutamakan <em>Kemudahan Akses</em>, langsung mengikat ke <code>0.0.0.0</code> pada versi tertentu.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Framework / Tool</th>
+                                    <th>Perintah Default</th>
+                                    <th>Binding Default</th>
+                                    <th>Cara Ubah Agar Buka Akses HP (0.0.0.0)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>PHP (Laravel)</strong></td>
+                                    <td><code>php artisan serve</code></td>
+                                    <td><code>127.0.0.1:8000</code></td>
+                                    <td><code>php artisan serve --host=0.0.0.0</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Node.js (Vite)</strong></td>
+                                    <td><code>npm run dev</code></td>
+                                    <td><code>127.0.0.1:5173</code></td>
+                                    <td><code>npm run dev -- --host 0.0.0.0</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Python (HTTP)</strong></td>
+                                    <td><code>python -m http.server</code></td>
+                                    <td><code>0.0.0.0:8000</code></td>
+                                    <td><code>python -m http.server 8000 --bind 0.0.0.0</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Praktik Menjalankan Akses Jaringan:</h3>
+                    <div class="code-block highlight-code">
+                        <code># PHP Laravel
+php artisan serve --host=0.0.0.0 --port=8000
+
+# Node.js (Vite)
+npm run dev -- --host 0.0.0.0
+
+# Python
+python -m http.server 8000 --bind 0.0.0.0</code>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+
+                    <div class="hero-actions" style="margin-top: 30px;">
+                        <a href="../pertemuan-4/index.html" class="btn btn-outline">← Kembali ke Pertemuan 4</a>
+                        <a href="../pertemuan-6/index.html" class="btn btn-primary">Lanjut Pertemuan 6: Evaluasi & Quiz →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 5: Framework Popular.</p>
+        </div>
+    </footer>
+
     <script src="../script.js"></script>
 </body>
 </html>
