@@ -21,8 +21,8 @@
             </a>
             <nav class="nav-links">
                 <a href="#silabus">Jadwal Pertemuan</a>
-                <a href="#simulator">Simulator Live</a>
-                <a href="#comparator">Cheat Sheet</a>
+                <a href="#simulator">Simulator Tebakan</a>
+                <a href="#comparator">Cheat Sheet Eksekusi</a>
                 <a href="#quiz">Quiz Seru</a>
                 <a href="#troubleshooting">Solusi Error</a>
             </nav>
@@ -34,30 +34,30 @@
     <section class="hero-section">
         <div class="container grid hero-grid">
             <div class="hero-content">
-                <div class="badge">🔥 Course 100% Praktis & Standalone Landing Page Per Pertemuan</div>
+                <div class="badge">🔥 Course 100% Praktis & Game Tebak Jaringan</div>
                 <h1 class="hero-title">
                     Bongkar Rahasia <span class="gradient-text">Localhost</span>, <span class="gradient-text">IP Local</span> & <span class="gradient-text">Port</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pernah bingung kenapa web buatanmu cuma bisa dibuka di laptop sendiri, tapi pas dicoba di HP teman malah error <i>"Connection Refused"</i>? Yuk kuasai cara buka web di HP via WiFi lokal dalam 6 Landing Page Pertemuan!
+                    Pernah bingung kenapa web buatanmu cuma bisa dibuka di laptop sendiri, tapi pas dicoba di HP teman malah error <i>"Connection Refused"</i>? Yuk kuasai logika jaringan lokal dalam 6 Pertemuan santai!
                 </p>
                 <div class="hero-benefits">
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Masing-masing dari <strong>6 Pertemuan Memiliki Landing Page Sendiri</strong></span>
+                        <span>Game <strong>Tebak Koneksi Simulator</strong> sebelum simulasi berjalan</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Bisa pamer & test web buatanmu langsung dari HP via WiFi</span>
+                        <span>Cheat Sheet <strong>Eksekusi Perintah Tanpa Tulis Kodingan</strong></span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span>Mainkan <strong>Simulator Jaringan Live & Quiz Seru</strong></span>
+                        <span>6 Landing Page Pertemuan Independent & Terstruktur</span>
                     </div>
                 </div>
                 <div class="hero-actions">
                     <a href="./pertemuan-1/index.html" class="btn btn-primary btn-lg">Gas Landing Page Pertemuan 1 🚀</a>
-                    <a href="#simulator" class="btn btn-outline btn-lg">Coba Simulator Live 🎮</a>
+                    <a href="#simulator" class="btn btn-outline btn-lg">Main Game Simulator 🎮</a>
                 </div>
             </div>
 
@@ -142,40 +142,40 @@
         </div>
     </section>
 
-    <!-- Interactive Simulator for Lectures -->
+    <!-- Interactive Simulator Game with Guess Step -->
     <section id="simulator" class="section simulator-section">
         <div class="container">
             <div class="section-header text-center">
-                <div class="badge">🎮 Interactive Simulator</div>
-                <h2 class="section-title">Simulator Jaringan Server Lokal</h2>
-                <p class="section-subtitle">Ubah pengaturan binding server & device pengakses, lalu lihat simulasi hasilnya secara real-time!</p>
+                <div class="badge">🎮 Game Tebak Koneksi Jaringan</div>
+                <h2 class="section-title">Simulator Jaringan (Tebak Dulu Hasilnya!)</h2>
+                <p class="section-subtitle">Atur settingan server, lalu **tebak dulu hasilnya** sebelum menekan tombol tes!</p>
             </div>
 
             <div class="card simulator-card">
                 <div class="grid simulator-grid">
-                    <!-- Controls -->
+                    <!-- Controls & Guess Input -->
                     <div class="sim-controls">
-                        <h3>⚙️ Pengaturan Server & Akses</h3>
+                        <h3>⚙️ 1. Atur Pengaturan Server</h3>
                         
                         <div class="sim-group">
-                            <label>1. Host Binding Server (Di Laptop):</label>
-                            <select id="sim-bind" class="sim-select" onchange="runSimulation()">
+                            <label>Host Binding Server (Di Laptop):</label>
+                            <select id="sim-bind" class="sim-select">
                                 <option value="127.0.0.1">127.0.0.1 (Loopback / Cermin Intern)</option>
                                 <option value="0.0.0.0" selected>0.0.0.0 (Buka Pagar Publik / All Interfaces)</option>
                             </select>
                         </div>
 
                         <div class="sim-group">
-                            <label>2. Port Server Laptop:</label>
-                            <select id="sim-port" class="sim-select" onchange="runSimulation()">
+                            <label>Port Server Laptop:</label>
+                            <select id="sim-port" class="sim-select">
                                 <option value="8000">Port 8000 (Aktif)</option>
                                 <option value="3000">Port 3000 (Bentrok dengan Node.js)</option>
                             </select>
                         </div>
 
                         <div class="sim-group">
-                            <label>3. Device Pengakses & Jaringan:</label>
-                            <select id="sim-device" class="sim-select" onchange="runSimulation()">
+                            <label>Device Pengakses & Jaringan:</label>
+                            <select id="sim-device" class="sim-select">
                                 <option value="laptop-localhost">Laptop Sendiri via http://localhost:8000</option>
                                 <option value="hp-wifi-correct" selected>HP Teman (WiFi Sama) via http://192.168.1.15:8000</option>
                                 <option value="hp-wifi-wrong-ip">HP Teman (WiFi Sama) via http://0.0.0.0:8000 (Salah IP)</option>
@@ -183,12 +183,27 @@
                             </select>
                         </div>
 
-                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Koneksi Sekarang 🔄</button>
+                        <h3 style="margin-top: 24px; color: var(--warning);">🤔 2. Tebak Dulu: Menurutmu Apa Hasil Koneksinya?</h3>
+                        <div class="sim-group">
+                            <select id="sim-guess" class="sim-select" style="border-color: var(--warning);">
+                                <option value="success">🟢 Pasti KONEKSI BERHASIL (Web Buka)!</option>
+                                <option value="refused">🔒 KONEKSI DITOLAK (Locked 127.0.0.1)</option>
+                                <option value="conflict">💥 ERROR PORT BENTROK (Port in Use)</option>
+                                <option value="fail_net">📡 GAGAL (Beda Jaringan / Salah Tulis IP)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Tebakan & Jalankan Simulasi 🚀</button>
                     </div>
 
-                    <!-- Visual Output -->
+                    <!-- Visual Output & Guess Feedback -->
                     <div class="sim-visual-box">
-                        <h3>📊 Status Visualisasi Koneksi</h3>
+                        <h3>📊 Hasil Tebakan & Simulasi Visual</h3>
+                        
+                        <div id="sim-guess-feedback" class="guess-badge correct">
+                            🎯 Pilih settingan di samping dan tebak hasilnya!
+                        </div>
+
                         <div id="sim-result-card" class="sim-status-card success">
                             <div class="sim-icon" id="sim-icon">🎉</div>
                             <h4 id="sim-status-title">Koneksi Berhasil!</h4>
@@ -206,12 +221,13 @@
         </div>
     </section>
 
-    <!-- Framework Command Comparator Section -->
+    <!-- Framework Command Comparator Section (Zero-Code Execution) -->
     <section id="comparator" class="section comparator-section">
         <div class="container">
             <div class="section-header text-center">
+                <div class="badge">⚡ Eksekusi Perintah Tanpa Koding</div>
                 <h2 class="section-title">Cheat Sheet Perintah Server Framework</h2>
-                <p class="section-subtitle">Pilih bahasa favoritmu untuk melihat cara menjalankan & membuka akses IP Localnya.</p>
+                <p class="section-subtitle">Klik tombol eksekusi di bawah untuk langsung mencoba server tanpa harus menulis kode apapun!</p>
             </div>
 
             <div class="comparator-wrapper">
@@ -240,7 +256,12 @@
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
                         </div>
-                        <p class="note">💡 Native PHP: <code>php -S 0.0.0.0:8000</code></p>
+                        
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary w-100" onclick="executeCheatCode('php')">▶️ Eksekusi Perintah PHP Ini (Tanpa Koding) 🚀</button>
+                        </div>
+                        
+                        <div id="term-output-php" class="terminal-card hidden" style="margin-top: 20px; font-size: 0.9rem;"></div>
                     </div>
 
                     <!-- Node.js -->
@@ -261,7 +282,12 @@
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
                         </div>
-                        <p class="note">💡 Express JS: Pastikan menggunakan <code>app.listen(3000, '0.0.0.0')</code></p>
+                        
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary w-100" onclick="executeCheatCode('node')">▶️ Eksekusi Perintah Node/Vite Ini (Tanpa Koding) 🚀</button>
+                        </div>
+
+                        <div id="term-output-node" class="terminal-card hidden" style="margin-top: 20px; font-size: 0.9rem;"></div>
                     </div>
 
                     <!-- Python -->
@@ -282,7 +308,12 @@
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
                         </div>
-                        <p class="note">💡 Flask: <code>app.run(host='0.0.0.0', port=5000)</code></p>
+                        
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary w-100" onclick="executeCheatCode('python')">▶️ Eksekusi Perintah Python Ini (Tanpa Koding) 🚀</button>
+                        </div>
+
+                        <div id="term-output-python" class="terminal-card hidden" style="margin-top: 20px; font-size: 0.9rem;"></div>
                     </div>
                 </div>
             </div>

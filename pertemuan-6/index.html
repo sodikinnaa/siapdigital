@@ -35,10 +35,10 @@
                     Evaluasi, Quiz & <span class="gradient-text">Troubleshooting</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pertemuan puncak! Uji pemahamanmu, mainkan Simulator Jaringan Live, dan kuasai 8 solusi error jaringan server terpopuler!
+                    Pertemuan puncak! Uji tebakanmu di Simulator Jaringan Live, mainkan Quiz Evaluasi, dan kuasai 8 solusi error jaringan server terpopuler!
                 </p>
                 <div class="hero-actions">
-                    <a href="#simulator-box" class="btn btn-primary btn-lg">Coba Simulator Live 🎮</a>
+                    <a href="#simulator-box" class="btn btn-primary btn-lg">Main Game Simulator 🎮</a>
                     <a href="#quiz-box" class="btn btn-outline btn-lg">Mulai Quiz Evaluasi 🎯</a>
                 </div>
             </div>
@@ -55,53 +55,67 @@
                     </div>
                     <div class="terminal-body">
                         <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
-                        <p class="output success">➔ Quiz Evaluasi Ready: 5/5 Soal Terbuka! 🏆</p>
+                        <p class="output success">➔ Quiz Evaluasi & Game Simulator Ready! 🏆</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Simulator Box Section -->
+    <!-- Simulator Box Section with Guessing Game -->
     <section id="simulator-box" class="section simulator-section">
         <div class="container">
             <div class="section-header text-center">
-                <div class="badge">🎮 Interactive Simulator</div>
-                <h2 class="section-title">Simulator Jaringan Live Pertemuan 6</h2>
+                <div class="badge">🎮 Game Tebak Koneksi Jaringan</div>
+                <h2 class="section-title">Simulator Jaringan Live (Tebak Dulu Hasilnya!)</h2>
             </div>
 
             <div class="card simulator-card">
                 <div class="grid simulator-grid">
                     <div class="sim-controls">
-                        <h3>⚙️ Pengaturan Server & Akses</h3>
+                        <h3>⚙️ 1. Atur Pengaturan Server</h3>
                         <div class="sim-group">
-                            <label>1. Host Binding Server (Di Laptop):</label>
-                            <select id="sim-bind" class="sim-select" onchange="runSimulation()">
+                            <label>Host Binding Server (Di Laptop):</label>
+                            <select id="sim-bind" class="sim-select">
                                 <option value="127.0.0.1">127.0.0.1 (Loopback / Cermin Intern)</option>
                                 <option value="0.0.0.0" selected>0.0.0.0 (Buka Pagar Publik / All Interfaces)</option>
                             </select>
                         </div>
                         <div class="sim-group">
-                            <label>2. Port Server Laptop:</label>
-                            <select id="sim-port" class="sim-select" onchange="runSimulation()">
+                            <label>Port Server Laptop:</label>
+                            <select id="sim-port" class="sim-select">
                                 <option value="8000">Port 8000 (Aktif)</option>
                                 <option value="3000">Port 3000 (Bentrok dengan Node.js)</option>
                             </select>
                         </div>
                         <div class="sim-group">
-                            <label>3. Device Pengakses & Jaringan:</label>
-                            <select id="sim-device" class="sim-select" onchange="runSimulation()">
+                            <label>Device Pengakses & Jaringan:</label>
+                            <select id="sim-device" class="sim-select">
                                 <option value="laptop-localhost">Laptop Sendiri via http://localhost:8000</option>
                                 <option value="hp-wifi-correct" selected>HP Teman (WiFi Sama) via http://192.168.1.15:8000</option>
                                 <option value="hp-wifi-wrong-ip">HP Teman (WiFi Sama) via http://0.0.0.0:8000 (Salah IP)</option>
                                 <option value="hp-cellular">HP Pakai Paket Data 4G/5G (Beda Jaringan)</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Koneksi Sekarang 🔄</button>
+
+                        <h3 style="margin-top: 24px; color: var(--warning);">🤔 2. Tebak Dulu: Menurutmu Apa Hasil Koneksinya?</h3>
+                        <div class="sim-group">
+                            <select id="sim-guess" class="sim-select" style="border-color: var(--warning);">
+                                <option value="success">🟢 Pasti KONEKSI BERHASIL (Web Buka)!</option>
+                                <option value="refused">🔒 KONEKSI DITOLAK (Locked 127.0.0.1)</option>
+                                <option value="conflict">💥 ERROR PORT BENTROK (Port in Use)</option>
+                                <option value="fail_net">📡 GAGAL (Beda Jaringan / Salah Tulis IP)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Tebakan & Jalankan Simulasi 🚀</button>
                     </div>
 
                     <div class="sim-visual-box">
-                        <h3>📊 Status Visualisasi Koneksi</h3>
+                        <h3>📊 Hasil Tebakan & Simulasi Visual</h3>
+                        <div id="sim-guess-feedback" class="guess-badge correct">
+                            🎯 Pilih settingan di samping dan tebak hasilnya!
+                        </div>
                         <div id="sim-result-card" class="sim-status-card success">
                             <div class="sim-icon" id="sim-icon">🎉</div>
                             <h4 id="sim-status-title">Koneksi Berhasil!</h4>

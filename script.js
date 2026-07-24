@@ -1,4 +1,4 @@
-// Dynamic JavaScript logic for course interactions
+// Dynamic JavaScript logic for LocalDev course interactions
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Module Switching Tabs
@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             tab.classList.add('active');
             const targetId = tab.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
+            if (document.getElementById(targetId)) {
+                document.getElementById(targetId).classList.add('active');
+            }
         });
     });
 
@@ -27,91 +29,158 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Initialize Quiz & Simulator
     renderQuiz();
-    runSimulation();
+    if (document.getElementById('sim-result-card')) {
+        runSimulation();
+    }
 });
 
-// Open Pertemuan helper from Silabus Cards
-function openPertemuan(modulId) {
-    const tabs = document.querySelectorAll('.tab-btn');
-    const modules = document.querySelectorAll('.module-card');
-
-    tabs.forEach(t => t.classList.remove('active'));
-    modules.forEach(m => m.classList.remove('active'));
-
-    const targetTab = document.querySelector(`.tab-btn[data-target="${modulId}"]`);
-    if (targetTab) targetTab.classList.add('active');
-    
-    const targetModule = document.getElementById(modulId);
-    if (targetModule) targetModule.classList.add('active');
-
-    // Scroll to Pertemuan Section
-    document.getElementById('pertemuan').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Interactive Simulator Logic for Lecture
+// Interactive Simulator Logic with Prediction / Guessing Game
 function runSimulation() {
     const bindVal = document.getElementById('sim-bind').value;
     const portVal = document.getElementById('sim-port').value;
     const deviceVal = document.getElementById('sim-device').value;
+    const guessVal = document.getElementById('sim-guess').value;
 
     const resultCard = document.getElementById('sim-result-card');
     const iconEl = document.getElementById('sim-icon');
     const titleEl = document.getElementById('sim-status-title');
     const descEl = document.getElementById('sim-status-desc');
     const flowLine = document.getElementById('flow-line');
+    const guessFeedback = document.getElementById('sim-guess-feedback');
 
     // Reset Classes
     resultCard.className = "sim-status-card";
 
-    // Logic Scenarios
-    if (portVal === "3000") {
-        resultCard.classList.add("error");
-        iconEl.innerText = "💥";
-        titleEl.innerText = "ERROR: Port Already in Use!";
-        descEl.innerText = "Server gagal dinyalakan karena Port 3000 sudah dipakai oleh aplikasi lain (seperti Node.js). Ganti ke Port 8000 atau port lainnya!";
-        flowLine.innerText = "------ X (BENTROK PORT) ------>";
-        flowLine.style.color = "#EF4444";
-        return;
-    }
+    let actualOutcome = "";
+    let statusTitle = "";
+    let statusDesc = "";
+    let statusIcon = "";
+    let flowText = "";
+    let flowColor = "";
 
-    if (deviceVal === "laptop-localhost") {
-        resultCard.classList.add("success");
-        iconEl.innerText = "✅";
-        titleEl.innerText = "Koneksi Berhasil (Internal Laptop)";
-        descEl.innerText = "Browser laptop berhasil membuka http://localhost:8000 karena diakses dari komputer itu sendiri.";
-        flowLine.innerText = "====== (Localhost 127.0.0.1) ======>";
-        flowLine.style.color = "#10B981";
+    // Calculate actual outcome
+    if (portVal === "3000") {
+        actualOutcome = "conflict";
+        statusIcon = "💥";
+        statusTitle = "ERROR: Port Already in Use!";
+        statusDesc = "Server gagal dinyalakan karena Port 3000 sudah dipakai oleh aplikasi lain (seperti Node.js). Ganti ke Port 8000!";
+        flowText = "------ X (BENTROK PORT) ------>";
+        flowColor = "#EF4444";
+    } else if (deviceVal === "laptop-localhost") {
+        actualOutcome = "success";
+        statusIcon = "✅";
+        statusTitle = "Koneksi Berhasil (Internal Laptop)";
+        statusDesc = "Browser laptop berhasil membuka http://localhost:8000 karena diakses dari komputer itu sendiri.";
+        flowText = "====== (Localhost 127.0.0.1) ======>";
+        flowColor = "#10B981";
     } else if (deviceVal === "hp-cellular") {
-        resultCard.classList.add("error");
-        iconEl.innerText = "📡❌";
-        titleEl.innerText = "Koneksi Gagal (Beda Jaringan/4G)";
-        descEl.innerText = "HP menggunakan paket data cellular 4G/5G sehingga terisolasi dari router WiFi laptop. Hubungkan HP ke WiFi yang sama!";
-        flowLine.innerText = "------ X (BEDA JARINGAN) ------>";
-        flowLine.style.color = "#EF4444";
+        actualOutcome = "fail_net";
+        statusIcon = "📡❌";
+        statusTitle = "Koneksi Gagal (Beda Jaringan/4G)";
+        statusDesc = "HP menggunakan paket data cellular 4G/5G sehingga terisolasi dari router WiFi laptop. Hubungkan HP ke WiFi yang sama!";
+        flowText = "------ X (BEDA JARINGAN) ------>";
+        flowColor = "#EF4444";
     } else if (deviceVal === "hp-wifi-wrong-ip") {
-        resultCard.classList.add("error");
-        iconEl.innerText = "❓❌";
-        titleEl.innerText = "Koneksi Gagal (Salah Penulisan IP)";
-        descEl.innerText = "Memasukkan http://0.0.0.0:8000 di browser HP adalah kesalahan. Ketiklah IP Local laptopmu (seperti 192.168.1.15) di HP!";
-        flowLine.innerText = "------ X (SALAH WRITING IP) ------>";
-        flowLine.style.color = "#EF4444";
+        actualOutcome = "fail_net";
+        statusIcon = "❓❌";
+        statusTitle = "Koneksi Gagal (Salah Penulisan IP)";
+        statusDesc = "Memasukkan http://0.0.0.0:8000 di browser HP adalah kesalahan. Ketiklah IP Local laptopmu (seperti 192.168.1.15) di HP!";
+        flowText = "------ X (SALAH WRITING IP) ------>";
+        flowColor = "#EF4444";
     } else if (deviceVal === "hp-wifi-correct") {
         if (bindVal === "127.0.0.1") {
-            resultCard.classList.add("error");
-            iconEl.innerText = "🔒❌";
-            titleEl.innerText = "Koneksi Ditolak! (Connection Refused)";
-            descEl.innerText = "Server di laptop dikunci dengan binding 127.0.0.1 (Loopback). Server menolak tamu dari luar! Ubah binding ke 0.0.0.0 agar HP bisa masuk.";
-            flowLine.innerText = "------ X (DIBLOKIR BINDING) ------>";
-            flowLine.style.color = "#EF4444";
+            actualOutcome = "refused";
+            statusIcon = "🔒❌";
+            statusTitle = "Koneksi Ditolak! (Connection Refused)";
+            statusDesc = "Server di laptop dikunci dengan binding 127.0.0.1 (Loopback). Server menolak tamu dari luar! Ubah binding ke 0.0.0.0 agar HP bisa masuk.";
+            flowText = "------ X (DIBLOKIR BINDING) ------>";
+            flowColor = "#EF4444";
         } else {
-            resultCard.classList.add("success");
-            iconEl.innerText = "🎉✅";
-            titleEl.innerText = "KONEKSI BERHASIL 100%!";
-            descEl.innerText = "HP berhasil membuka website di laptop! Syarat terpenuhi: 1 Jaringan WiFi, IP Local Benar (192.168.1.15:8000), dan Server Bind 0.0.0.0.";
-            flowLine.innerText = "====== (SUKSES KONEKSI WIFI) ======>";
-            flowLine.style.color = "#10B981";
+            actualOutcome = "success";
+            statusIcon = "🎉✅";
+            statusTitle = "KONEKSI BERHASIL 100%!";
+            statusDesc = "HP berhasil membuka website di laptop! Syarat terpenuhi: 1 Jaringan WiFi, IP Local Benar (192.168.1.15:8000), dan Server Bind 0.0.0.0.";
+            flowText = "====== (SUKSES KONEKSI WIFI) ======>";
+            flowColor = "#10B981";
         }
     }
+
+    // Check Guess correctness
+    let isGuessCorrect = false;
+    if (guessVal === actualOutcome) {
+        isGuessCorrect = true;
+    }
+
+    if (guessFeedback) {
+        if (isGuessCorrect) {
+            guessFeedback.className = "guess-badge correct";
+            guessFeedback.innerHTML = "🎯 <strong>TEBAKAN KAMU BENAR! 🎉</strong> Kamu sudah paham logika jaringannya!";
+        } else {
+            guessFeedback.className = "guess-badge wrong";
+            guessFeedback.innerHTML = "❌ <strong>TEBAKAN KAMU KURANG TEPAT!</strong> Lihat penjelasan hasil di bawah ini untuk belajar!";
+        }
+    }
+
+    // Render outcome
+    if (actualOutcome === "success") {
+        resultCard.classList.add("success");
+    } else if (actualOutcome === "conflict") {
+        resultCard.classList.add("warning");
+    } else {
+        resultCard.classList.add("error");
+    }
+
+    iconEl.innerText = statusIcon;
+    titleEl.innerText = statusTitle;
+    descEl.innerText = statusDesc;
+    flowLine.innerText = flowText;
+    flowLine.style.color = flowColor;
+}
+
+// Cheat Sheet Live Command Emulator (Zero-Code Execution)
+function executeCheatCode(framework) {
+    const termBox = document.getElementById(`term-output-${framework}`);
+    if (!termBox) return;
+
+    termBox.classList.remove('hidden');
+    termBox.innerHTML = `<p class="cmd"><span class="prompt">$</span> Memproses perintah ${framework}...</p>`;
+
+    setTimeout(() => {
+        let outputHtml = "";
+        if (framework === 'php') {
+            outputHtml = `
+                <p class="cmd"><span class="prompt">$</span> php artisan serve --host=0.0.0.0 --port=8000</p>
+                <p class="output success">INFO Server running on [http://0.0.0.0:8000].</p>
+                <p class="output highlight-net">➔ Press Ctrl+C to stop the server</p>
+                <div class="sim-live-link">
+                    <span class="status-indicator online"></span> Server PHP Berhasil Berjalan! 
+                    <a href="http://localhost:8080/pertemuan-1/contoh-code/index.html" target="_blank" class="btn btn-primary btn-sm">Buka Output Web Live 🚀</a>
+                </div>
+            `;
+        } else if (framework === 'node') {
+            outputHtml = `
+                <p class="cmd"><span class="prompt">$</span> npm run dev -- --host 0.0.0.0</p>
+                <p class="output success">  VITE v5.0.0  ready in 240 ms</p>
+                <p class="output info">  ➜  Local:   http://localhost:5173/</p>
+                <p class="output highlight-net">  ➜  Network: http://192.168.1.15:5173/ (Bisa diakses dari HP! 🎉)</p>
+                <div class="sim-live-link">
+                    <span class="status-indicator online"></span> Server Node/Vite Berhasil Berjalan! 
+                    <a href="http://localhost:8080/pertemuan-1/contoh-code/index.html" target="_blank" class="btn btn-primary btn-sm">Buka Output Web Live 🚀</a>
+                </div>
+            `;
+        } else if (framework === 'python') {
+            outputHtml = `
+                <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
+                <p class="output success">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...</p>
+                <p class="output highlight-net">➔ Localhost: http://127.0.0.1:8000 | WiFi HP: http://192.168.1.15:8000</p>
+                <div class="sim-live-link">
+                    <span class="status-indicator online"></span> Server Python Berhasil Berjalan! 
+                    <a href="http://localhost:8080/pertemuan-1/contoh-code/index.html" target="_blank" class="btn btn-primary btn-sm">Buka Output Web Live 🚀</a>
+                </div>
+            `;
+        }
+        termBox.innerHTML = outputHtml;
+    }, 600);
 }
 
 // Copy Code Helper
@@ -141,7 +210,9 @@ function switchLang(lang) {
     cards.forEach(card => card.classList.remove('active'));
 
     event.target.classList.add('active');
-    document.getElementById(`lang-${lang}`).classList.add('active');
+    if (document.getElementById(`lang-${lang}`)) {
+        document.getElementById(`lang-${lang}`).classList.add('active');
+    }
 }
 
 // Troubleshooting Filter
@@ -299,7 +370,7 @@ function showQuizResult() {
     
     let feedback = "";
     if (userScore === 5) {
-        feedback = "🏆 LUAR BIASA! Pemahamanmu sudah 100% matang seperti Senior DevOps!";
+        feedback = "🏆 LUAR BIASA! Pemahamanmu sudah 100% matang!";
     } else if (userScore >= 3) {
         feedback = "👍 KEREN! Pemahamanmu sudah bagus. Coba baca ulang modul yang tadi masih ragu!";
     } else {
