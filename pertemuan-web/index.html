@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalDev: Master Localhost, IP Local & Port Server | Sodikinnaa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Sodikin<span class="highlight">naa</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html#katalog">← Kembali ke Katalog Course</a>
+                <a href="#silabus">Daftar Pertemuan</a>
+                <a href="#simulator">Simulator</a>
+                <a href="#quiz">Quiz</a>
+            </nav>
+            <a href="../pertemuan-1/index.html" class="btn btn-primary nav-cta">Mulai Pertemuan 1 🚀</a>
+        </div>
+    </header>
+
+    <!-- Hero Section Course LocalDev -->
+    <section class="hero-section">
+        <div class="container grid hero-grid">
+            <div class="hero-content">
+                <div class="badge">⚡ WEB & SERVER INFRASTRUCTURE MASTERCLASS</div>
+                <h1 class="hero-title">
+                    Bongkar Rahasia <span class="gradient-text">Localhost</span>, <span class="gradient-text">IP Local</span> & <span class="gradient-text">Port</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Pelajari cara kerja Server, Localhost, beda IP 127.0.0.1 vs 0.0.0.0, dan Port secara praktis. Pahami cara membuka server laptop dari HP dalam satu jaringan WiFi lokal!
+                </p>
+                <div class="hero-benefits">
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Praktis & Interaktif:</strong> 6 Pertemuan Modul + Game Simulator Tebak Koneksi Jaringan</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Akses Jaringan Lokal:</strong> Pelajari cara membuka server laptop dari HP atau device lain via WiFi</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Solusi Error:</strong> Kuasai penanganan bentrok port, firewall, dan salah IP</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="../pertemuan-1/index.html" class="btn btn-primary btn-lg">Gas Belajar Pertemuan 1 🚀</a>
+                    <a href="#silabus" class="btn btn-outline btn-lg">Lihat 6 Pertemuan 📋</a>
+                </div>
+            </div>
+
+            <!-- Terminal Hero Visual -->
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">bash - localdev-demo</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">$</span> python -m http.server 8000 --bind 0.0.0.0</p>
+                        <p class="output success">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)...</p>
+                        <p class="output info">➔ Localhost: <a href="#">http://127.0.0.1:8000</a></p>
+                        <p class="output highlight-net">➔ Network HP: <a href="#">http://192.168.1.15:8000</a> (Siap Akses! 🎉)</p>
+                        <div class="terminal-interactive-status">
+                            <span class="status-indicator online"></span> Server Web Aktif di Jaringan WiFi
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Silabus Summary Section -->
+    <section id="silabus" class="section silabus-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="badge">📅 SILABUS 6 PERTEMUAN MODUL</div>
+                <h2 class="section-title">Modul Pertemuan LocalDev Web & Server</h2>
+                <p class="section-subtitle">Klik kartu di bawah untuk membuka halaman materi khusus setiap Pertemuan!</p>
+            </div>
+
+            <div class="grid silabus-grid">
+                <!-- P1 -->
+                <a href="../pertemuan-1/index.html" class="card silabus-card" style="text-decoration: none;">
+                    <img src="../pertemuan-1/thumbnail.jpg" alt="Thumbnail Pertemuan 1" class="card-thumbnail">
+                    <span class="p-badge">PERTEMUAN 1</span>
+                    <h3>🖥️ Apa Itu Server & Localhost?</h3>
+                    <p>Buka Landing Page Pertemuan 1: Memahami Server (Warung Makan) & kata kunci `localhost`.</p>
+                    <span class="btn btn-outline" style="margin-top: 15px; width: 100%;">Buka Pertemuan 1 →</span>
+                </a>
+                <!-- P2 -->
+                <a href="../pertemuan-2/index.html" class="card silabus-card" style="text-decoration: none;">
+                    <img src="../pertemuan-2/thumbnail.jpg" alt="Thumbnail Pertemuan 2" class="card-thumbnail">
+                    <span class="p-badge">PERTEMUAN 2</span>
+                    <h3>🌐 127.0.0.1 vs 0.0.0.0 (Host Binding)</h3>
+                    <p>Buka Landing Page Pertemuan 2: IP Cermin internal laptop vs Binding 0.0.0.0 untuk pintu luar.</p>
+                    <span class="btn btn-outline" style="margin-top: 15px; width: 100%;">Buka Pertemuan 2 →</span>
+                </a>
+                <!-- P3 -->
+                <a href="../pertemuan-3/index.html" class="card silabus-card" style="text-decoration: none;">
+                    <img src="../pertemuan-3/thumbnail.jpg" alt="Thumbnail Pertemuan 3" class="card-thumbnail">
+                    <span class="p-badge">PERTEMUAN 3</span>
+                    <h3>📱 IP Local & Akses Web dari HP</h3>
+                    <p>Buka Landing Page Pertemuan 3: Mencari IP Local laptop (192.168.x.x) & buka di HP.</p>
+                    <span class="btn btn-outline" style="margin-top: 15px; width: 100%;">Buka Pertemuan 3 →</span>
+                </a>
+                <!-- P4 -->
+                <a href="../pertemuan-4/index.html" class="card silabus-card" style="text-decoration: none;">
+                    <img src="../pertemuan-4/thumbnail.jpg" alt="Thumbnail Pertemuan 4" class="card-thumbnail">
+                    <span class="p-badge">PERTEMUAN 4</span>
+                    <h3>🚪 Konsep Port Server & Bentrok</h3>
+                    <p>Buka Landing Page Pertemuan 4: Analogi nomor pintu kamar server & solusi port bentrok.</p>
+                    <span class="btn btn-outline" style="margin-top: 15px; width: 100%;">Buka Pertemuan 4 →</span>
+                </a>
+                <!-- P5 -->
+                <a href="../pertemuan-5/index.html" class="card silabus-card" style="text-decoration: none;">
+                    <img src="../pertemuan-5/thumbnail.jpg" alt="Thumbnail Pertemuan 5" class="card-thumbnail">
+                    <span class="p-badge">PERTEMUAN 5</span>
+                    <h3>⚡ Perintah Server di Tool Favoritmu</h3>
+                    <p>Buka Landing Page Pertemuan 5: Perintah simpel 1 baris untuk Laravel, Vite, React & Python.</p>
+                    <span class="btn btn-outline" style="margin-top: 15px; width: 100%;">Buka Pertemuan 5 →</span>
+                </a>
+                <!-- P6 -->
+                <a href="../pertemuan-6/index.html" class="card silabus-card" style="text-decoration: none;">
+                    <img src="../pertemuan-6/thumbnail.jpg" alt="Thumbnail Pertemuan 6" class="card-thumbnail">
+                    <span class="p-badge">PERTEMUAN 6</span>
+                    <h3>🎯 Evaluasi, Quiz & Troubleshooting</h3>
+                    <p>Buka Landing Page Pertemuan 6: Simulator jaringan, Quiz interaktif & 8 solusi error.</p>
+                    <span class="btn btn-outline" style="margin-top: 15px; width: 100%;">Buka Pertemuan 6 →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center" style="padding: 40px 0; border-top: 1px solid var(--border-glow);">
+        <div class="container">
+            <p style="color: var(--text-muted);">© 2026 Sodikinnaa Course Hub — LocalDev Web & Server Infrastructure</p>
+        </div>
+    </footer>
+
+</body>
+</html>
