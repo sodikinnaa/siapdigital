@@ -68,15 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
     renderQuiz();
     if (document.getElementById('sim-result-card')) {
         runSimulation();
+        
+        // Auto-update simulator on control changes
+        const simInputs = ['sim-bind', 'sim-port', 'sim-device', 'sim-guess'];
+        simInputs.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', runSimulation);
+            }
+        });
     }
 });
 
 // Interactive Simulator Logic with Prediction / Guessing Game
 function runSimulation() {
-    const bindVal = document.getElementById('sim-bind').value;
-    const portVal = document.getElementById('sim-port').value;
-    const deviceVal = document.getElementById('sim-device').value;
-    const guessVal = document.getElementById('sim-guess').value;
+    const bindEl = document.getElementById('sim-bind');
+    const portEl = document.getElementById('sim-port');
+    const deviceEl = document.getElementById('sim-device');
+    const guessEl = document.getElementById('sim-guess');
+
+    if (!bindEl || !portEl || !deviceEl || !guessEl) return;
+
+    const bindVal = bindEl.value;
+    const portVal = portEl.value;
+    const deviceVal = deviceEl.value;
+    const guessVal = guessEl.value;
 
     const resultCard = document.getElementById('sim-result-card');
     const iconEl = document.getElementById('sim-icon');
@@ -84,6 +100,10 @@ function runSimulation() {
     const descEl = document.getElementById('sim-status-desc');
     const flowLine = document.getElementById('flow-line');
     const guessFeedback = document.getElementById('sim-guess-feedback');
+    const nodeDevice = document.getElementById('node-device');
+    const nodeServer = document.getElementById('node-server');
+
+    if (!resultCard || !iconEl || !titleEl || !descEl || !flowLine) return;
 
     // Reset Classes
     resultCard.className = "sim-status-card";
@@ -95,70 +115,92 @@ function runSimulation() {
     let flowText = "";
     let flowColor = "";
 
-    // Calculate actual outcome
+    // 1. Check Port Conflict (Server level failure)
     if (portVal === "3000") {
         actualOutcome = "conflict";
         statusIcon = "💥";
-        statusTitle = "ERROR: Port Already in Use!";
-        statusDesc = "Server gagal dinyalakan karena Port 3000 sudah dipakai oleh aplikasi lain (seperti Node.js). Ganti ke Port 8000!";
-        flowText = "------ X (BENTROK PORT) ------>";
-        flowColor = "#EF4444";
-    } else if (deviceVal === "laptop-localhost") {
+        statusTitle = "ERROR PORT BENTROK (Address Already in Use!)";
+        statusDesc = `Server di laptop gagal dinyalakan karena Port 3000 sudah terpakai oleh aplikasi lain (seperti Node.js). Ubah port server ke Port 8000!`;
+        flowText = "------ X (SERVER GAGAL: PORT 3000 BENTROK) ------>";
+        flowColor = "#F59E0B";
+    } 
+    // 2. Localhost Access (Laptop itself)
+    else if (deviceVal === "laptop-localhost") {
         actualOutcome = "success";
-        statusIcon = "✅";
-        statusTitle = "Koneksi Berhasil (Internal Laptop)";
-        statusDesc = "Browser laptop berhasil membuka http://localhost:8000 karena diakses dari komputer itu sendiri.";
-        flowText = "====== (Localhost 127.0.0.1) ======>";
+        statusIcon = "✅🎉";
+        statusTitle = "Koneksi Berhasil (Akses Internal Laptop)";
+        statusDesc = `Browser laptop berhasil membuka http://localhost:8000 karena diakses dari laptop itu sendiri (Loopback Interface).`;
+        flowText = "====== (Localhost 127.0.0.1 OK) ======>";
         flowColor = "#10B981";
-    } else if (deviceVal === "hp-cellular") {
+    } 
+    // 3. HP with Cellular 4G/5G (Different Network)
+    else if (deviceVal === "hp-cellular") {
         actualOutcome = "fail_net";
         statusIcon = "📡❌";
-        statusTitle = "Koneksi Gagal (Beda Jaringan/4G)";
-        statusDesc = "HP menggunakan paket data cellular 4G/5G sehingga terisolasi dari router WiFi laptop. Hubungkan HP ke WiFi yang sama!";
-        flowText = "------ X (BEDA JARINGAN) ------>";
+        statusTitle = "Koneksi Gagal (Beda Jaringan / Paket Data 4G)";
+        statusDesc = `HP menggunakan Paket Data 4G/5G sehingga berada di jaringan luar internet dan terisolasi dari WiFi laptop. Hubungkan HP ke jaringan WiFi yang sama!`;
+        flowText = "------ X (TERISOLASI: BEDA JARINGAN 4G) ------>";
         flowColor = "#EF4444";
-    } else if (deviceVal === "hp-wifi-wrong-ip") {
+    } 
+    // 4. HP with Wrong IP Syntax (0.0.0.0 in HP Browser)
+    else if (deviceVal === "hp-wifi-wrong-ip") {
         actualOutcome = "fail_net";
         statusIcon = "❓❌";
-        statusTitle = "Koneksi Gagal (Salah Penulisan IP)";
-        statusDesc = "Memasukkan http://0.0.0.0:8000 di browser HP adalah kesalahan. Ketiklah IP Local laptopmu (seperti 192.168.1.15) di HP!";
-        flowText = "------ X (SALAH WRITING IP) ------>";
+        statusTitle = "Koneksi Gagal (Salah Penulisan Alamat IP)";
+        statusDesc = `Mengetik http://0.0.0.0:8000 di browser HP adalah kesalahan. IP 0.0.0.0 hanya untuk setting server laptop. Ketik IP Local laptopmu (seperti 192.168.1.15:8000) di HP!`;
+        flowText = "------ X (SALAH TULIS IP 0.0.0.0 DI HP) ------>";
         flowColor = "#EF4444";
-    } else if (deviceVal === "hp-wifi-correct") {
+    } 
+    // 5. HP with Correct WiFi Local IP (192.168.1.15)
+    else if (deviceVal === "hp-wifi-correct") {
         if (bindVal === "127.0.0.1") {
             actualOutcome = "refused";
             statusIcon = "🔒❌";
             statusTitle = "Koneksi Ditolak! (Connection Refused)";
-            statusDesc = "Server di laptop dikunci dengan binding 127.0.0.1 (Loopback). Server menolak tamu dari luar! Ubah binding ke 0.0.0.0 agar HP bisa masuk.";
-            flowText = "------ X (DIBLOKIR BINDING) ------>";
+            statusDesc = `Server laptop dikunci hanya untuk internal laptop (Bind 127.0.0.1). Server menolak permintaan dari HP! Ubah Host Binding server ke 0.0.0.0 agar pintu terbuka untuk HP.`;
+            flowText = "------ X (DIBLOKIR BINDING 127.0.0.1) ------>";
             flowColor = "#EF4444";
         } else {
             actualOutcome = "success";
             statusIcon = "🎉✅";
             statusTitle = "KONEKSI BERHASIL 100%!";
-            statusDesc = "HP berhasil membuka website di laptop! Syarat terpenuhi: 1 Jaringan WiFi, IP Local Benar (192.168.1.15:8000), dan Server Bind 0.0.0.0.";
-            flowText = "====== (SUKSES KONEKSI WIFI) ======>";
+            statusDesc = `HP berhasil mengakses website di laptop! Semua syarat terpenuhi: 1 Jaringan WiFi, IP Local Benar (192.168.1.15:8000), & Server Bind ke 0.0.0.0!`;
+            flowText = "====== (KONEKSI WIFI BERHASIL 100%) ======>";
             flowColor = "#10B981";
         }
     }
 
     // Check Guess correctness
-    let isGuessCorrect = false;
-    if (guessVal === actualOutcome) {
-        isGuessCorrect = true;
-    }
+    const isGuessCorrect = (guessVal === actualOutcome);
 
     if (guessFeedback) {
         if (isGuessCorrect) {
             guessFeedback.className = "guess-badge correct";
-            guessFeedback.innerHTML = "🎯 <strong>TEBAKAN KAMU BENAR! 🎉</strong> Kamu sudah paham logika jaringannya!";
+            guessFeedback.innerHTML = "🎯 <strong>TEBAKAN KAMU TEPAT SEKALI! 🎉</strong> Logika pemahaman jaringanmu sudah mantap!";
         } else {
             guessFeedback.className = "guess-badge wrong";
-            guessFeedback.innerHTML = "❌ <strong>TEBAKAN KAMU KURANG TEPAT!</strong> Lihat penjelasan hasil di bawah ini untuk belajar!";
+            guessFeedback.innerHTML = "❌ <strong>TEBAKAN KAMU KURANG TEPAT!</strong> Baca penjelasan analisis hasil di bawah ini untuk belajar!";
         }
     }
 
-    // Render outcome
+    // Update Visual Diagrams dynamically
+    if (nodeDevice) {
+        if (deviceVal === "laptop-localhost") {
+            nodeDevice.innerHTML = "💻 Laptop (Browser Localhost)";
+        } else if (deviceVal === "hp-cellular") {
+            nodeDevice.innerHTML = "📱 HP Teman (Paket Data 4G/5G)";
+        } else if (deviceVal === "hp-wifi-wrong-ip") {
+            nodeDevice.innerHTML = "📱 HP Teman (Ketik 0.0.0.0)";
+        } else {
+            nodeDevice.innerHTML = "📱 HP Teman (WiFi 192.168.1.15)";
+        }
+    }
+
+    if (nodeServer) {
+        nodeServer.innerHTML = `💻 Laptop Server (${bindVal}:${portVal})`;
+    }
+
+    // Render outcome styling
     if (actualOutcome === "success") {
         resultCard.classList.add("success");
     } else if (actualOutcome === "conflict") {
