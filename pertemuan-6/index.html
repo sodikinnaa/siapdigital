@@ -63,35 +63,36 @@
         </div>
     </section>
 
-    <!-- Simulator Box Section with Guessing Game -->
+    <!-- Simulator Box Section (Direct Live Simulator) -->
     <section id="simulator-box" class="section simulator-section">
         <div class="container">
             <div class="section-header text-center">
-                <div class="badge">🎮 Game Tebak Koneksi Jaringan</div>
-                <h2 class="section-title">Simulator Jaringan Live (Tebak Dulu Hasilnya!)</h2>
+                <div class="badge">🖥️ SIMULATOR JARINGAN LIVE</div>
+                <h2 class="section-title">Simulator Jaringan Server & Localhost</h2>
+                <p class="section-subtitle">Ubah pengaturan di bawah ini untuk melihat hasil koneksi & alur jaringan secara langsung (real-time)!</p>
             </div>
 
             <div class="card simulator-card">
                 <div class="grid simulator-grid">
                     <div class="sim-controls">
-                        <h3>⚙️ 1. Atur Pengaturan Server</h3>
+                        <h3>⚙️ Pengaturan Server & Jaringan</h3>
                         <div class="sim-group">
                             <label>Host Binding Server (Di Laptop):</label>
-                            <select id="sim-bind" class="sim-select">
+                            <select id="sim-bind" class="sim-select" onchange="runSimulation()">
                                 <option value="127.0.0.1">127.0.0.1 (Loopback / Cermin Intern)</option>
                                 <option value="0.0.0.0" selected>0.0.0.0 (Buka Pagar Publik / All Interfaces)</option>
                             </select>
                         </div>
                         <div class="sim-group">
                             <label>Port Server Laptop:</label>
-                            <select id="sim-port" class="sim-select">
+                            <select id="sim-port" class="sim-select" onchange="runSimulation()">
                                 <option value="8000">Port 8000 (Aktif)</option>
                                 <option value="3000">Port 3000 (Bentrok dengan Node.js)</option>
                             </select>
                         </div>
                         <div class="sim-group">
                             <label>Device Pengakses & Jaringan:</label>
-                            <select id="sim-device" class="sim-select">
+                            <select id="sim-device" class="sim-select" onchange="runSimulation()">
                                 <option value="laptop-localhost">Laptop Sendiri via http://localhost:8000</option>
                                 <option value="hp-wifi-correct" selected>HP Teman (WiFi Sama) via http://192.168.1.15:8000</option>
                                 <option value="hp-wifi-wrong-ip">HP Teman (WiFi Sama) via http://0.0.0.0:8000 (Salah IP)</option>
@@ -99,24 +100,11 @@
                             </select>
                         </div>
 
-                        <h3 style="margin-top: 24px; color: var(--warning);">🤔 2. Tebak Dulu: Menurutmu Apa Hasil Koneksinya?</h3>
-                        <div class="sim-group">
-                            <select id="sim-guess" class="sim-select" style="border-color: var(--warning);">
-                                <option value="success">🟢 Pasti KONEKSI BERHASIL (Web Buka)!</option>
-                                <option value="refused">🔒 KONEKSI DITOLAK (Locked 127.0.0.1)</option>
-                                <option value="conflict">💥 ERROR PORT BENTROK (Port in Use)</option>
-                                <option value="fail_net">📡 GAGAL (Beda Jaringan / Salah Tulis IP)</option>
-                            </select>
-                        </div>
-
-                        <button class="btn btn-primary w-100" onclick="runSimulation()">Uji Tebakan & Jalankan Simulasi 🚀</button>
+                        <button class="btn btn-primary w-100" onclick="runSimulation()" style="margin-top: 15px;">Jalankan Uji Jaringan 🚀</button>
                     </div>
 
                     <div class="sim-visual-box">
-                        <h3>📊 Hasil Tebakan & Simulasi Visual</h3>
-                        <div id="sim-guess-feedback" class="guess-badge correct">
-                            🎯 Pilih settingan di samping dan tebak hasilnya!
-                        </div>
+                        <h3>📊 Hasil Analisis & Simulasi Visual</h3>
                         <div id="sim-result-card" class="sim-status-card success">
                             <div class="sim-icon" id="sim-icon">🎉</div>
                             <h4 id="sim-status-title">Koneksi Berhasil!</h4>

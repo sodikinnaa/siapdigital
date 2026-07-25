@@ -70,7 +70,7 @@ function initApp() {
         runSimulation();
         
         // Auto-update simulator on control changes
-        const simInputs = ['sim-bind', 'sim-port', 'sim-device', 'sim-guess'];
+        const simInputs = ['sim-bind', 'sim-port', 'sim-device'];
         simInputs.forEach(id => {
             const el = document.getElementById(id);
             if (el) {
@@ -87,26 +87,23 @@ if (document.readyState === 'loading') {
     initApp();
 }
 
-// Interactive Simulator Logic with Prediction / Guessing Game
+// Direct Interactive Live Network Simulator Logic
 function runSimulation() {
     const bindEl = document.getElementById('sim-bind');
     const portEl = document.getElementById('sim-port');
     const deviceEl = document.getElementById('sim-device');
-    const guessEl = document.getElementById('sim-guess');
 
-    if (!bindEl || !portEl || !deviceEl || !guessEl) return;
+    if (!bindEl || !portEl || !deviceEl) return;
 
     const bindVal = bindEl.value;
     const portVal = portEl.value;
     const deviceVal = deviceEl.value;
-    const guessVal = guessEl.value;
 
     const resultCard = document.getElementById('sim-result-card');
     const iconEl = document.getElementById('sim-icon');
     const titleEl = document.getElementById('sim-status-title');
     const descEl = document.getElementById('sim-status-desc');
     const flowLine = document.getElementById('flow-line');
-    const guessFeedback = document.getElementById('sim-guess-feedback');
     const nodeDevice = document.getElementById('node-device');
     const nodeServer = document.getElementById('node-server');
 
@@ -174,19 +171,6 @@ function runSimulation() {
             statusDesc = `HP berhasil mengakses website di laptop! Semua syarat terpenuhi: 1 Jaringan WiFi, IP Local Benar (192.168.1.15:8000), & Server Bind ke 0.0.0.0!`;
             flowText = "====== (KONEKSI WIFI BERHASIL 100%) ======>";
             flowColor = "#10B981";
-        }
-    }
-
-    // Check Guess correctness
-    const isGuessCorrect = (guessVal === actualOutcome);
-
-    if (guessFeedback) {
-        if (isGuessCorrect) {
-            guessFeedback.className = "guess-badge correct";
-            guessFeedback.innerHTML = "🎯 <strong>TEBAKAN KAMU TEPAT SEKALI! 🎉</strong> Logika pemahaman jaringanmu sudah mantap!";
-        } else {
-            guessFeedback.className = "guess-badge wrong";
-            guessFeedback.innerHTML = "❌ <strong>TEBAKAN KAMU KURANG TEPAT!</strong> Baca penjelasan analisis hasil di bawah ini untuk belajar!";
         }
     }
 
