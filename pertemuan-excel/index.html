@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Masterclass: SUM, MIN, MAX & AVERAGE | Sodikinnaa</title>
+    <title>Pertemuan Excel: Formula Dasar SUM, MIN, MAX & AVERAGE | Sodikinnaa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,22 +30,22 @@
         <div class="container grid hero-grid">
             <div class="hero-content">
                 <div class="badge" style="background: rgba(16, 185, 129, 0.2); color: #10B981; border-color: rgba(16, 185, 129, 0.4);">
-                    📊 SPECIAL GUEST SPEAKER SESSION
+                    📊 PERTEMUAN EXCEL • SPECIAL GUEST SESSION
                 </div>
                 <h1 class="hero-title">
                     Kuasai Formula Dasar Excel: <span class="gradient-text" style="background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SUM, MIN, MAX & AVERAGE</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pelajari 4 fungsi statistik paling fundamental di Microsoft Excel! Hitung Total, Nilai Terkecil, Nilai Terbesar, dan Rata-Rata data secara instan dan tanpa pusing.
+                    Langkah awal menguasai spreadsheet! Pelajari 4 fungsi statistik paling fundamental di Microsoft Excel untuk menghitung Total, Nilai Terkecil, Nilai Terbesar, dan Rata-Rata data secara instan tanpa teori pusing.
                 </p>
                 <div class="hero-benefits">
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span><strong>SUM():</strong> Menjumlahkan seluruh total data angka dalam satu rentang.</span>
+                        <span><strong>SUM():</strong> Menjumlahkan seluruh total data angka dalam satu rentang cell.</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
-                        <span><strong>MIN() & MAX():</strong> Menemukan angka terkecil dan terbesar secara otomatis.</span>
+                        <span><strong>MIN() & MAX():</strong> Menemukan angka terendah dan tertinggi secara otomatis.</span>
                     </div>
                     <div class="benefit-item">
                         <span class="check-icon">✓</span>
@@ -53,162 +53,241 @@
                     </div>
                 </div>
                 <div class="hero-actions">
-                    <a href="#formula-cards" class="btn btn-primary btn-lg">Pelajari 4 Rumus 📋</a>
-                    <a href="#excel-simulator" class="btn btn-outline btn-lg">Coba Simulator Live 🎮</a>
+                    <a href="#praktik-excel" class="btn btn-primary btn-lg">Mulai Praktik Excel 🚀</a>
+                    <a href="#excel-simulator" class="btn btn-outline btn-lg">Coba Live Simulator 🎮</a>
                 </div>
             </div>
 
+            <!-- Visual Hero Card -->
             <div class="hero-visual">
                 <img src="thumbnail.jpg" alt="Thumbnail Excel Course" class="hero-thumbnail" style="margin-bottom: 20px;">
-                <div class="concept-card" style="padding: 20px; background: rgba(15, 23, 42, 0.9); border-color: rgba(16, 185, 129, 0.3);">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <span style="font-size: 2.5rem;">👨‍🏫</span>
-                        <div>
-                            <h4 style="margin: 0; color: #10B981;">Sesi Pemateri Tamu (Guest Speaker)</h4>
-                            <p style="margin: 4px 0 0; color: var(--text-muted); font-size: 0.9rem;">Fokus Topik: Formula Dasar Excel (SUM, MIN, MAX, AVERAGE)</p>
+                <div class="terminal-card" style="border-color: rgba(16, 185, 129, 0.3);">
+                    <div class="terminal-header" style="background: #064E3B;">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title" style="color: #A7F3D0;">excel - formula-demo.xlsx</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="cmd"><span class="prompt">=</span> SUM(C2:C6) <span class="output success">➔ Total: 425</span></p>
+                        <p class="cmd"><span class="prompt">=</span> AVERAGE(C2:C6) <span class="output info">➔ Rata-Rata: 85.0</span></p>
+                        <p class="output highlight-net">➔ MIN: 75 | MAX: 95 (Otomatis Di-update! 🎉)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Polished Concept Card & Hands-On Section -->
+    <section id="praktik-excel" class="section">
+        <div class="container">
+            
+            <div class="concept-card">
+                <!-- Analogi Box -->
+                <div class="analogy-box" style="border-left-color: #10B981; background: rgba(16, 185, 129, 0.08);">
+                    <h3 style="color: #10B981;">💡 Analogi Kasir Supermarket & 4 Rumus Dasar Excel</h3>
+                    <p>
+                        Bayangkan kamu sedang menjadi <strong>Kasir Supermarket</strong> dengan tumpukan struk belanjaan pelanggan:
+                    </p>
+                    <ul style="margin: 12px 0 16px 20px; color: var(--text-muted); line-height: 1.8;">
+                        <li><strong>SUM</strong> = Kalkulator belanja yang **menghitung total harga belanjaan** dari awal sampai akhir.</li>
+                        <li><strong>MIN</strong> = Asisten kasir yang mencari **barang dengan harga termurah** di keranjang.</li>
+                        <li><strong>MAX</strong> = Asisten kasir yang mencari **barang dengan harga termahal** di keranjang.</li>
+                        <li><strong>AVERAGE</strong> = Manajer toko yang menghitung **rata-rata pengeluaran per pembeli** hari ini.</li>
+                    </ul>
+                    <div class="quote-highlight" style="border-left-color: #10B981; color: #A7F3D0;">
+                        "Semua rumus di Excel selalu diawali dengan tanda sama dengan (<code>=</code>). Tanpa <code>=</code>, Excel hanya menganggap tulisanmu sebagai teks biasa!"
+                    </div>
+                </div>
+
+                <h3>Diagram Alur Kerja Rumus Excel</h3>
+                <div class="ascii-diagram">
+<pre>
+  [ Data Angka di Cell C2 sampai C6 ]
+                 |
+   +-------------+-------------+-------------+
+   |             |             |             |
+   v             v             v             v
+=SUM(C2:C6)   =MIN(C2:C6)   =MAX(C2:C6)  =AVERAGE(C2:C6)
+   |             |             |             |
+   v             v             v             v
+Total Angka   Nilai Terendah Nilai Tertinggi Rata-Rata
+ (cth: 425)     (cth: 75)     (cth: 95)    (cth: 85.0)
+</pre>
+                </div>
+
+                <!-- 4 Detail Cards -->
+                <h3 style="margin-top: 36px; margin-bottom: 20px;">📘 Penjelasan Sintaks 4 Rumus Utama</h3>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 36px;">
+                    
+                    <!-- SUM Card -->
+                    <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(16, 185, 129, 0.3); padding: 20px; border-radius: var(--radius-md);">
+                        <span class="p-badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">➕ TOTAL</span>
+                        <h4 style="font-size: 1.2rem; margin: 10px 0; color: #fff;">1. SUM()</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Menjumlahkan kumpulan angka dalam range.</p>
+                        <div class="code-block" style="margin-top: 12px; background: #090D16; padding: 10px;">
+                            <code style="color: #A7F3D0; font-size: 0.85rem;">=SUM(C2:C6)</code>
+                        </div>
+                    </div>
+
+                    <!-- MIN Card -->
+                    <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); padding: 20px; border-radius: var(--radius-md);">
+                        <span class="p-badge" style="background: rgba(56, 189, 248, 0.15); color: #38BDF8;">📉 TERKECIL</span>
+                        <h4 style="font-size: 1.2rem; margin: 10px 0; color: #fff;">2. MIN()</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Mencari angka paling rendah dalam data.</p>
+                        <div class="code-block" style="margin-top: 12px; background: #090D16; padding: 10px;">
+                            <code style="color: #7DD3FC; font-size: 0.85rem;">=MIN(C2:C6)</code>
+                        </div>
+                    </div>
+
+                    <!-- MAX Card -->
+                    <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(245, 158, 11, 0.3); padding: 20px; border-radius: var(--radius-md);">
+                        <span class="p-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">📈 TERBESAR</span>
+                        <h4 style="font-size: 1.2rem; margin: 10px 0; color: #fff;">3. MAX()</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Mencari angka paling tinggi dalam data.</p>
+                        <div class="code-block" style="margin-top: 12px; background: #090D16; padding: 10px;">
+                            <code style="color: #FDE68A; font-size: 0.85rem;">=MAX(C2:C6)</code>
+                        </div>
+                    </div>
+
+                    <!-- AVERAGE Card -->
+                    <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(129, 140, 248, 0.3); padding: 20px; border-radius: var(--radius-md);">
+                        <span class="p-badge" style="background: rgba(129, 140, 248, 0.15); color: #818CF8;">📊 RATA-RATA</span>
+                        <h4 style="font-size: 1.2rem; margin: 10px 0; color: #fff;">4. AVERAGE()</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Menghitung rata-rata seluruh angka.</p>
+                        <div class="code-block" style="margin-top: 12px; background: #090D16; padding: 10px;">
+                            <code style="color: #C7D2FE; font-size: 0.85rem;">=AVERAGE(C2:C6)</code>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 4 Formula Cards Section -->
-    <section id="formula-cards" class="section">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="badge">📚 4 RUMUS UTAMA EXCEL</div>
-                <h2 class="section-title">Penjelasan 4 Fungsi Statistik Dasar</h2>
-                <p class="section-subtitle">Pahami kegunaan dan sintaks masing-masing fungsi dasar di Microsoft Excel!</p>
-            </div>
-
-            <div class="grid silabus-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                <!-- 1. SUM -->
-                <div class="card concept-card" style="border-top: 3px solid #10B981;">
-                    <span class="p-badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">FUNGSI 01</span>
-                    <h3>➕ SUM()</h3>
-                    <p>Digunakan untuk <strong>menjumlahkan seluruh angka</strong> dalam rentang cell yang dipilih.</p>
-                    <div class="code-block" style="margin-top: 15px; background: #090D16; padding: 12px; border-radius: 6px;">
-                        <code style="color: #A7F3D0; font-family: var(--font-code);">=SUM(A1:A5)</code>
-                    </div>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">Contoh: Menghitung total gaji atau total nilai siswa.</p>
-                </div>
-
-                <!-- 2. MIN -->
-                <div class="card concept-card" style="border-top: 3px solid #38BDF8;">
-                    <span class="p-badge" style="background: rgba(56, 189, 248, 0.15); color: #38BDF8;">FUNGSI 02</span>
-                    <h3>📉 MIN()</h3>
-                    <p>Digunakan untuk <strong>mencari nilai terendah/terkecil</strong> dari sekumpulan angka.</p>
-                    <div class="code-block" style="margin-top: 15px; background: #090D16; padding: 12px; border-radius: 6px;">
-                        <code style="color: #7DD3FC; font-family: var(--font-code);">=MIN(A1:A5)</code>
-                    </div>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">Contoh: Mencari nilai ujian terkecil di kelas.</p>
-                </div>
-
-                <!-- 3. MAX -->
-                <div class="card concept-card" style="border-top: 3px solid #F59E0B;">
-                    <span class="p-badge" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">FUNGSI 03</span>
-                    <h3>📈 MAX()</h3>
-                    <p>Digunakan untuk <strong>mencari nilai tertinggi/terbesar</strong> dari sekumpulan angka.</p>
-                    <div class="code-block" style="margin-top: 15px; background: #090D16; padding: 12px; border-radius: 6px;">
-                        <code style="color: #FDE68A; font-family: var(--font-code);">=MAX(A1:A5)</code>
-                    </div>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">Contoh: Mengetahui skor tertinggi dalam perlombaan.</p>
-                </div>
-
-                <!-- 4. AVERAGE -->
-                <div class="card concept-card" style="border-top: 3px solid #818CF8;">
-                    <span class="p-badge" style="background: rgba(129, 140, 248, 0.15); color: #818CF8;">FUNGSI 04</span>
-                    <h3>📊 AVERAGE()</h3>
-                    <p>Digunakan untuk <strong>menghitung nilai rata-rata</strong> dari sekumpulan angka.</p>
-                    <div class="code-block" style="margin-top: 15px; background: #090D16; padding: 12px; border-radius: 6px;">
-                        <code style="color: #C7D2FE; font-family: var(--font-code);">=AVERAGE(A1:A5)</code>
-                    </div>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">Contoh: Menghitung nilai rata-rata rapor siswa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Excel Live Formula Simulator -->
-    <section id="excel-simulator" class="section">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="badge">🎮 SIMULATOR INTERAKTIF</div>
-                <h2 class="section-title">Uji Rumus Live: SUM, MIN, MAX & AVERAGE</h2>
-                <p class="section-subtitle">Ubah angka di bawah ini untuk melihat hasil perhitungan rumus Excel secara otomatis!</p>
-            </div>
-
-            <div class="card concept-card" style="max-width: 800px; margin: 0 auto; background: rgba(15, 23, 42, 0.95); border-color: rgba(16, 185, 129, 0.3);">
-                <h3 style="color: #10B981; margin-bottom: 20px;">📋 Tabel Data Nilai Siswa (Sample Excel Table)</h3>
+                <!-- Langkah Praktik Hands-On -->
+                <h3 style="margin-top: 30px;">🛠️ Langkah Praktik Hands-On di Excel:</h3>
                 
-                <div style="overflow-x: auto; margin-bottom: 30px;">
-                    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--text-muted);">
-                                <th style="padding: 10px;">Cell</th>
-                                <th style="padding: 10px;">Nama Siswa</th>
-                                <th style="padding: 10px;">Nilai Ujian</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C2</td>
-                                <td style="padding: 10px;">Budi</td>
-                                <td style="padding: 10px;"><input type="number" value="85" class="excel-val" oninput="calcExcel()" style="width: 80px; padding: 6px 10px; background: #090D16; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;"></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C3</td>
-                                <td style="padding: 10px;">Siti</td>
-                                <td style="padding: 10px;"><input type="number" value="90" class="excel-val" oninput="calcExcel()" style="width: 80px; padding: 6px 10px; background: #090D16; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;"></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C4</td>
-                                <td style="padding: 10px;">Agus</td>
-                                <td style="padding: 10px;"><input type="number" value="75" class="excel-val" oninput="calcExcel()" style="width: 80px; padding: 6px 10px; background: #090D16; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;"></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C5</td>
-                                <td style="padding: 10px;">Dewi</td>
-                                <td style="padding: 10px;"><input type="number" value="95" class="excel-val" oninput="calcExcel()" style="width: 80px; padding: 6px 10px; background: #090D16; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;"></td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C6</td>
-                                <td style="padding: 10px;">Rian</td>
-                                <td style="padding: 10px;"><input type="number" value="80" class="excel-val" oninput="calcExcel()" style="width: 80px; padding: 6px 10px; background: #090D16; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="step-container">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Buka Microsoft Excel / Google Sheets</h4>
+                            <p>Buat lembar kerja kosong baru (*Blank Spreadsheet*).</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Ketikkan Data Nilai Ujian Siswa</h4>
+                            <p>Masukkan data angka pada kolom <strong>C2 sampai C6</strong> (contoh: 85, 90, 75, 95, 80).</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Ketikkan Rumus Excel di Cell Target & Tekan Enter</h4>
+                            <p>Ketikkan rumus di cell kosong bawahnya (misal C7):</p>
+                            <div class="code-block highlight-code">
+                                <code>=SUM(C2:C6)</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Live Results -->
-                <h4 style="color: #fff; margin-bottom: 15px;">📊 Hasil Perhitungan Rumus Automatic:</h4>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 15px;">
-                    <div style="background: #090D16; padding: 16px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
-                        <span style="font-size: 0.8rem; color: #10B981; font-family: var(--font-code);">=SUM(C2:C6)</span>
-                        <div id="res-sum" style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-top: 6px;">425</div>
+                <!-- Live Excel Simulator Box -->
+                <div id="excel-simulator" class="section-header text-center" style="margin-top: 50px; margin-bottom: 20px;">
+                    <div class="badge" style="background: rgba(16, 185, 129, 0.2); color: #10B981;">🎮 SIMULATOR EXCEL LIVE</div>
+                    <h3 style="font-size: 1.8rem; margin-top: 10px; color: #fff;">Uji Rumus Live: SUM, MIN, MAX & AVERAGE</h3>
+                    <p style="color: var(--text-muted);">Ubah angka di bawah ini untuk melihat hasil perhitungan rumus Excel secara otomatis!</p>
+                </div>
+
+                <div style="padding: 24px; background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); margin-bottom: 36px;">
+                    <h4 style="color: #10B981; margin-bottom: 16px;">📋 Tabel Data Nilai Siswa (Sample Excel Table)</h4>
+                    
+                    <div style="overflow-x: auto; margin-bottom: 24px;">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid rgba(255,255,255,0.1); color: var(--text-muted);">
+                                    <th style="padding: 10px;">Cell</th>
+                                    <th style="padding: 10px;">Nama Siswa</th>
+                                    <th style="padding: 10px;">Nilai Ujian</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C2</td>
+                                    <td style="padding: 10px;">Budi</td>
+                                    <td style="padding: 10px;"><input type="number" value="85" class="excel-val" oninput="calcExcel()" style="width: 90px; padding: 8px 12px; background: #111827; border: 1px solid var(--border-color); color: #fff; border-radius: 4px; font-family: var(--font-code);"></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C3</td>
+                                    <td style="padding: 10px;">Siti</td>
+                                    <td style="padding: 10px;"><input type="number" value="90" class="excel-val" oninput="calcExcel()" style="width: 90px; padding: 8px 12px; background: #111827; border: 1px solid var(--border-color); color: #fff; border-radius: 4px; font-family: var(--font-code);"></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C4</td>
+                                    <td style="padding: 10px;">Agus</td>
+                                    <td style="padding: 10px;"><input type="number" value="75" class="excel-val" oninput="calcExcel()" style="width: 90px; padding: 8px 12px; background: #111827; border: 1px solid var(--border-color); color: #fff; border-radius: 4px; font-family: var(--font-code);"></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C5</td>
+                                    <td style="padding: 10px;">Dewi</td>
+                                    <td style="padding: 10px;"><input type="number" value="95" class="excel-val" oninput="calcExcel()" style="width: 90px; padding: 8px 12px; background: #111827; border: 1px solid var(--border-color); color: #fff; border-radius: 4px; font-family: var(--font-code);"></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px; font-family: var(--font-code); color: var(--secondary);">C6</td>
+                                    <td style="padding: 10px;">Rian</td>
+                                    <td style="padding: 10px;"><input type="number" value="80" class="excel-val" oninput="calcExcel()" style="width: 90px; padding: 8px 12px; background: #111827; border: 1px solid var(--border-color); color: #fff; border-radius: 4px; font-family: var(--font-code);"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div style="background: #090D16; padding: 16px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.3);">
-                        <span style="font-size: 0.8rem; color: #38BDF8; font-family: var(--font-code);">=MIN(C2:C6)</span>
-                        <div id="res-min" style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-top: 6px;">75</div>
-                    </div>
-                    <div style="background: #090D16; padding: 16px; border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.3);">
-                        <span style="font-size: 0.8rem; color: #F59E0B; font-family: var(--font-code);">=MAX(C2:C6)</span>
-                        <div id="res-max" style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-top: 6px;">95</div>
-                    </div>
-                    <div style="background: #090D16; padding: 16px; border-radius: 8px; border: 1px solid rgba(129, 140, 248, 0.3);">
-                        <span style="font-size: 0.8rem; color: #818CF8; font-family: var(--font-code);">=AVERAGE(C2:C6)</span>
-                        <div id="res-avg" style="font-size: 1.6rem; font-weight: 800; color: #fff; margin-top: 6px;">85.0</div>
+
+                    <!-- Live Results Cards -->
+                    <h4 style="color: #fff; margin-bottom: 15px;">📊 Hasil Perhitungan Rumus Automatic:</h4>
+                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 15px;">
+                        <div style="background: #111827; padding: 16px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.4);">
+                            <span style="font-size: 0.85rem; color: #10B981; font-family: var(--font-code); font-weight: 700;">=SUM(C2:C6)</span>
+                            <div id="res-sum" style="font-size: 1.7rem; font-weight: 800; color: #fff; margin-top: 6px;">425</div>
+                        </div>
+                        <div style="background: #111827; padding: 16px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.4);">
+                            <span style="font-size: 0.85rem; color: #38BDF8; font-family: var(--font-code); font-weight: 700;">=MIN(C2:C6)</span>
+                            <div id="res-min" style="font-size: 1.7rem; font-weight: 800; color: #fff; margin-top: 6px;">75</div>
+                        </div>
+                        <div style="background: #111827; padding: 16px; border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.4);">
+                            <span style="font-size: 0.85rem; color: #F59E0B; font-family: var(--font-code); font-weight: 700;">=MAX(C2:C6)</span>
+                            <div id="res-max" style="font-size: 1.7rem; font-weight: 800; color: #fff; margin-top: 6px;">95</div>
+                        </div>
+                        <div style="background: #111827; padding: 16px; border-radius: 8px; border: 1px solid rgba(129, 140, 248, 0.4);">
+                            <span style="font-size: 0.85rem; color: #818CF8; font-family: var(--font-code); font-weight: 700;">=AVERAGE(C2:C6)</span>
+                            <div id="res-avg" style="font-size: 1.7rem; font-weight: 800; color: #fff; margin-top: 6px;">85.0</div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Challenge Card -->
+                <div class="challenge-card" style="border-left-color: #10B981; background: rgba(16, 185, 129, 0.08);">
+                    <h3 style="color: #10B981;">🎯 Mini Challenge Excel Pertemuan Ini</h3>
+                    <p>Jika kamu menambahkan siswa ke-6 bernama <strong>"Eka"</strong> dengan nilai <strong>100</strong> pada cell <strong>C7</strong>, berapakah hasil baru dari <code>=MAX(C2:C7)</code> dan <code>=AVERAGE(C2:C7)</code>?</p>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
+                    <a href="../index.html#katalog" class="btn btn-outline">← Kembali ke Katalog Course</a>
+                    <a href="../index.html#katalog" class="btn btn-primary" style="background: linear-gradient(135deg, #10B981, #059669);">Selesai & Jelajahi Tutorial Lain 🚀</a>
+                </div>
             </div>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer text-center" style="padding: 40px 0; border-top: 1px solid var(--border-glow);">
-        <div class="container">
-            <p style="color: var(--text-muted);">© 2026 Sodikinnaa Course Hub — Sesi Spesial Excel SUM, MIN, MAX & AVERAGE</p>
+    <footer class="footer">
+        <div class="container text-center">
+            <p>⚡ <strong>Sodikinnaa</strong> — Pertemuan Excel: Rumus SUM, MIN, MAX & AVERAGE.</p>
+            <p class="footer-sub">Belajar Praktis • Paham Konsep • Bebas Pusing!</p>
         </div>
     </footer>
 
