@@ -27,7 +27,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Initialize Quiz & Simulator
+    // 3. Course Catalog Filtering & Search
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const courseCards = document.querySelectorAll('.course-card-main');
+    const searchInput = document.getElementById('course-search');
+
+    function filterCourses() {
+        const activeCategory = document.querySelector('.filter-pill.active')?.getAttribute('data-category') || 'all';
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+        courseCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const title = card.querySelector('.course-title')?.textContent.toLowerCase() || '';
+            const desc = card.querySelector('.course-desc')?.textContent.toLowerCase() || '';
+
+            const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+            const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+
+            if (matchesCategory && matchesSearch) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            filterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            filterCourses();
+        });
+    });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', filterCourses);
+    }
+
+    // 4. Initialize Quiz & Simulator
     renderQuiz();
     if (document.getElementById('sim-result-card')) {
         runSimulation();
