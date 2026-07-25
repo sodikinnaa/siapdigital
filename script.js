@@ -1,6 +1,6 @@
 // Dynamic JavaScript logic for LocalDev course interactions
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
     // 1. Module Switching Tabs
     const tabs = document.querySelectorAll('.tab-btn');
     const modules = document.querySelectorAll('.module-card');
@@ -75,10 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const el = document.getElementById(id);
             if (el) {
                 el.addEventListener('change', runSimulation);
+                el.addEventListener('input', runSimulation);
             }
         });
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
 
 // Interactive Simulator Logic with Prediction / Guessing Game
 function runSimulation() {
