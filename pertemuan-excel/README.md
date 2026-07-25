@@ -1,12 +1,20 @@
-# 📊 Excel & Data Analysis Masterclass (Guest Speaker Session)
+# 📊 Pertemuan Excel: Rumus Dasar SUM, MIN, MAX & AVERAGE (Guest Speaker Session)
 
 ## 🎯 Tujuan Pembelajaran
-Mahasiswa & Pemula mampu menguasai pengolahan data menggunakan Microsoft Excel secara praktis, mulai dari formula lanjutan (VLOOKUP, XLOOKUP, INDEX MATCH), Pivot Table, Data Cleaning, hingga integrasi file Excel/CSV dengan aplikasi web.
+Mahasiswa & Pemula mampu menguasai 4 rumus statistik dasar paling penting di Microsoft Excel untuk mengolah sekumpulan data angka secara cepat dan tepat:
+
+1. **`SUM(range)`**: Menjumlahkan seluruh total data angka.
+2. **`MIN(range)`**: Menemukan nilai angka terkecil/terendah.
+3. **`MAX(range)`**: Menemukan nilai angka terbesar/tertinggi.
+4. **`AVERAGE(range)`**: Menghitung nilai rata-rata sekumpulan angka.
 
 ---
 
-## 📋 Materi Pembelajaran (Silabus Excel)
-1. **Dasar Spreadsheet & Data Cleaning**: Menyusun tabel rapi, hapus duplikat, dan format sel otomatis.
-2. **Formula Lanjutan**: Kuasai `SUMIFS`, `COUNTIFS`, `VLOOKUP`, `XLOOKUP`, dan `INDEX MATCH`.
-3. **Analisis Data dengan Pivot Table**: Olah ribuan baris data menjadi ringkasan interaktif dalam 1 klik.
-4. **Excel for Developers**: Export/Import CSV & JSON untuk diolah ke database atau aplikasi web.
+## 📋 Ringkasan Sintaks & Contoh Penggunaan
+
+| Rumus | Fungsi | Contoh Sintaks | Hasil Contoh |
+|---|---|---|---|
+| **SUM** | Menghitung Total | `=SUM(C2:C6)` | `= 85 + 90 + 78 + 92 + 88 = 433` |
+| **MIN** | Nilai Terkecil | `=MIN(C2:C6)` | `= 78` |
+| **MAX** | Nilai Terbesar | `=MAX(C2:C6)` | `= 92` |
+| **AVERAGE** | Nilai Rata-rata | `=AVERAGE(C2:C6)` | `= 433 / 5 = 86.6` |
