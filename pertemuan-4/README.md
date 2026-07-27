@@ -1,42 +1,38 @@
-# 🚪 Pertemuan 4: Konsep Port Server & Mengatasi Bentrok (Port in Use)
+# 📱 Pertemuan 4: IP Local & Akses Web dari HP via 192.168.x.x
 
 ## 🎯 Tujuan Pembelajaran
-Mahasiswa memahami konsep Port (3000, 8000, 8080) dan cara menyelesaikan error `EADDRINUSE / Port already in use`.
+Mahasiswa menemukan IP Local komputernya dan mengakses web lokal langsung dari HP atau device lain dalam satu jaringan WiFi.
 
 ---
 
-## 💡 Penjelasan Singkat (Analogi Nomor Pintu Kamar)
-Jika IP adalah **Alamat Gedung**, maka **Port** adalah **Nomor Pintu Kamar** di dalam gedung tersebut.
+## 💡 Penjelasan Singkat (Analogi Alamat Rumah di Perumahan)
+WiFi rumah/kampus kamu itu seperti sebuah **Komplek Perumahan**. Router WiFi memberikan "Nomor Rumah Local" (IP Local) kepada setiap device yang terhubung (berawalan `192.168.x.x` atau `10.x.x.x`).
 
-Satu nomor pintu hanya bisa ditempati oleh **SATU aplikasi server** dalam satu waktu. Jika aplikasi Node.js sudah pakai Port 3000, lalu kamu jalankan aplikasi React di Port 3000 juga, akan terjadi tabrakan!
+Agar HP bisa berkunjung ke laptopmu, HP harus tahu IP Local si laptop!
 
 ---
 
 ## 📊 Diagram Sederhana (ASCII)
 ```text
- Laptop (IP: 192.168.1.10)
-  +-----------------------------------+
-  |  Port 80   : Server Web Default   |
-  |  Port 3000 : App React / Node.js  |
-  |  Port 8000 : App Laravel / Python |
-  |  Port 8080 : App Vue / Java       |
-  +-----------------------------------+
-  *(Jika 2 aplikasi coba pakai Port 3000 = ERROR BENTROK!)*
+               [ Router WiFi Kampus ]
+                         |
+      +------------------+------------------+
+      |                                     |
+ [ Laptop Kamu ]                     [ Smartphone HP ]
+ IP: 192.168.1.10                    IP: 192.168.1.25
+ (Server Port 8000)                        |
+      ^                                    |
+      +=== Buka http://192.168.1.10:8000 ===+
 ```
 
 ---
 
-## 🛠️ Praktik (Mengganti Port yang Bentrok)
-1. Jalankan server python pertama:
+## 🛠️ Praktik (Cari IP & Akses dari HP)
+1. Cek IP Laptop di terminal:
+   - **Windows:** `ipconfig` (lihat IPv4 Address, contoh: `192.168.1.15`).
+   - **Mac/Linux:** `ifconfig` atau `ip a`.
+2. Jalankan server dengan bind `0.0.0.0`:
    ```bash
-   python -m http.server 8000
+   python -m http.server 8000 --bind 0.0.0.0
    ```
-2. Buka terminal kedua, ketik perintah yang sama untuk memancing error:
-   ```bash
-   python -m http.server 8000
-   # Error: OSError: [Errno 98] Address already in use
-   ```
-3. Solusi: Pindahkan server kedua ke port `8081`:
-   ```bash
-   python -m http.server 8081
-   ```
+3. Buka Chrome di HP-mu, ketik: `http://192.168.1.15:8000` (sesuaikan dengan IP laptopmu).

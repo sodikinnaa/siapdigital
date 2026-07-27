@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pertemuan 4: Konsep Port Server | Sodikinnaa</title>
+    <title>Pertemuan 4: IP Local & Akses HP | Sodikinnaa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,13 +32,20 @@
             <div class="hero-content">
                 <div class="badge">PERTEMUAN 04</div>
                 <h1 class="hero-title">
-                    Konsep <span class="gradient-text">Port Server</span> & <span class="gradient-text">Port in Use</span>
+                    Mencari <span class="gradient-text">IP Local</span> (192.168.x.x) & <span class="gradient-text">Akses dari HP</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Pahami analogi nomor kamar server (8000, 3000, 8080) dan atasi error legendaris "Address Already in Use"!
+                    Temukan nomor alamat unik laptopmu di dalam jaringan WiFi rumah/kosan dan buka website buatanmu dari HP teman!
                 </p>
+                <div class="speaker-profile-box" style="display: flex; align-items: center; gap: 15px; background: rgba(255, 255, 255, 0.05); padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border-glow); margin: 20px 0;">
+                    <img src="speaker.png" alt="Foto Pemateri" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color);">
+                    <div>
+                        <h4 style="margin: 0; font-size: 0.95rem; color: #F8FAFC;">👨‍🏫 Pemateri: Sodikinnaa</h4>
+                        <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted);">Web Infrastructure & Server Specialist</p>
+                    </div>
+                </div>
                 <div class="hero-actions">
-                    <a href="#praktik" class="btn btn-primary btn-lg">Mulai Praktik Port 🚀</a>
+                    <a href="#praktik" class="btn btn-primary btn-lg">Mulai Praktik Cek IP 🚀</a>
                     <a href="../pertemuan-5/index.html" class="btn btn-outline btn-lg">Lanjut Pertemuan 5 →</a>
                 </div>
             </div>
@@ -52,12 +59,13 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="terminal-title">bash - port-error-demo</span>
+                        <span class="terminal-title">powershell - ipconfig</span>
                     </div>
                     <div class="terminal-body">
-                        <p class="cmd"><span class="prompt">$</span> python -m http.server 8000</p>
-                        <p class="output error">OSError: [Errno 98] Address already in use!</p>
-                        <p class="output highlight-net">➔ Solusi: Ganti ke Port 8001 atau 8080! 💡</p>
+                        <p class="cmd"><span class="prompt">PS C:\></span> ipconfig</p>
+                        <p class="output">Wireless LAN adapter Wi-Fi:</p>
+                        <p class="output highlight-net">   IPv4 Address. . . . . . . . . . . : 192.168.1.15</p>
+                        <p class="output success">➔ Buka di Browser HP: http://192.168.1.15:8000 🎉</p>
                     </div>
                 </div>
             </div>
@@ -70,64 +78,69 @@
             
             <div class="concept-card">
                 <div class="analogy-box">
-                    <h3>💡 Analogi Apartemen & Nomor Pintu Kamar</h3>
+                    <h3>💡 Analogi Perumahan WiFi & Nomor Rumah</h3>
                     <p>
-                        Jika IP Address adalah **Alamat Gedung Apartemen**, maka **Port** adalah **Nomor Pintu Kamar** di gedung tersebut. 
+                        Router WiFi di rumah/kosanmu itu ibarat **Pengembang Perumahan**. Setiap kali laptop dan HP-mu terhubung ke WiFi yang sama, Router akan membagikan **Nomor Rumah Unik** (misal: <code>192.168.1.15</code> untuk Laptop, dan <code>192.168.1.25</code> untuk HP).
                     </p>
                     <div class="quote-highlight">
-                        "Satu pintu kamar tidak boleh ditempati 2 penghuni sekaligus! Jika Port 8000 sudah dipakai oleh server Python, lalu kamu mencoba menjalankan server lain di Port 8000, sistem operasi akan menolaknya dengan error <strong>'Address Already in Use'</strong>."
+                        "Agar HP temanmu bisa bertamu ke website di laptopmu, HP tersebut harus memanggil alamat IP Local laptopmu (seperti <code>http://192.168.1.15:8000</code>). Jangan panggil <code>0.0.0.0</code> di HP, karena 0.0.0.0 itu cuma bahasa instruksi internal server!"
                     </div>
                 </div>
 
-                <h3>Diagram Bentrok Port (Address in Use)</h3>
+                <h3>Diagram Alur Akses dari HP</h3>
                 <div class="ascii-diagram">
 <pre>
- [ Gedung Laptop IP: 192.168.1.15 ]
-   ├── Kamar Port 8000 ➔ Python Server (Sedang Aktif)
-   ├── Kamar Port 3000 ➔ Node.js Server (Sedang Aktif)
-   └── Kamar Port 8080 ➔ [ KOSONG / SIAP PAKAI ]
+ 📱 HP Teman (192.168.1.25)
+       |
+       |  Minta: "http://192.168.1.15:8000" (Via WiFi)
+       v
+ [ Router WiFi Perumahan ]
+       |
+       v
+ 💻 Laptop Kamu (192.168.1.15:8000) ---> [Melayani Website 🎉]
 </pre>
                 </div>
 
-                <h3 style="margin-top: 30px;">🛠️ Praktik Simulasi Bentrok & Solusi Port:</h3>
+                <h3 style="margin-top: 30px;">🛠️ Langkah Praktik Hands-On:</h3>
                 
                 <div class="step-container">
                     <div class="step-item">
                         <div class="step-num">1</div>
                         <div class="step-content">
-                            <h4>Jalankan Server di Port 8000</h4>
-                            <p>Buka Terminal 1 lalu jalankan:</p>
-                            <div class="code-block">
-                                <code>python -m http.server 8000</code>
+                            <h4>Cek IP Local Laptopmu</h4>
+                            <p>Buka CMD / PowerShell lalu ketik perintah berikut:</p>
+                            <div class="code-block highlight-code">
+                                <code>ipconfig</code>
                                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                             </div>
+                            <p style="font-size: 0.85rem; color: var(--text-dim);">*(Mac/Linux gunakan: <code>ifconfig</code> atau <code>ip a</code>)*</p>
                         </div>
                     </div>
 
                     <div class="step-item">
                         <div class="step-num">2</div>
                         <div class="step-content">
-                            <h4>Jalankan Server Kedua di Port yang Sama (Buka Terminal Baru)</h4>
-                            <p>Tanpa mematikan Terminal 1, buka Terminal 2 baru dan ketik perintah yang sama di Port 8000. Amati error `Address already in use`!</p>
+                            <h4>Jalankan Server dengan Binding 0.0.0.0</h4>
+                            <p>Pastikan server dibuka untuk jaringan luar:</p>
+                            <div class="code-block">
+                                <code>python -m http.server 8000 --bind 0.0.0.0</code>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
                         </div>
                     </div>
 
                     <div class="step-item">
                         <div class="step-num">3</div>
                         <div class="step-content">
-                            <h4>Solusi: Pindahkan ke Port Lain yang Kosong</h4>
-                            <p>Di Terminal 2, ubah nomor portnya menjadi 8001 atau 8080:</p>
-                            <div class="code-block highlight-code">
-                                <code>python -m http.server 8080 --bind 0.0.0.0</code>
-                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                            </div>
+                            <h4>Buka dari Browser HP</h4>
+                            <p>Sambungkan HP ke WiFi yang sama, buka Chrome HP lalu ketik: <code>http://192.168.x.x:8000</code> (ganti 192.168.x.x dengan IP laptopmu).</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="challenge-card">
                     <h3>🎯 Mini Challenge Pertemuan 4</h3>
-                    <p>Berapakah nomor port default untuk web biasa (HTTP) dan web aman (HTTPS) di seluruh dunia?</p>
+                    <p>Apa yang terjadi jika HP kamu mematikan WiFi dan menggunakan Paket Data 4G/5G? Mengapa websitenya tidak bisa dibuka?</p>
                 </div>
 
                 <div class="hero-actions" style="margin-top: 36px; justify-content: space-between;">
@@ -142,7 +155,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 4: Konsep Port & Port in Use.</p>
+            <p>⚡ <strong>LocalDev Course</strong> — Pertemuan 4: IP Local & Akses HP.</p>
         </div>
     </footer>
 
